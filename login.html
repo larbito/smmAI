@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SMM AI</title>
+    <link rel="stylesheet" href="login-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-emojis">
+        <span class="emoji float-1">🚀</span>
+        <span class="emoji float-2">📱</span>
+        <span class="emoji float-3">⚡</span>
+        <span class="emoji float-4">🔒</span>
+        <span class="emoji float-5">✨</span>
+    </div>
+
+    <!-- Background Particles -->
+    <div id="particles-canvas"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <span class="logo-icon">🤖</span>
+                        <span class="logo-text">SMM-AI</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="register.html" class="nav-link">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="auth-icon">🔐</div>
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your SMM-AI account to continue growing your social media presence</p>
+                </div>
+
+                <div class="auth-form">
+                    <!-- Social Login Options -->
+                    <div class="social-login">
+                        <button class="social-btn google" onclick="loginWithGoogle()">
+                            <i class="fab fa-google"></i>
+                            <span>Continue with Google</span>
+                        </button>
+                        <button class="social-btn apple" onclick="loginWithApple()">
+                            <i class="fab fa-apple"></i>
+                            <span>Continue with Apple</span>
+                        </button>
+                        <button class="social-btn facebook" onclick="loginWithFacebook()">
+                            <i class="fab fa-facebook"></i>
+                            <span>Continue with Facebook</span>
+                        </button>
+                        <button class="social-btn twitter" onclick="loginWithTwitter()">
+                            <i class="fab fa-x-twitter"></i>
+                            <span>Continue with X</span>
+                        </button>
+                        <button class="social-btn github" onclick="loginWithGithub()">
+                            <i class="fab fa-github"></i>
+                            <span>Continue with GitHub</span>
+                        </button>
+                        <button class="social-btn linkedin" onclick="loginWithLinkedIn()">
+                            <i class="fab fa-linkedin"></i>
+                            <span>Continue with LinkedIn</span>
+                        </button>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+
+                    <!-- Email/Password Form -->
+                    <form class="login-form" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                            <i class="fas fa-lock input-icon"></i>
+                            <button type="button" class="toggle-password" onclick="togglePassword()">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="auth-btn primary">
+                            <span class="btn-icon">🚀</span>
+                            <span>Sign In</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+
+                    <!-- Sign Up Link -->
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">🎉</div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Welcome Back!</h3>
+                <p>You've successfully signed in. Redirecting to your dashboard...</p>
+                <div class="loading-progress">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">Loading dashboard...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login-script.js"></script>
+</body>
+</html> 
