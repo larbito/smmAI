@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SMM AI Assistant</title>
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-emojis">
+        <div class="emoji float-1">📱</div>
+        <div class="emoji float-2">🚀</div>
+        <div class="emoji float-3">💎</div>
+        <div class="emoji float-4">⚡</div>
+        <div class="emoji float-5">🎯</div>
+        <div class="emoji float-6">📈</div>
+        <div class="emoji float-7">💡</div>
+        <div class="emoji float-8">🎨</div>
+        <div class="emoji float-9">🔥</div>
+        <div class="emoji float-10">✨</div>
+    </div>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">SMM-AI</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">Settings</a>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40x40" alt="User" class="profile-avatar">
+                    <span class="profile-name">John Doe</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard</h3>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#overview" class="sidebar-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#accounts" class="sidebar-link">
+                    <i class="fas fa-link"></i>
+                    <span>Connected Accounts</span>
+                </a>
+                <a href="#content" class="sidebar-link">
+                    <i class="fas fa-edit"></i>
+                    <span>Content Creator</span>
+                </a>
+                <a href="#scheduler" class="sidebar-link">
+                    <i class="fas fa-calendar"></i>
+                    <span>Post Scheduler</span>
+                </a>
+                <a href="#analytics" class="sidebar-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#engagement" class="sidebar-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Engagement</span>
+                </a>
+                <a href="#growth" class="sidebar-link">
+                    <i class="fas fa-rocket"></i>
+                    <span>Growth Tools</span>
+                </a>
+                <a href="#settings" class="sidebar-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="section-header">
+                    <h2>Dashboard Overview</h2>
+                    <p>Welcome back! Here's what's happening with your social media accounts.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Followers</h3>
+                            <p class="stat-number">125,843</p>
+                            <span class="stat-change positive">+12.3%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Engagement Rate</h3>
+                            <p class="stat-number">8.7%</p>
+                            <span class="stat-change positive">+2.1%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Monthly Reach</h3>
+                            <p class="stat-number">487K</p>
+                            <span class="stat-change positive">+18.5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Growth Rate</h3>
+                            <p class="stat-number">+5.2%</p>
+                            <span class="stat-change positive">+0.8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Create Post</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Content</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>Schedule Post</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>View Analytics</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>New post published</strong> on Instagram</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Video scheduled</strong> for TikTok</p>
+                                <span class="activity-time">4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon youtube">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Analytics updated</strong> for YouTube</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Connected Accounts Section -->
+            <section id="accounts" class="content-section">
+                <div class="section-header">
+                    <h2>Connected Accounts</h2>
+                    <p>Manage your social media accounts and connect new platforms.</p>
+                </div>
+
+                <div class="accounts-grid">
+                    <div class="account-card connected">
+                        <div class="account-header">
+                            <div class="account-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="account-status">
+                                <span class="status-dot connected"></span>
+                                <span>Connected</span>
+                            </div>
+                        </div>
+                        <div class="account-info">
+                            <h3>Instagram</h3>
+                            <p>@yourhandle</p>
+                            <div class="account-stats">
+                                <span>45.2K followers</span>
+                                <span>2.3K posts</span>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <button class="btn-secondary">Manage</button>
+                            <button class="btn-danger">Disconnect</button>
+                        </div>
+                    </div>
+
+                    <div class="account-card connected">
+                        <div class="account-header">
+                            <div class="account-icon tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="account-status">
+                                <span class="status-dot connected"></span>
+                                <span>Connected</span>
+                            </div>
+                        </div>
+                        <div class="account-info">
+                            <h3>TikTok</h3>
+                            <p>@yourhandle</p>
+                            <div class="account-stats">
+                                <span>128K followers</span>
+                                <span>89 videos</span>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <button class="btn-secondary">Manage</button>
+                            <button class="btn-danger">Disconnect</button>
+                        </div>
+                    </div>
+
+                    <div class="account-card disconnected">
+                        <div class="account-header">
+                            <div class="account-icon youtube">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="account-status">
+                                <span class="status-dot disconnected"></span>
+                                <span>Not Connected</span>
+                            </div>
+                        </div>
+                        <div class="account-info">
+                            <h3>YouTube</h3>
+                            <p>Connect your YouTube channel</p>
+                            <div class="account-stats">
+                                <span>Grow your video content</span>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <button class="btn-primary">Connect</button>
+                        </div>
+                    </div>
+
+                    <div class="account-card disconnected">
+                        <div class="account-header">
+                            <div class="account-icon twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="account-status">
+                                <span class="status-dot disconnected"></span>
+                                <span>Not Connected</span>
+                            </div>
+                        </div>
+                        <div class="account-info">
+                            <h3>Twitter</h3>
+                            <p>Connect your Twitter account</p>
+                            <div class="account-stats">
+                                <span>Expand your reach</span>
+                            </div>
+                        </div>
+                        <div class="account-actions">
+                            <button class="btn-primary">Connect</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Creator Section -->
+            <section id="content" class="content-section">
+                <div class="section-header">
+                    <h2>AI Content Creator</h2>
+                    <p>Create engaging content with AI assistance for all your social media platforms.</p>
+                </div>
+
+                <div class="content-creator">
+                    <div class="creator-tabs">
+                        <button class="tab-btn active" data-tab="text">Text Post</button>
+                        <button class="tab-btn" data-tab="image">Image Post</button>
+                        <button class="tab-btn" data-tab="video">Video Post</button>
+                        <button class="tab-btn" data-tab="story">Story</button>
+                    </div>
+
+                    <div class="creator-content">
+                        <div class="tab-content active" id="text">
+                            <div class="input-group">
+                                <label>Platform</label>
+                                <select class="form-select">
+                                    <option>Instagram</option>
+                                    <option>TikTok</option>
+                                    <option>Twitter</option>
+                                    <option>LinkedIn</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Content Type</label>
+                                <select class="form-select">
+                                    <option>Motivational Post</option>
+                                    <option>Educational Content</option>
+                                    <option>Product Showcase</option>
+                                    <option>Behind the Scenes</option>
+                                    <option>Question/Poll</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Topic/Keywords</label>
+                                <input type="text" class="form-input" placeholder="Enter your topic or keywords...">
+                            </div>
+                            <div class="input-group">
+                                <label>Tone</label>
+                                <select class="form-select">
+                                    <option>Professional</option>
+                                    <option>Casual</option>
+                                    <option>Funny</option>
+                                    <option>Inspirational</option>
+                                    <option>Educational</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary generate-btn">
+                                <i class="fas fa-magic"></i>
+                                Generate Content
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="generated-content">
+                        <h4>Generated Content</h4>
+                        <div class="content-preview">
+                            <div class="preview-text">
+                                <p>Click "Generate Content" to create AI-powered posts for your social media platforms.</p>
+                            </div>
+                            <div class="preview-actions">
+                                <button class="btn-secondary">Edit</button>
+                                <button class="btn-primary">Post Now</button>
+                                <button class="btn-secondary">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post Scheduler Section -->
+            <section id="scheduler" class="content-section">
+                <div class="section-header">
+                    <h2>Post Scheduler</h2>
+                    <p>Schedule your content across all platforms for optimal engagement.</p>
+                </div>
+
+                <div class="scheduler-container">
+                    <div class="calendar-view">
+                        <div class="calendar-header">
+                            <button class="btn-secondary">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h3>December 2024</h3>
+                            <button class="btn-secondary">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day">
+                                <span class="day-number">1</span>
+                                <div class="scheduled-posts">
+                                    <div class="post-dot instagram"></div>
+                                    <div class="post-dot tiktok"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-day">
+                                <span class="day-number">2</span>
+                            </div>
+                            <div class="calendar-day">
+                                <span class="day-number">3</span>
+                                <div class="scheduled-posts">
+                                    <div class="post-dot youtube"></div>
+                                </div>
+                            </div>
+                            <!-- More calendar days... -->
+                        </div>
+                    </div>
+
+                    <div class="scheduled-posts-list">
+                        <h4>Upcoming Posts</h4>
+                        <div class="post-item">
+                            <div class="post-platform instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="post-content">
+                                <h5>Motivational Monday Post</h5>
+                                <p>Dec 1, 2024 at 9:00 AM</p>
+                            </div>
+                            <div class="post-actions">
+                                <button class="btn-icon">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <div class="post-platform tiktok">
+                                <i class="fab fa-tiktok"></i>
+                            </div>
+                            <div class="post-content">
+                                <h5>Trending Dance Video</h5>
+                                <p>Dec 1, 2024 at 6:00 PM</p>
+                            </div>
+                            <div class="post-actions">
+                                <button class="btn-icon">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="content-section">
+                <div class="section-header">
+                    <h2>Analytics Dashboard</h2>
+                    <p>Track your performance and growth across all platforms.</p>
+                </div>
+
+                <div class="analytics-filters">
+                    <select class="form-select">
+                        <option>All Platforms</option>
+                        <option>Instagram</option>
+                        <option>TikTok</option>
+                        <option>YouTube</option>
+                    </select>
+                    <select class="form-select">
+                        <option>Last 30 Days</option>
+                        <option>Last 7 Days</option>
+                        <option>Last 90 Days</option>
+                        <option>This Year</option>
+                    </select>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="chart-card">
+                        <h4>Follower Growth</h4>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Interactive chart showing follower growth over time</p>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Engagement Rate</h4>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                            <p>Engagement rate trends and comparisons</p>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Top Performing Posts</h4>
+                        <div class="top-posts">
+                            <div class="post-rank">
+                                <span class="rank">#1</span>
+                                <div class="post-info">
+                                    <h5>Motivational Quote</h5>
+                                    <p>2.3K likes, 145 comments</p>
+                                </div>
+                            </div>
+                            <div class="post-rank">
+                                <span class="rank">#2</span>
+                                <div class="post-info">
+                                    <h5>Behind the Scenes</h5>
+                                    <p>1.8K likes, 89 comments</p>
+                                </div>
+                            </div>
+                            <div class="post-rank">
+                                <span class="rank">#3</span>
+                                <div class="post-info">
+                                    <h5>Product Showcase</h5>
+                                    <p>1.5K likes, 67 comments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal hidden" id="successModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Success!</h3>
+                <p>Your action has been completed successfully.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html> 
