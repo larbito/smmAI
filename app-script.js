@@ -1,3 +1,58 @@
+// Authentication Check
+function checkAuthentication() {
+    const authCheck = document.getElementById('auth-check');
+    const appContent = document.getElementById('app-content');
+    const userHeader = document.getElementById('user-header');
+    const userNameSpan = document.getElementById('user-name');
+    
+    // Check if user is logged in
+    const savedUser = localStorage.getItem('smmUser');
+    
+    setTimeout(() => {
+        if (savedUser) {
+            try {
+                const userData = JSON.parse(savedUser);
+                if (userData.isLoggedIn) {
+                    // User is authenticated
+                    authCheck.style.display = 'none';
+                    appContent.classList.remove('hidden');
+                    userHeader.classList.remove('hidden');
+                    userNameSpan.textContent = userData.userName;
+                    
+                    // Pre-fill platform if available
+                    if (userData.preferredPlatform) {
+                        preSelectPlatform(userData.preferredPlatform);
+                    }
+                    
+                    return;
+                }
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+                localStorage.removeItem('smmUser');
+            }
+        }
+        
+        // User is not authenticated - redirect to landing page
+        window.location.href = 'index.html';
+    }, 1500); // Show loading for 1.5 seconds
+}
+
+function preSelectPlatform(platformName) {
+    setTimeout(() => {
+        const platformBoxes = document.querySelectorAll('.platform-box');
+        platformBoxes.forEach(box => {
+            if (box.dataset.platform.toLowerCase() === platformName.toLowerCase()) {
+                box.click();
+            }
+        });
+    }, 500);
+}
+
+function logout() {
+    localStorage.removeItem('smmUser');
+    window.location.href = 'index.html';
+}
+
 // Application State
 const appState = {
     selectedPlatform: null,
@@ -469,6 +524,9 @@ function addScrollProgress() {
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
+    // Check authentication first
+    checkAuthentication();
+    
     addScrollProgress();
     
     // Add entrance animations
@@ -476,13 +534,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const platformSection = document.querySelector('.platform-section');
     
     setTimeout(() => {
-        header.style.transform = 'translateY(0)';
-        header.style.opacity = '1';
+        if (header) {
+            header.style.transform = 'translateY(0)';
+            header.style.opacity = '1';
+        }
     }, 100);
     
     setTimeout(() => {
-        platformSection.style.transform = 'translateY(0)';
-        platformSection.style.opacity = '1';
+        if (platformSection) {
+            platformSection.style.transform = 'translateY(0)';
+            platformSection.style.opacity = '1';
+        }
     }, 300);
 });
 
