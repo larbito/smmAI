@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Smart SMM Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">🚀 Smart SMM Assistant</h1>
+            <p class="header-subtitle">Boost your socials with AI + Real Results</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- PLATFORM SELECTION SECTION -->
+        <section id="platform-section" class="section platform-section">
+            <h2 class="section-title">📱 Choose Your Platform</h2>
+            <div class="platform-grid">
+                <div class="platform-box" data-platform="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </div>
+                <div class="platform-box" data-platform="Facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </div>
+                <div class="platform-box" data-platform="YouTube">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </div>
+                <div class="platform-box" data-platform="Twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter (X)</span>
+                </div>
+                <div class="platform-box" data-platform="Spotify">
+                    <i class="fab fa-spotify"></i>
+                    <span>Spotify</span>
+                </div>
+                <div class="platform-box" data-platform="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </div>
+                <div class="platform-box" data-platform="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </div>
+                <div class="platform-box" data-platform="Google">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </div>
+                <div class="platform-box" data-platform="Telegram">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </div>
+                <div class="platform-box" data-platform="Discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </div>
+                <div class="platform-box" data-platform="Snapchat">
+                    <i class="fab fa-snapchat"></i>
+                    <span>Snapchat</span>
+                </div>
+                <div class="platform-box" data-platform="Twitch">
+                    <i class="fab fa-twitch"></i>
+                    <span>Twitch</span>
+                </div>
+                <div class="platform-box" data-platform="Website Traffic">
+                    <i class="fas fa-globe"></i>
+                    <span>Website Traffic</span>
+                </div>
+                <div class="platform-box" data-platform="Reviews">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews</span>
+                </div>
+                <div class="platform-box" data-platform="Others">
+                    <i class="fas fa-ellipsis-h"></i>
+                    <span>Others</span>
+                </div>
+                <div class="platform-box" data-platform="Everything">
+                    <i class="fas fa-rocket"></i>
+                    <span>Everything</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROMPT INPUT SECTION -->
+        <section id="prompt-section" class="section prompt-section hidden">
+            <h2 class="section-title">📝 Describe your goal and budget</h2>
+            <div class="prompt-container">
+                <textarea 
+                    id="prompt-textarea" 
+                    class="prompt-textarea" 
+                    placeholder="I have a TikTok account and I want approximately 35K followers.&#10;I have a $500 budget.&#10;What is the best strategy to achieve this?"
+                    rows="6"
+                ></textarea>
+                <p class="helper-text">💡 The more detailed you are, the better the AI plan will be.</p>
+                <button id="generate-plan-btn" class="cta-button">
+                    🎯 Generate My Plan
+                </button>
+            </div>
+        </section>
+
+        <!-- AI PLAN DISPLAY SECTION -->
+        <section id="plan-section" class="section plan-section hidden">
+            <h2 class="section-title">✅ Your Custom Growth Plan</h2>
+            <div class="plan-container">
+                <div id="loading-animation" class="loading-animation">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>AI is crafting your personalized plan...</p>
+                </div>
+                <div id="plan-response" class="plan-response hidden">
+                    <div class="response-bubble">
+                        <div id="plan-text"></div>
+                    </div>
+                    <div class="plan-actions">
+                        <button id="accept-plan-btn" class="action-btn accept-btn">
+                            👍 Accept this Plan
+                        </button>
+                        <button id="regenerate-plan-btn" class="action-btn regenerate-btn">
+                            🔄 Regenerate Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCOUNT CONFIRMATION SECTION -->
+        <section id="account-section" class="section account-section hidden">
+            <h2 class="section-title">🔓 Account Details</h2>
+            <div class="account-container">
+                <label for="username-input" class="input-label">Enter your account username</label>
+                <input 
+                    type="text" 
+                    id="username-input" 
+                    class="username-input" 
+                    placeholder="@yourusername"
+                >
+                <p class="helper-text">Make sure your account is public</p>
+                <button id="start-campaign-btn" class="cta-button">
+                    🚀 Start Campaign Now
+                </button>
+            </div>
+        </section>
+
+        <!-- SUCCESS MESSAGE -->
+        <section id="success-section" class="section success-section hidden">
+            <div class="success-container">
+                <div class="success-icon">🎉</div>
+                <h2 class="success-title">Campaign Started!</h2>
+                <p class="success-message">Your SMM campaign is now being processed. You'll receive updates on your account growth soon!</p>
+                <button id="start-new-btn" class="cta-button">
+                    🔄 Start New Campaign
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
