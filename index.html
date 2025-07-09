@@ -3,18 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 Smart SMM Assistant - Grow Your Socials with AI</title>
+    <title>🚀 SMM AI Assistant - Grow Your Socials Fast</title>
     <link rel="stylesheet" href="index-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta name="description" content="The easiest way to get real followers, likes, shares, and traffic using smart AI + SMM automation">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Smart social media growth plans powered by AI and real SMM services. Get real followers, likes, and engagement fast.">
 </head>
 <body>
+    <!-- Floating Emoji Background -->
+    <div class="floating-emojis">
+        <span class="emoji float-1">🚀</span>
+        <span class="emoji float-2">📷</span>
+        <span class="emoji float-3">🎵</span>
+        <span class="emoji float-4">💸</span>
+        <span class="emoji float-5">⚡</span>
+        <span class="emoji float-6">📈</span>
+        <span class="emoji float-7">🔥</span>
+        <span class="emoji float-8">💎</span>
+        <span class="emoji float-9">🎯</span>
+        <span class="emoji float-10">✨</span>
+    </div>
+
+    <!-- Animated Background Particles -->
+    <div id="particles-canvas"></div>
+
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <span class="logo-text">🚀 SmartSMM</span>
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">SMM-AI</span>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
@@ -33,243 +52,365 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="floating-icons">
-                <i class="fab fa-tiktok"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-linkedin"></i>
-            </div>
-            <div class="particles"></div>
+        <!-- Floating Social Media Logos -->
+        <div class="floating-social-logos">
+            <div class="floating-logo logo-1"><i class="fab fa-instagram"></i></div>
+            <div class="floating-logo logo-2"><i class="fab fa-tiktok"></i></div>
+            <div class="floating-logo logo-3"><i class="fab fa-youtube"></i></div>
+            <div class="floating-logo logo-4"><i class="fab fa-facebook"></i></div>
+            <div class="floating-logo logo-5"><i class="fab fa-twitter"></i></div>
+            <div class="floating-logo logo-6"><i class="fab fa-linkedin"></i></div>
+            <div class="floating-logo logo-7"><i class="fab fa-spotify"></i></div>
+            <div class="floating-logo logo-8"><i class="fab fa-discord"></i></div>
+            <div class="floating-logo logo-9"><i class="fab fa-telegram"></i></div>
+            <div class="floating-logo logo-10"><i class="fab fa-twitch"></i></div>
         </div>
+
         <div class="hero-content">
-            <h1 class="hero-title">🚀 Grow Your Socials with AI</h1>
-            <p class="hero-subtitle">The easiest way to get real followers, likes, shares, and traffic using smart AI + SMM automation</p>
-            <button class="hero-cta" onclick="scrollToSignUp()">Get Started</button>
+            <div class="hero-badge">
+                <span class="badge-icon">⚡</span>
+                <span>AI-Powered Growth</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line-1">
+                    <span class="rocket-icon">🚀</span>
+                    <span class="typing-text" data-text="SMM AI Assistant">SMM AI Assistant</span>
+                </span>
+                <span class="title-line-2">
+                    <span class="gradient-text">to Grow Your Socials</span> 
+                    <span class="highlight-fast">Fast</span>
+                </span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="subtitle-word" style="--delay: 0">Smart</span>
+                <span class="subtitle-word" style="--delay: 1">plans.</span>
+                <span class="subtitle-word" style="--delay: 2">Real</span>
+                <span class="subtitle-word" style="--delay: 3">results.</span>
+                <span class="subtitle-word" style="--delay: 4">Powered</span>
+                <span class="subtitle-word" style="--delay: 5">by</span>
+                <span class="subtitle-word" style="--delay: 6">AI</span>
+                <span class="subtitle-word" style="--delay: 7">and</span>
+                <span class="subtitle-word" style="--delay: 8">real</span>
+                <span class="subtitle-word" style="--delay: 9">SMM</span>
+                <span class="subtitle-word" style="--delay: 10">services.</span>
+            </p>
+            
+            <div class="hero-cta-container">
+                <button class="hero-cta primary" onclick="scrollToSignUp()">
+                    <span class="btn-icon">⚡</span>
+                    <span>Get Started</span>
+                    <div class="btn-glow"></div>
+                </button>
+                <button class="hero-cta secondary" onclick="playDemo()">
+                    <span class="btn-icon">▶️</span>
+                    <span>Watch Demo</span>
+                </button>
+            </div>
+
             <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">50K+</span>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50000">0</span>
                     <span class="stat-label">Happy Users</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">16+</span>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="16">0</span>
                     <span class="stat-label">Platforms</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">98%</span>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span>
                     <span class="stat-label">Success Rate</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" onclick="scrollToSection('how-it-works')">
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2 class="section-title">✨ How It Works</h2>
-            <div class="steps-grid">
+            <div class="section-header">
+                <h2 class="section-title">What This Site Does</h2>
+                <p class="section-subtitle">Get results in 4 simple steps</p>
+            </div>
+            
+            <div class="steps-timeline">
                 <div class="step-card" data-step="1">
                     <div class="step-icon">
-                        <div class="step-number">1️⃣</div>
-                        <div class="step-platforms">
-                            <i class="fab fa-tiktok"></i>
-                            <i class="fab fa-instagram"></i>
-                            <i class="fab fa-youtube"></i>
-                        </div>
+                        <span class="step-emoji">🎯</span>
+                        <div class="step-number">01</div>
                     </div>
-                    <h3>Choose a Platform</h3>
-                    <p>Select from 16+ social media platforms including TikTok, Instagram, YouTube, and more</p>
+                    <div class="step-content">
+                        <h3>Choose a Platform</h3>
+                        <p>Select from Instagram, TikTok, YouTube, and 13+ other platforms</p>
+                    </div>
+                    <div class="step-glow"></div>
                 </div>
+
                 <div class="step-card" data-step="2">
                     <div class="step-icon">
-                        <div class="step-number">2️⃣</div>
-                        <div class="step-visual">💰📈</div>
+                        <span class="step-emoji">🧠</span>
+                        <div class="step-number">02</div>
                     </div>
-                    <h3>Describe Your Goal & Budget</h3>
-                    <p>Tell our AI your target audience, follower goals, and budget. Example: "I want 35K followers with $500"</p>
+                    <div class="step-content">
+                        <h3>Tell AI Your Goal & Budget</h3>
+                        <p>Describe your target audience, follower goals, and available budget</p>
+                    </div>
+                    <div class="step-glow"></div>
                 </div>
+
                 <div class="step-card" data-step="3">
                     <div class="step-icon">
-                        <div class="step-number">3️⃣</div>
-                        <div class="step-visual">🤖✨</div>
+                        <span class="step-emoji">📈</span>
+                        <div class="step-number">03</div>
                     </div>
-                    <h3>Get an AI-Powered Plan</h3>
-                    <p>Receive a personalized growth strategy that auto-launches real SMM services from our panel</p>
+                    <div class="step-content">
+                        <h3>Get a Smart Plan Instantly</h3>
+                        <p>AI creates a personalized growth strategy optimized for your budget</p>
+                    </div>
+                    <div class="step-glow"></div>
+                </div>
+
+                <div class="step-card" data-step="4">
+                    <div class="step-icon">
+                        <span class="step-emoji">🔥</span>
+                        <div class="step-number">04</div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Launch It Automatically</h3>
+                        <p>Sit back and watch as real SMM services boost your social presence</p>
+                    </div>
+                    <div class="step-glow"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Supported Services Section -->
+    <!-- Platforms Section -->
     <section id="platforms" class="platforms">
         <div class="container">
-            <h2 class="section-title">✨ All The Platforms We Support</h2>
+            <div class="section-header">
+                <h2 class="section-title">✅ Platforms We Support</h2>
+                <p class="section-subtitle">16+ social media platforms and growing</p>
+            </div>
+
             <div class="platforms-grid">
-                <div class="platform-item" data-platform="instagram">
-                    <i class="fab fa-instagram"></i>
+                <div class="platform-card" data-platform="instagram">
+                    <div class="platform-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
                     <span class="platform-name">Instagram</span>
-                    <span class="platform-tag">Followers</span>
+                    <span class="platform-metric">Followers & Likes</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="tiktok">
-                    <i class="fab fa-tiktok"></i>
+
+                <div class="platform-card" data-platform="tiktok">
+                    <div class="platform-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
                     <span class="platform-name">TikTok</span>
-                    <span class="platform-tag">Views</span>
+                    <span class="platform-metric">Views & Followers</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="youtube">
-                    <i class="fab fa-youtube"></i>
+
+                <div class="platform-card" data-platform="youtube">
+                    <div class="platform-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
                     <span class="platform-name">YouTube</span>
-                    <span class="platform-tag">Subscribers</span>
+                    <span class="platform-metric">Subscribers & Views</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="facebook">
-                    <i class="fab fa-facebook"></i>
+
+                <div class="platform-card" data-platform="facebook">
+                    <div class="platform-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
                     <span class="platform-name">Facebook</span>
-                    <span class="platform-tag">Likes</span>
+                    <span class="platform-metric">Page Likes</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="twitter">
-                    <i class="fab fa-twitter"></i>
-                    <span class="platform-name">Twitter (X)</span>
-                    <span class="platform-tag">Followers</span>
+
+                <div class="platform-card" data-platform="twitter">
+                    <div class="platform-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <span class="platform-name">Twitter X</span>
+                    <span class="platform-metric">Followers & Retweets</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="linkedin">
-                    <i class="fab fa-linkedin"></i>
+
+                <div class="platform-card" data-platform="linkedin">
+                    <div class="platform-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
                     <span class="platform-name">LinkedIn</span>
-                    <span class="platform-tag">Connections</span>
+                    <span class="platform-metric">Connections</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="spotify">
-                    <i class="fab fa-spotify"></i>
+
+                <div class="platform-card" data-platform="spotify">
+                    <div class="platform-icon">
+                        <i class="fab fa-spotify"></i>
+                    </div>
                     <span class="platform-name">Spotify</span>
-                    <span class="platform-tag">Plays</span>
+                    <span class="platform-metric">Plays & Followers</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="discord">
-                    <i class="fab fa-discord"></i>
+
+                <div class="platform-card" data-platform="discord">
+                    <div class="platform-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
                     <span class="platform-name">Discord</span>
-                    <span class="platform-tag">Members</span>
+                    <span class="platform-metric">Server Members</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="telegram">
-                    <i class="fab fa-telegram"></i>
+
+                <div class="platform-card" data-platform="telegram">
+                    <div class="platform-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
                     <span class="platform-name">Telegram</span>
-                    <span class="platform-tag">Subscribers</span>
+                    <span class="platform-metric">Channel Subscribers</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="snapchat">
-                    <i class="fab fa-snapchat"></i>
-                    <span class="platform-name">Snapchat</span>
-                    <span class="platform-tag">Views</span>
-                </div>
-                <div class="platform-item" data-platform="twitch">
-                    <i class="fab fa-twitch"></i>
+
+                <div class="platform-card" data-platform="twitch">
+                    <div class="platform-icon">
+                        <i class="fab fa-twitch"></i>
+                    </div>
                     <span class="platform-name">Twitch</span>
-                    <span class="platform-tag">Followers</span>
+                    <span class="platform-metric">Followers & Views</span>
+                    <div class="platform-pulse"></div>
                 </div>
-                <div class="platform-item" data-platform="google">
-                    <i class="fab fa-google"></i>
+
+                <div class="platform-card" data-platform="snapchat">
+                    <div class="platform-icon">
+                        <i class="fab fa-snapchat"></i>
+                    </div>
+                    <span class="platform-name">Snapchat</span>
+                    <span class="platform-metric">Story Views</span>
+                    <div class="platform-pulse"></div>
+                </div>
+
+                <div class="platform-card" data-platform="google">
+                    <div class="platform-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
                     <span class="platform-name">Google</span>
-                    <span class="platform-tag">Reviews</span>
+                    <span class="platform-metric">Reviews & Traffic</span>
+                    <div class="platform-pulse"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Use Section -->
-    <section class="why-use">
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
         <div class="container">
-            <h2 class="section-title">🎯 Why Choose SmartSMM?</h2>
+            <div class="section-header">
+                <h2 class="section-title">Why Use SMM-AI?</h2>
+                <p class="section-subtitle">The smartest way to grow your social media</p>
+            </div>
+
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Powered Planning</h3>
-                    <p>Uses GPT AI to create personalized growth strategies, not random packages</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart Planning Using GPT</h3>
+                    <p>Advanced AI analyzes your niche and creates personalized growth strategies</p>
+                    <div class="feature-glow"></div>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Real Traffic & Followers</h3>
+                    <p>Authentic engagement from real users, not bots or fake accounts</p>
+                    <div class="feature-glow"></div>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3>Cost Optimized</h3>
-                    <p>Optimizes based on real SMM panel prices to save money and increase results</p>
+                    <h3>Budget-Friendly Suggestions</h3>
+                    <p>Optimize your spending with cost-effective strategies that deliver results</p>
+                    <div class="feature-glow"></div>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>No Guesswork — Just Results</h3>
+                    <p>Data-driven recommendations based on proven SMM panel performance</p>
+                    <div class="feature-glow"></div>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Fully Automated</h3>
-                    <p>Set it and forget it - our system handles everything automatically</p>
+                    <h3>Automated Launch</h3>
+                    <p>Set it and forget it - our system handles campaign execution automatically</p>
+                    <div class="feature-glow"></div>
                 </div>
-                <div class="feature-item">
+
+                <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>Safe & Private</h3>
-                    <p>Secure, private, and compliant with all platform guidelines</p>
+                    <h3>Safe & Secure</h3>
+                    <p>Privacy-first approach with secure payment processing and data protection</p>
+                    <div class="feature-glow"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">💬 What Our Users Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"I gained 10K real followers in 3 weeks. The AI plan was spot on!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💼</div>
-                        <div class="author-info">
-                            <span class="author-name">Alex Chen</span>
-                            <span class="author-platform">Instagram Creator</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Loved the personalized plan GPT gave me. It felt custom-made for my brand."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👩‍🎨</div>
-                        <div class="author-info">
-                            <span class="author-name">Sarah Johnson</span>
-                            <span class="author-platform">TikTok Influencer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"So easy to use. Just entered my budget and goals, then watched the magic happen!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍🚀</div>
-                        <div class="author-info">
-                            <span class="author-name">Mike Rodriguez</span>
-                            <span class="author-platform">YouTube Creator</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
+    <!-- CTA Section -->
     <section id="signup" class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>👋 Ready to grow your audience?</h2>
-                <p>Join thousands of creators who've already boosted their social media presence with AI</p>
-                <div class="signup-form">
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Enter your email address" required>
-                        <input type="text" id="fullname" placeholder="Full Name" required>
+                <div class="cta-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span>Ready to Go Viral?</span>
+                </div>
+                
+                <h2>👋 Want to grow your social media the smart way?</h2>
+                <p>Join thousands of creators who've already boosted their presence with AI-powered strategies</p>
+                
+                <div class="signup-form-container">
+                    <div class="signup-form">
+                        <div class="form-row">
+                            <input type="text" id="fullname" placeholder="Your Full Name" required>
+                            <input type="email" id="email" placeholder="Email Address" required>
+                        </div>
                         <select id="platform-interest" required>
                             <option value="">Select your main platform</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="tiktok">TikTok</option>
-                            <option value="youtube">YouTube</option>
-                            <option value="facebook">Facebook</option>
-                            <option value="twitter">Twitter (X)</option>
-                            <option value="linkedin">LinkedIn</option>
-                            <option value="other">Other</option>
+                            <option value="instagram">📷 Instagram</option>
+                            <option value="tiktok">🎵 TikTok</option>
+                            <option value="youtube">📺 YouTube</option>
+                            <option value="facebook">📘 Facebook</option>
+                            <option value="twitter">🐦 Twitter (X)</option>
+                            <option value="linkedin">💼 LinkedIn</option>
+                            <option value="other">🌟 Other Platform</option>
                         </select>
                         <button type="button" class="signup-btn" onclick="handleSignUp()">
-                            🚀 Sign Up to Get Started
+                            <span class="btn-icon">⚡</span>
+                            <span>Create Account Now</span>
+                            <div class="btn-ripple"></div>
                         </button>
                     </div>
-                    <p class="signup-note">✨ Free to start • No credit card required • Instant access</p>
+                    <div class="signup-features">
+                        <div class="feature-check">
+                            <span class="check-icon">✅</span>
+                            <span>Free to start</span>
+                        </div>
+                        <div class="feature-check">
+                            <span class="check-icon">✅</span>
+                            <span>No credit card required</span>
+                        </div>
+                        <div class="feature-check">
+                            <span class="check-icon">✅</span>
+                            <span>Instant access</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -279,59 +420,76 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🚀 SmartSMM</h3>
-                    <p>AI-powered social media growth that actually works.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🤖</span>
+                        <span class="logo-text">SMM-AI</span>
+                    </div>
+                    <p class="footer-description">AI-powered social media growth that actually works. Get real followers, likes, and engagement with smart automation.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:support@smm-ai.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            support@smm-ai.com
+                        </a>
+                        <a href="https://wa.me/1234567890" class="contact-link whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Support
+                        </a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#how-it-works">How it Works</a></li>
-                        <li><a href="#platforms">Platforms</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#api">API</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#help">Help Center</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="mailto:support@smartsmm.ai">support@smartsmm.ai</a></li>
-                        <li><a href="https://wa.me/1234567890">WhatsApp Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                        <li><a href="#refund">Refund Policy</a></li>
-                    </ul>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Product</h4>
+                        <a href="#how-it-works">How it Works</a>
+                        <a href="#platforms">Platforms</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#api">API Access</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="#help">Help Center</a>
+                        <a href="#contact">Contact Us</a>
+                        <a href="#tutorials">Tutorials</a>
+                        <a href="#status">System Status</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="#refund">Refund Policy</a>
+                        <a href="#compliance">Compliance</a>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 SmartSMM. All rights reserved. Made with ❤️ for creators.</p>
+                <p>&copy; 2024 SMM-AI. All rights reserved. Built with ❤️ for creators worldwide.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Success Modal -->
     <div id="success-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
         <div class="modal-content">
-            <div class="modal-icon">🎉</div>
-            <h3>Welcome to SmartSMM!</h3>
-            <p>Your account has been created successfully. Redirecting to your dashboard...</p>
-            <div class="loading-dots">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="modal-header">
+                <div class="success-icon">🎉</div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Welcome to SMM-AI!</h3>
+                <p>Your account has been created successfully. Get ready to supercharge your social media growth!</p>
+                <div class="loading-progress">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">Preparing your dashboard...</span>
+                </div>
             </div>
         </div>
     </div>
