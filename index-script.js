@@ -7,86 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 SMM AI - Modern Design Loaded');
     
     // Initialize all components
-    initializeThemeToggle();
     initializeMobileMenu();
     initializeSmoothScrolling();
     initializeScrollAnimations();
     initializeInteractiveElements();
     initializeHeroAnimations();
-    
-    // Set initial theme
-    setInitialTheme();
 });
 
-// ================================
-// Theme Toggle System
-// ================================
 
-function initializeThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    
-    if (!themeToggle) {
-        console.warn('Theme toggle element not found');
-        return;
-    }
-    
-    themeToggle.addEventListener('click', toggleTheme);
-    
-    // Keyboard accessibility
-    themeToggle.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleTheme();
-        }
-    });
-}
-
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    // Apply theme with smooth transition
-    document.documentElement.style.transition = 'all 0.3s ease';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    
-    // Store preference
-    localStorage.setItem('smm-ai-theme', newTheme);
-    
-    // Animate theme toggle button
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'scale(1)';
-        }, 150);
-    }
-    
-    // Remove transition after animation
-    setTimeout(() => {
-        document.documentElement.style.transition = '';
-    }, 300);
-    
-    console.log(`🎨 Theme switched to: ${newTheme}`);
-}
-
-function setInitialTheme() {
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('smm-ai-theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    
-    document.documentElement.setAttribute('data-theme', initialTheme);
-    console.log(`🎯 Initial theme set to: ${initialTheme}`);
-}
-
-// Listen for system theme changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-    if (!localStorage.getItem('smm-ai-theme')) {
-        const newTheme = e.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        console.log(`🔄 System theme changed to: ${newTheme}`);
-    }
-});
 
 // ================================
 // Mobile Menu System
@@ -252,21 +180,12 @@ function initializeScrollAnimations() {
         
         if (header) {
             if (currentScrollY > 100) {
-                header.style.background = getComputedStyle(document.documentElement)
-                    .getPropertyValue('--bg-primary') + 'dd';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(20px)';
                 header.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.8)';
                 header.style.boxShadow = 'none';
-            }
-            
-            // Check for dark theme
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            if (isDark && currentScrollY > 100) {
-                header.style.background = 'rgba(15, 23, 42, 0.9)';
-            } else if (isDark) {
-                header.style.background = 'rgba(15, 23, 42, 0.8)';
             }
         }
         
@@ -486,20 +405,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Announce theme changes to screen readers
-function announceThemeChange(theme) {
-    const announcement = document.createElement('div');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.setAttribute('aria-atomic', 'true');
-    announcement.className = 'sr-only';
-    announcement.textContent = `Theme switched to ${theme} mode`;
-    
-    document.body.appendChild(announcement);
-    
-    setTimeout(() => {
-        document.body.removeChild(announcement);
-    }, 1000);
-}
+
 
 // ================================
 // Final Initialization
@@ -509,7 +415,6 @@ console.log('✅ SMM AI Modern JavaScript Loaded Successfully');
 
 // Export functions for potential external use
 window.SmmAi = {
-    toggleTheme,
     toggleMobileMenu,
     trackInteraction
 }; 
