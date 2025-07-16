@@ -3,374 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat - SMM Strategy Assistant</title>
-    <meta name="description" content="Chat with AI to get your custom social media growth plan">
-    
-    <!-- Tailwind CSS -->
+    <title>AI Chat - SMM AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .chat-user { background: linear-gradient(135deg, #667eea, #764ba2); }
-        .chat-ai { background: linear-gradient(135deg, #f093fb, #f5576c); }
-        .typing-dot { animation: typing 1.4s ease-in-out infinite; }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-            30% { transform: translateY(-8px); opacity: 1; }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#10B981',
+                    }
+                }
+            }
         }
-        .gradient-border { background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #667eea, #764ba2) border-box; border: 2px solid transparent; }
-    </style>
+    </script>
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Back Button -->
-                <a href="index.html" class="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors">
-                    <i class="fas fa-arrow-left"></i>
-                    <span class="hidden sm:inline">Back to Home</span>
-                </a>
-                
-                <!-- AI Status -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-robot text-white"></i>
-                    </div>
-                    <div>
-                        <h1 class="font-semibold text-gray-900">SMM AI Assistant</h1>
-                        <p class="text-sm text-green-600 flex items-center">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                            Online • Ready to help
-                        </p>
-                    </div>
+<body class="font-inter bg-gray-50 h-screen flex flex-col">
+    <!-- Header with Wallet Balance -->
+    <header class="bg-white border-b border-gray-200 p-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="/" class="text-2xl font-bold text-primary">SMM AI</a>
+                <span class="text-gray-400">|</span>
+                <span class="text-gray-600">Chat Assistant</span>
+            </div>
+            
+            <!-- Wallet Balance -->
+            <div class="flex items-center space-x-4">
+                <div class="bg-gray-50 px-4 py-2 rounded-lg border border-gray-200">
+                    <span class="text-sm text-gray-600">Wallet Balance:</span>
+                    <span class="font-semibold text-primary ml-2" id="walletBalance">$0.00</span>
                 </div>
-                
-                <!-- Actions -->
-                <button onclick="clearChat()" class="text-gray-500 hover:text-red-500 transition-colors p-2 rounded-lg hover:bg-gray-100">
-                    <i class="fas fa-trash"></i>
+                <button onclick="showDepositModal()" class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors font-medium">
+                    Deposit Funds
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Chat Container -->
-    <div class="flex flex-col h-screen bg-gray-50">
-        <!-- Messages Area -->
-        <div class="flex-1 overflow-y-auto pb-32" id="messagesArea">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <!-- Welcome Message -->
-                <div class="flex items-start space-x-3 mb-6">
-                    <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-robot text-white text-sm"></i>
-                    </div>
-                    <div class="bg-white rounded-2xl rounded-tl-md p-6 shadow-sm border border-gray-200 max-w-2xl">
-                        <div class="flex items-center space-x-2 mb-3">
-                            <span class="font-semibold text-gray-900">SMM AI Assistant</span>
-                            <span class="text-xs text-gray-500">Just now</span>
-                        </div>
-                        <div class="prose prose-sm text-gray-700">
-                            <p class="mb-4">👋 Hi! I'm your AI Social Media Growth Assistant. I'll help you create a custom strategy to grow your social media presence.</p>
-                            <p class="mb-4">To get started, please tell me:</p>
-                            <ul class="list-disc pl-6 mb-4 space-y-1">
-                                <li>What platform(s) you want to grow on</li>
-                                <li>Your current follower count</li>
-                                <li>Your budget</li>
-                                <li>Your growth goal</li>
-                            </ul>
-                            <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                                <p class="text-purple-800 font-medium mb-2">💡 Example:</p>
-                                <p class="text-purple-700 italic">"I have a food Instagram page with 12K followers and $50. I want to grow to 30K."</p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="flex-1 flex flex-col max-w-4xl mx-auto w-full">
+        <!-- Messages Container -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-4" id="messagesContainer">
+            <!-- Welcome Message -->
+            <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                    </svg>
+                </div>
+                <div class="bg-white p-4 rounded-2xl rounded-bl-md shadow-sm border border-gray-200 max-w-md">
+                    <p class="text-gray-800">👋 Hi! I'm your SMM AI assistant. I'll help you grow your social media with custom strategies.</p>
+                    <p class="text-gray-600 text-sm mt-2">Tell me about your goals to get started!</p>
+                </div>
+            </div>
+
+            <!-- Example Prompt -->
+            <div class="flex justify-center">
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 max-w-md text-center">
+                    <p class="text-blue-800 font-medium mb-3">💡 Try this example:</p>
+                    <button onclick="setExamplePrompt()" class="bg-white text-blue-700 px-4 py-2 rounded-lg border border-blue-300 hover:bg-blue-50 transition-colors text-sm">
+                        "I have a fitness Instagram with 5K followers and $75 budget. Want to reach 20K followers."
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Input Area -->
-        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-4">
-            <div class="max-w-4xl mx-auto">
-                <!-- Quick Start Buttons -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4" id="quickActions">
-                    <button onclick="selectQuickStart('instagram')" class="flex items-center justify-center space-x-2 px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-                        <i class="fab fa-instagram"></i>
-                        <span class="text-sm font-medium">Instagram</span>
-                    </button>
-                    <button onclick="selectQuickStart('tiktok')" class="flex items-center justify-center space-x-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-                        <i class="fab fa-tiktok"></i>
-                        <span class="text-sm font-medium">TikTok</span>
-                    </button>
-                    <button onclick="selectQuickStart('youtube')" class="flex items-center justify-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-                        <i class="fab fa-youtube"></i>
-                        <span class="text-sm font-medium">YouTube</span>
-                    </button>
-                    <button onclick="selectQuickStart('multiple')" class="flex items-center justify-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105">
-                        <i class="fas fa-globe"></i>
-                        <span class="text-sm font-medium">Multi-Platform</span>
-                    </button>
-                </div>
-                
-                <!-- Input Form -->
-                <div class="gradient-border rounded-2xl p-1">
-                    <div class="bg-white rounded-xl flex items-end space-x-3 p-3">
-                        <textarea 
-                            id="messageInput" 
-                            placeholder="Describe your social media goals..." 
-                            rows="1"
-                            class="flex-1 resize-none outline-none text-gray-700 placeholder-gray-400 max-h-32 min-h-[2.5rem] leading-6 py-2 px-3 rounded-lg border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200"
-                        ></textarea>
-                        <button 
-                            id="sendButton" 
-                            onclick="sendMessage()" 
-                            disabled
-                            class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
-                        >
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <p class="text-center text-xs text-gray-500 mt-3">
-                    🔒 Your data is secure • 🚀 Get results in 24-48 hours • 💬 Free consultation
-                </p>
+        <div class="p-4 bg-white border-t border-gray-200">
+            <div class="flex space-x-3">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Describe your social media goals, current followers, budget..."
+                    class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none transition-colors"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button 
+                    onclick="sendMessage()" 
+                    id="sendButton"
+                    class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors font-medium">
+                    Send
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Strategy Selection Modal -->
-    <div id="strategyModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 rounded-t-2xl">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-2xl font-bold text-gray-900">Choose Your Growth Strategy</h2>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 p-2">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
+    <!-- Deposit Modal -->
+    <div id="depositModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Add Funds to Wallet</h3>
+            <div class="space-y-4">
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="setDepositAmount(25)" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">$25</button>
+                    <button onclick="setDepositAmount(50)" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">$50</button>
+                    <button onclick="setDepositAmount(100)" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">$100</button>
                 </div>
-                <p class="text-gray-600 mt-2">Compare all plans and select the one that fits your goals best</p>
-            </div>
-            <div class="p-6" id="strategyOptions">
-                <!-- Strategy options will be populated here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Order Form Modal -->
-    <div id="formModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl">
-            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 rounded-t-2xl">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-gray-900">Complete Your Order</h2>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 p-2">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <p class="text-gray-600 mt-1">Just a few details to get started</p>
-            </div>
-            <div class="p-6">
-                <form id="orderForm" class="space-y-6">
-                    <div class="space-y-4">
-                        <div>
-                            <label for="accountUsername" class="block text-sm font-semibold text-gray-700 mb-2">
-                                Account Username/Handle *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="accountUsername" 
-                                name="accountUsername" 
-                                placeholder="@yourusername" 
-                                required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
-                            >
-                        </div>
-                        
-                        <div>
-                            <label for="accountLink" class="block text-sm font-semibold text-gray-700 mb-2">
-                                Account Link *
-                            </label>
-                            <input 
-                                type="url" 
-                                id="accountLink" 
-                                name="accountLink" 
-                                placeholder="https://instagram.com/yourusername" 
-                                required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
-                            >
-                        </div>
-                        
-                        <div>
-                            <label for="postLinks" class="block text-sm font-semibold text-gray-700 mb-2">
-                                Post Links (Optional)
-                            </label>
-                            <textarea 
-                                id="postLinks" 
-                                name="postLinks" 
-                                placeholder="Paste links to specific posts you want to boost (one per line)" 
-                                rows="3"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors resize-none"
-                            ></textarea>
-                        </div>
-                        
-                        <div>
-                            <label for="additionalInfo" class="block text-sm font-semibold text-gray-700 mb-2">
-                                Additional Information (Optional)
-                            </label>
-                            <textarea 
-                                id="additionalInfo" 
-                                name="additionalInfo" 
-                                placeholder="Any specific requirements or preferences?" 
-                                rows="2"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors resize-none"
-                            ></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col space-y-3">
-                        <button 
-                            type="submit" 
-                            class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
-                        >
-                            <i class="fas fa-credit-card"></i>
-                            <span>Complete Order</span>
-                        </button>
-                        <button 
-                            type="button" 
-                            onclick="closeModal()" 
-                            class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors"
-                        >
-                            Cancel
-                        </button>
-                    </div>
-                </form>
+                <input type="number" id="depositAmount" placeholder="Custom amount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary focus:outline-none">
+                <button onclick="processDeposit()" class="w-full bg-secondary text-white py-3 rounded-lg font-medium hover:bg-green-600 transition-colors">
+                    Add Funds
+                </button>
+                <button onclick="hideDepositModal()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="fixed inset-0 bg-white bg-opacity-95 backdrop-blur-sm z-50 hidden flex items-center justify-center">
-        <div class="text-center max-w-md mx-auto px-6">
-            <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse">
-                <i class="fas fa-robot text-white text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">Processing Your Order...</h3>
-            <p class="text-gray-600 mb-6">We're setting up your growth campaign. This may take a few moments.</p>
-            <div class="flex justify-center space-x-2">
-                <div class="w-3 h-3 bg-purple-600 rounded-full animate-bounce"></div>
-                <div class="w-3 h-3 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                <div class="w-3 h-3 bg-purple-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-    <script src="chat.js"></script>
     <script>
-        // Auto-resize textarea
-        document.getElementById('messageInput').addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = Math.min(this.scrollHeight, 128) + 'px';
-            
-            // Enable/disable send button
-            document.getElementById('sendButton').disabled = !this.value.trim();
-        });
+        let walletBalance = 0;
+        let chatHistory = [];
+        let isProcessing = false;
 
-        // Send on Enter (but allow Shift+Enter for new lines)
-        document.getElementById('messageInput').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                if (this.value.trim()) {
-                    sendMessage();
-                }
+        // Load wallet balance from localStorage
+        function loadWalletBalance() {
+            const saved = localStorage.getItem('walletBalance');
+            if (saved) {
+                walletBalance = parseFloat(saved);
+                updateWalletDisplay();
             }
-        });
-
-        // Auto-scroll to bottom on new messages
-        function scrollToBottom() {
-            const messagesArea = document.getElementById('messagesArea');
-            messagesArea.scrollTop = messagesArea.scrollHeight;
         }
 
-        // Enhanced message display with better styling
-        window.addMessage = function(sender, content, actions = null) {
-            const messagesArea = document.getElementById('messagesArea');
-            const container = messagesArea.querySelector('.max-w-4xl') || messagesArea;
-            
-            if (sender === 'user') {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'flex justify-end mb-6';
-                messageDiv.innerHTML = `
-                    <div class="chat-user text-white px-6 py-4 rounded-2xl rounded-br-md max-w-2xl shadow-lg">
-                        <p class="leading-relaxed">${content}</p>
-                    </div>
-                `;
-                container.appendChild(messageDiv);
-            } else {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'flex items-start space-x-3 mb-6';
-                messageDiv.innerHTML = `
-                    <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-robot text-white text-sm"></i>
-                    </div>
-                    <div class="bg-white rounded-2xl rounded-tl-md p-6 shadow-sm border border-gray-200 max-w-2xl">
-                        <div class="flex items-center space-x-2 mb-3">
-                            <span class="font-semibold text-gray-900">SMM AI Assistant</span>
-                            <span class="text-xs text-gray-500">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
-                        </div>
-                        <div class="text-gray-700">${content}</div>
-                        ${actions ? `<div class="mt-4 space-y-2">${actions}</div>` : ''}
-                    </div>
-                `;
-                container.appendChild(messageDiv);
-            }
-            
-            setTimeout(scrollToBottom, 100);
-        };
+        // Update wallet display
+        function updateWalletDisplay() {
+            document.getElementById('walletBalance').textContent = `$${walletBalance.toFixed(2)}`;
+        }
 
-        // Enhanced typing indicator
-        window.showTypingIndicator = function() {
-            const messagesArea = document.getElementById('messagesArea');
-            const container = messagesArea.querySelector('.max-w-4xl') || messagesArea;
-            
+        // Save wallet balance to localStorage
+        function saveWalletBalance() {
+            localStorage.setItem('walletBalance', walletBalance.toString());
+        }
+
+        // Deposit Modal Functions
+        function showDepositModal() {
+            document.getElementById('depositModal').classList.remove('hidden');
+        }
+
+        function hideDepositModal() {
+            document.getElementById('depositModal').classList.add('hidden');
+            document.getElementById('depositAmount').value = '';
+        }
+
+        function setDepositAmount(amount) {
+            document.getElementById('depositAmount').value = amount;
+        }
+
+        function processDeposit() {
+            const amount = parseFloat(document.getElementById('depositAmount').value);
+            if (amount && amount > 0) {
+                walletBalance += amount;
+                updateWalletDisplay();
+                saveWalletBalance();
+                hideDepositModal();
+                addMessage('ai', `✅ Successfully added $${amount} to your wallet! Your new balance is $${walletBalance.toFixed(2)}.`);
+            }
+        }
+
+        // Set example prompt
+        function setExamplePrompt() {
+            document.getElementById('messageInput').value = "I have a fitness Instagram with 5K followers and $75 budget. Want to reach 20K followers.";
+            document.getElementById('messageInput').focus();
+        }
+
+        // Handle enter key press
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Add message to chat
+        function addMessage(sender, content, isPlans = false) {
+            const messagesContainer = document.getElementById('messagesContainer');
+            const messageDiv = document.createElement('div');
+
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="flex justify-end">
+                        <div class="bg-primary text-white p-4 rounded-2xl rounded-br-md max-w-md shadow-sm">
+                            <p>${content}</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl rounded-bl-md shadow-sm border border-gray-200 max-w-md">
+                            ${content}
+                        </div>
+                    </div>
+                `;
+            }
+
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('messagesContainer');
             const typingDiv = document.createElement('div');
             typingDiv.id = 'typingIndicator';
-            typingDiv.className = 'flex items-start space-x-3 mb-6';
             typingDiv.innerHTML = `
-                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="fas fa-robot text-white text-sm"></i>
-                </div>
-                <div class="bg-white rounded-2xl rounded-tl-md px-6 py-4 shadow-sm border border-gray-200">
-                    <div class="flex items-center space-x-2">
-                        <span class="text-gray-500 text-sm">SMM AI is typing</span>
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                        </svg>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl rounded-bl-md shadow-sm border border-gray-200">
                         <div class="flex space-x-1">
-                            <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
-                            <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
-                            <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
                         </div>
                     </div>
                 </div>
             `;
-            
-            container.appendChild(typingDiv);
-            setTimeout(scrollToBottom, 100);
-        };
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
 
-        window.hideTypingIndicator = function() {
+        // Remove typing indicator
+        function removeTypingIndicator() {
             const typingIndicator = document.getElementById('typingIndicator');
             if (typingIndicator) {
                 typingIndicator.remove();
             }
-        };
+        }
+
+        // Generate AI response plans
+        function generatePlans(userMessage) {
+            const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'Twitter'];
+            const budgetMatch = userMessage.match(/\$?(\d+)/);
+            const budget = budgetMatch ? parseInt(budgetMatch[1]) : 50;
+            
+            const plans = [
+                {
+                    name: "Growth Starter",
+                    price: Math.max(25, Math.floor(budget * 0.6)),
+                    description: "Perfect for beginners looking to build a solid foundation",
+                    features: [
+                        `${Math.floor(budget * 20)} targeted followers`,
+                        "Post engagement boost",
+                        "24-48h delivery",
+                        "Email support"
+                    ],
+                    color: "border-blue-200 hover:border-blue-400"
+                },
+                {
+                    name: "Viral Boost",
+                    price: Math.max(40, Math.floor(budget * 0.8)),
+                    description: "Best value for rapid growth and viral potential",
+                    features: [
+                        `${Math.floor(budget * 35)} quality followers`,
+                        "Viral content promotion",
+                        "Story/Reel boost",
+                        "Priority support"
+                    ],
+                    color: "border-green-200 hover:border-green-400",
+                    popular: true
+                },
+                {
+                    name: "Pro Growth",
+                    price: Math.max(75, Math.floor(budget * 1.2)),
+                    description: "Complete optimization for serious creators",
+                    features: [
+                        `${Math.floor(budget * 50)} premium followers`,
+                        "Multi-platform growth",
+                        "Custom hashtag research",
+                        "Dedicated manager"
+                    ],
+                    color: "border-purple-200 hover:border-purple-400"
+                }
+            ];
+
+            let plansHTML = `
+                <p class="text-gray-800 mb-4">Great! I've analyzed your goals and created 3 custom strategies:</p>
+                <div class="space-y-3">
+            `;
+
+            plans.forEach((plan, index) => {
+                plansHTML += `
+                    <div class="border-2 ${plan.color} rounded-xl p-4 transition-all ${plan.popular ? 'bg-green-50' : 'bg-gray-50'}">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold text-gray-900">${plan.name}</h4>
+                            ${plan.popular ? '<span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">Most Popular</span>' : ''}
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">${plan.description}</p>
+                        <ul class="text-sm text-gray-700 mb-3">
+                            ${plan.features.map(feature => `<li class="flex items-center"><span class="text-green-500 mr-2">✓</span>${feature}</li>`).join('')}
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$${plan.price}</span>
+                            <button onclick="choosePlan('${plan.name}', ${plan.price})" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                                Choose Plan
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            plansHTML += `
+                </div>
+                <p class="text-sm text-gray-600 mt-4">💡 All plans include real followers from our premium SMM panel and come with a satisfaction guarantee.</p>
+            `;
+
+            return plansHTML;
+        }
+
+        // Choose a plan
+        function choosePlan(planName, price) {
+            if (walletBalance < price) {
+                addMessage('ai', `❌ Insufficient funds! You need $${price} but your wallet balance is $${walletBalance.toFixed(2)}. Please deposit funds to continue.`);
+                return;
+            }
+
+            addMessage('user', `I want to choose the ${planName} plan for $${price}`);
+            
+            setTimeout(() => {
+                showTypingIndicator();
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    addMessage('ai', `Perfect choice! I need a few details to execute your ${planName} plan:`);
+                    
+                    setTimeout(() => {
+                        addMessage('ai', `
+                            <div class="space-y-3">
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Your Username/Handle:</label>
+                                    <input type="text" id="usernameInput" placeholder="@your_username" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Post/Profile Link (optional):</label>
+                                    <input type="text" id="profileLinkInput" placeholder="https://instagram.com/your_profile" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                                </div>
+                                <button onclick="confirmOrder('${planName}', ${price})" class="w-full bg-green-500 text-white py-2 rounded-lg font-medium hover:bg-green-600 transition-colors">
+                                    Confirm Order - $${price}
+                                </button>
+                            </div>
+                        `);
+                    }, 1000);
+                }, 1500);
+            }, 500);
+        }
+
+        // Confirm order
+        function confirmOrder(planName, price) {
+            const username = document.getElementById('usernameInput').value;
+            const profileLink = document.getElementById('profileLinkInput').value;
+
+            if (!username.trim()) {
+                alert('Please enter your username/handle');
+                return;
+            }
+
+            // Deduct from wallet
+            walletBalance -= price;
+            updateWalletDisplay();
+            saveWalletBalance();
+
+            addMessage('user', `Username: ${username}${profileLink ? '\nProfile: ' + profileLink : ''}`);
+            
+            setTimeout(() => {
+                showTypingIndicator();
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    addMessage('ai', `🎉 Order confirmed! Your ${planName} plan is now processing.`);
+                    
+                    setTimeout(() => {
+                        addMessage('ai', `
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-800 mb-2">✅ Order Details:</h4>
+                                <ul class="text-sm text-green-700 space-y-1">
+                                    <li><strong>Plan:</strong> ${planName}</li>
+                                    <li><strong>Cost:</strong> $${price}</li>
+                                    <li><strong>Username:</strong> ${username}</li>
+                                    <li><strong>Status:</strong> Processing</li>
+                                    <li><strong>Estimated completion:</strong> 24-48 hours</li>
+                                </ul>
+                                <p class="text-sm text-green-600 mt-3">💡 You'll receive updates as your order progresses. Check back soon!</p>
+                            </div>
+                        `);
+                        
+                        setTimeout(() => {
+                            addMessage('ai', `Is there anything else I can help you with? I can create more growth plans or answer any questions!`);
+                        }, 2000);
+                    }, 1500);
+                }, 2000);
+            }, 500);
+        }
+
+        // Send message
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message || isProcessing) return;
+            
+            isProcessing = true;
+            input.value = '';
+            
+            // Add user message
+            addMessage('user', message);
+            
+            // Show typing indicator
+            setTimeout(() => {
+                showTypingIndicator();
+                
+                // Generate AI response after delay
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    const plans = generatePlans(message);
+                    addMessage('ai', plans);
+                    isProcessing = false;
+                }, 2000);
+            }, 500);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWalletBalance();
+        });
     </script>
 </body>
 </html> 

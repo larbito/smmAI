@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - SMM AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#10B981',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="/" class="text-2xl font-bold text-primary">SMM AI</a>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+                        <a href="/how-it-works" class="text-primary font-medium">How It Works</a>
+                        <a href="/faq" class="text-gray-600 hover:text-primary transition-colors">FAQ</a>
+                        <a href="/login" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Login</a>
+                    </div>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-gray-600 hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                How SMM AI Works
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Get your custom social media growth plan in just 3 simple steps
+            </p>
+        </div>
+    </section>
+
+    <!-- How It Works Steps -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-24 h-24 mx-auto mb-8 bg-primary rounded-full flex items-center justify-center relative">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-gray-800 text-sm">1</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Tell the AI Your Goals</h3>
+                    <div class="text-left space-y-4">
+                        <p class="text-gray-600">Start a conversation with our AI assistant by describing:</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2 mt-1">•</span>
+                                <span>Which platform you want to grow (Instagram, TikTok, YouTube, etc.)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2 mt-1">•</span>
+                                <span>Your current follower count</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2 mt-1">•</span>
+                                <span>Your budget</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2 mt-1">•</span>
+                                <span>Your growth target</span>
+                            </li>
+                        </ul>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+                            <p class="text-blue-800 font-medium text-sm">Example:</p>
+                            <p class="text-blue-700 text-sm italic">"I have a fitness Instagram with 5K followers and $75 budget. Want to reach 20K followers."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-24 h-24 mx-auto mb-8 bg-secondary rounded-full flex items-center justify-center relative">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-gray-800 text-sm">2</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Choose a Custom Plan</h3>
+                    <div class="text-left space-y-4">
+                        <p class="text-gray-600">Our AI instantly analyzes your goals and creates 3 tailored growth strategies:</p>
+                        <div class="space-y-3">
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-900 mb-1">Growth Starter</h4>
+                                <p class="text-sm text-gray-600">Perfect for beginners</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                <h4 class="font-semibold text-green-800 mb-1">Viral Boost</h4>
+                                <p class="text-sm text-green-700">Most popular choice</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-900 mb-1">Pro Growth</h4>
+                                <p class="text-sm text-gray-600">Complete optimization</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">Each plan is customized to your specific budget and goals, with transparent pricing and clear deliverables.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-24 h-24 mx-auto mb-8 bg-purple-500 rounded-full flex items-center justify-center relative">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-gray-800 text-sm">3</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">We Run It Instantly</h3>
+                    <div class="text-left space-y-4">
+                        <p class="text-gray-600">Once you choose your plan and provide your username:</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>Payment is deducted from your wallet balance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>Order is sent to our premium SMM panel</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>Real followers and engagement start within 24-48 hours</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>You receive updates on your order progress</span>
+                            </li>
+                        </ul>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 mt-6">
+                            <p class="text-green-800 font-medium text-sm">No password required!</p>
+                            <p class="text-green-700 text-sm">We only need your public username/handle - completely safe and secure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+                Why Choose Our AI Approach?
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Personalized Strategy</h3>
+                        <p class="text-gray-600">Every plan is uniquely tailored to your niche, budget, and goals - not one-size-fits-all packages.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Transparent Pricing</h3>
+                        <p class="text-gray-600">Know exactly what you're paying for with clear pricing based on your budget and expected results.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Completely Safe</h3>
+                        <p class="text-gray-600">No passwords required - we only need your public profile information. Your account stays secure.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Real Results</h3>
+                        <p class="text-gray-600">Powered by premium SMM services that deliver real followers and genuine engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">
+                Ready to Get Started?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Join thousands of creators who've grown their social media with AI-powered strategies
+            </p>
+            <button onclick="window.location.href='/chat'" class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                Start Your Growth Journey
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-2xl font-bold text-primary mb-4">SMM AI</h3>
+                    <p class="text-gray-600 mb-4">AI-driven social media growth made simple. Get custom plans, instant results, and hands-free growth.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/1234567890" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            WhatsApp Support
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/how-it-works" class="text-gray-600 hover:text-primary">How It Works</a></li>
+                        <li><a href="/faq" class="text-gray-600 hover:text-primary">FAQ</a></li>
+                        <li><a href="/chat" class="text-gray-600 hover:text-primary">Start Growing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-600">support@smm-ai.com</li>
+                        <li><a href="/terms" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
+                        <li><a href="/privacy" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+                <p class="text-gray-600">&copy; 2024 SMM AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
