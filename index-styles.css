@@ -466,10 +466,27 @@ section {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: var(--font-extrabold);
+    text-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+    position: relative;
+}
+
+.gradient-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(2px);
+    opacity: 0.4;
+    z-index: -1;
 }
 
 .hero-description {
@@ -718,132 +735,167 @@ section {
 .platform-icon-float.tumblr { background: #001935; }
 .platform-icon-float.behance { background: #1769ff; }
 .platform-icon-float.dribbble { background: #ea4c89; }
+.platform-icon-float.threads { background: #000000; }
+.platform-icon-float.vimeo { background: #1ab7ea; }
+.platform-icon-float.github { background: #333333; }
+.platform-icon-float.skype { background: #00aff0; }
 
-/* Extensively Distributed Platform Positioning - Full Hero Coverage */
+/* Evenly Distributed Platform Positioning - Full Hero Coverage */
+/* Left Side Distribution */
 .platform-1 {
-    top: 8%;
-    left: 3%;
+    top: 12%;
+    left: 5%;
     animation-delay: 0s;
     animation-duration: 4s;
 }
 
-.platform-2 {
-    top: 15%;
-    right: 12%;
-    animation-delay: 0.3s;
-    animation-duration: 5.2s;
-}
-
 .platform-3 {
     top: 28%;
-    left: 1%;
+    left: 8%;
     animation-delay: 0.6s;
     animation-duration: 4.8s;
 }
 
-.platform-4 {
-    top: 35%;
-    right: 2%;
-    animation-delay: 0.9s;
-    animation-duration: 4.3s;
-}
-
 .platform-5 {
-    top: 52%;
-    left: 5%;
+    top: 45%;
+    left: 3%;
     animation-delay: 1.2s;
     animation-duration: 5.1s;
 }
 
-.platform-6 {
-    top: 48%;
-    right: 8%;
-    animation-delay: 1.5s;
-    animation-duration: 4.6s;
-}
-
 .platform-7 {
-    top: 68%;
-    left: 2%;
+    top: 62%;
+    left: 10%;
     animation-delay: 1.8s;
     animation-duration: 4.9s;
 }
 
-.platform-8 {
-    top: 72%;
-    right: 6%;
-    animation-delay: 2.1s;
-    animation-duration: 4.4s;
-}
-
 .platform-9 {
-    top: 85%;
-    left: 8%;
+    top: 78%;
+    left: 6%;
     animation-delay: 2.4s;
     animation-duration: 5.3s;
 }
 
-.platform-10 {
-    top: 88%;
-    right: 10%;
-    animation-delay: 2.7s;
-    animation-duration: 4.7s;
-}
-
 .platform-11 {
     top: 5%;
-    left: 18%;
+    left: 15%;
     animation-delay: 3s;
     animation-duration: 5s;
 }
 
-.platform-12 {
-    top: 3%;
-    right: 25%;
-    animation-delay: 3.3s;
-    animation-duration: 4.5s;
-}
-
 .platform-13 {
-    top: 22%;
-    left: 12%;
+    top: 35%;
+    left: 18%;
     animation-delay: 3.6s;
     animation-duration: 4.8s;
 }
 
-.platform-14 {
-    top: 42%;
-    right: 15%;
-    animation-delay: 3.9s;
-    animation-duration: 5.2s;
-}
-
 .platform-15 {
-    top: 58%;
-    left: 11%;
+    top: 68%;
+    left: 20%;
     animation-delay: 4.2s;
     animation-duration: 4.6s;
 }
 
-.platform-16 {
-    top: 78%;
-    right: 3%;
-    animation-delay: 4.5s;
-    animation-duration: 4.9s;
-}
-
 .platform-17 {
-    top: 92%;
-    left: 15%;
+    top: 85%;
+    left: 12%;
     animation-delay: 4.8s;
     animation-duration: 5.1s;
 }
 
+/* Right Side Distribution */
+.platform-2 {
+    top: 8%;
+    right: 7%;
+    animation-delay: 0.3s;
+    animation-duration: 5.2s;
+}
+
+.platform-4 {
+    top: 25%;
+    right: 12%;
+    animation-delay: 0.9s;
+    animation-duration: 4.3s;
+}
+
+.platform-6 {
+    top: 42%;
+    right: 5%;
+    animation-delay: 1.5s;
+    animation-duration: 4.6s;
+}
+
+.platform-8 {
+    top: 58%;
+    right: 15%;
+    animation-delay: 2.1s;
+    animation-duration: 4.4s;
+}
+
+.platform-10 {
+    top: 75%;
+    right: 8%;
+    animation-delay: 2.7s;
+    animation-duration: 4.7s;
+}
+
+.platform-12 {
+    top: 15%;
+    right: 20%;
+    animation-delay: 3.3s;
+    animation-duration: 4.5s;
+}
+
+.platform-14 {
+    top: 52%;
+    right: 25%;
+    animation-delay: 3.9s;
+    animation-duration: 5.2s;
+}
+
+.platform-16 {
+    top: 88%;
+    right: 10%;
+    animation-delay: 4.5s;
+    animation-duration: 4.9s;
+}
+
 .platform-18 {
-    top: 12%;
-    right: 4%;
+    top: 32%;
+    right: 3%;
     animation-delay: 5.1s;
     animation-duration: 4.7s;
+}
+
+/* Additional platforms for complete coverage */
+.platform-19 {
+    top: 18%;
+    left: 25%;
+    animation-delay: 5.4s;
+    animation-duration: 4.3s;
+}
+
+.platform-20 {
+    top: 55%;
+    left: 16%;
+    animation-delay: 5.7s;
+    animation-duration: 5.4s;
+}
+
+.platform-21 {
+    top: 38%;
+    right: 18%;
+    animation-delay: 6s;
+    animation-duration: 4.8s;
+}
+
+.platform-22 {
+    top: 65%;
+    right: 22%;
+    animation-delay: 6.3s;
+    animation-duration: 5.1s;
 }
 
 @keyframes floatPlatform {
