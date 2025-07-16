@@ -3242,10 +3242,34 @@ section {
   font-size: 1.7rem;
   box-shadow: 0 4px 16px rgba(80,40,200,0.10);
   transition: transform 0.3s, box-shadow 0.3s;
-  background: #fff;
   color: #fff;
   opacity: 1;
 }
+
+/* Platform Colors for floating-platforms-all */
+.floating-platforms-all .platform-icon-float.instagram { background: linear-gradient(135deg, #fd5949, #d6249f); }
+.floating-platforms-all .platform-icon-float.tiktok { background: #000000; }
+.floating-platforms-all .platform-icon-float.youtube { background: #ff0000; }
+.floating-platforms-all .platform-icon-float.twitter { background: #1da1f2; }
+.floating-platforms-all .platform-icon-float.linkedin { background: #0077b5; }
+.floating-platforms-all .platform-icon-float.facebook { background: #1877f2; }
+.floating-platforms-all .platform-icon-float.spotify { background: #1db954; }
+.floating-platforms-all .platform-icon-float.discord { background: #5865f2; }
+.floating-platforms-all .platform-icon-float.twitch { background: #9146ff; }
+.floating-platforms-all .platform-icon-float.snapchat { background: #fffc00; color: #000; }
+.floating-platforms-all .platform-icon-float.pinterest { background: #bd081c; }
+.floating-platforms-all .platform-icon-float.reddit { background: #ff4500; }
+.floating-platforms-all .platform-icon-float.telegram { background: #0088cc; }
+.floating-platforms-all .platform-icon-float.whatsapp { background: #25d366; }
+.floating-platforms-all .platform-icon-float.medium { background: #000000; }
+.floating-platforms-all .platform-icon-float.tumblr { background: #001935; }
+.floating-platforms-all .platform-icon-float.behance { background: #1769ff; }
+.floating-platforms-all .platform-icon-float.dribbble { background: #ea4c89; }
+.floating-platforms-all .platform-icon-float.threads { background: #000000; }
+.floating-platforms-all .platform-icon-float.vimeo { background: #1ab7ea; }
+.floating-platforms-all .platform-icon-float.github { background: #333333; }
+.floating-platforms-all .platform-icon-float.skype { background: #00aff0; }
+.floating-platforms-all .platform-icon-float.soundcloud { background: #ff5500; }
 .floating-platforms-all .platform-icon-float:hover {
   transform: scale(1.12);
   box-shadow: 0 8px 32px rgba(80,40,200,0.18);
@@ -3255,42 +3279,69 @@ section {
   .floating-platforms-all .floating-platform { display: none; }
 }
 
-/* Hero text clarity and impact */
+/* Hero text clarity and impact - Enhanced */
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 3.8rem;
+  font-weight: 900;
   line-height: 1.1;
-  color: #18123b;
-  letter-spacing: -0.02em;
+  color: #1a1433;
+  letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 8px rgba(80,40,200,0.08);
+  text-shadow: 0 4px 12px rgba(26, 20, 51, 0.15);
+  font-family: var(--font-display);
+  position: relative;
+  z-index: 3;
 }
+
 .gradient-text {
-  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 35%, #a855f7 70%, #c084fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 900;
-  text-shadow: 0 4px 16px rgba(139, 92, 246, 0.18);
   position: relative;
+  display: inline-block;
+  text-shadow: none;
 }
+
+.gradient-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 35%, #a855f7 70%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(3px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
 .hero-description {
-  font-size: 1.25rem;
-  color: #3a3551;
-  font-weight: 500;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  color: #2a2240;
+  font-weight: 600;
+  line-height: 1.65;
   margin-bottom: 2.5rem;
-  text-shadow: 0 1px 4px rgba(80,40,200,0.06);
+  text-shadow: 0 2px 6px rgba(42, 34, 64, 0.1);
+  max-width: 550px;
+  position: relative;
+  z-index: 3;
 }
+
 .hero-badge {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  background: linear-gradient(90deg, #ede9fe 0%, #f3e8ff 100%);
-  color: #6d28d9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #f3e8ff 0%, #ede9fe 100%);
+  color: #7c3aed;
   border-radius: 999px;
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.4rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(80,40,200,0.06);
-  border: none;
+  box-shadow: 0 3px 12px rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  position: relative;
+  z-index: 3;
 }
