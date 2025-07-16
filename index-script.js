@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeInteractiveElements();
     initializeHeroAnimations();
+    initializeHowItWorksInteractions();
+    initializeCounterAnimations();
 });
 
 
@@ -413,8 +415,433 @@ document.addEventListener('keydown', function(e) {
 
 console.log('✅ SMM AI Modern JavaScript Loaded Successfully');
 
+// ================================
+// How It Works Interactions
+// ================================
+
+function initializeHowItWorksInteractions() {
+    const flowSteps = document.querySelectorAll('.flow-step');
+    
+    flowSteps.forEach((step, index) => {
+        step.addEventListener('click', function() {
+            // Remove active class from all steps
+            flowSteps.forEach(s => s.classList.remove('active'));
+            // Add active class to clicked step
+            this.classList.add('active');
+            
+            // Update demo metrics based on step
+            updateDemoMetrics(index + 1);
+        });
+        
+        // Auto-advance steps
+        setTimeout(() => {
+            flowSteps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
+            updateDemoMetrics(index + 1);
+        }, (index + 1) * 3000);
+    });
+}
+
+function updateDemoMetrics(step) {
+    const followersEl = document.getElementById('followersCount');
+    const engagementEl = document.getElementById('engagementRate');
+    const reachEl = document.getElementById('reachCount');
+    
+    if (!followersEl || !engagementEl || !reachEl) return;
+    
+    const metrics = {
+        1: { followers: '1,247', engagement: '8.4%', reach: '47.2K' },
+        2: { followers: '3,891', engagement: '12.7%', reach: '156.8K' },
+        3: { followers: '12,456', engagement: '18.3%', reach: '487.2K' },
+        4: { followers: '45,789', engagement: '24.9%', reach: '1.2M' }
+    };
+    
+    const stepMetrics = metrics[step] || metrics[1];
+    
+    // Animate the changes
+    animateText(followersEl, stepMetrics.followers);
+    animateText(engagementEl, stepMetrics.engagement);
+    animateText(reachEl, stepMetrics.reach);
+}
+
+function animateText(element, newText) {
+    element.style.transform = 'scale(0.8)';
+    element.style.opacity = '0.5';
+    
+    setTimeout(() => {
+        element.textContent = newText;
+        element.style.transform = 'scale(1)';
+        element.style.opacity = '1';
+    }, 150);
+}
+
+// ================================
+// Counter Animations
+// ================================
+
+function initializeCounterAnimations() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}
+
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+    }, 16);
+}
+
+// ================================
+// Testimonials Interactive Features
+// ================================
+
+function initializeTestimonialsSection() {
+    initializeTestimonialsCarousel();
+    initializeTestimonialsFilters();
+    initializeLiveSuccessCounter();
+    initializeSuccessWallAnimations();
+}
+
+function initializeTestimonialsCarousel() {
+    const testimonialTrack = document.getElementById('testimonialTrack');
+    const prevBtn = document.getElementById('prevTestimonial');
+    const nextBtn = document.getElementById('nextTestimonial');
+    const dotsContainer = document.getElementById('carouselDots');
+    
+    if (!testimonialTrack || !prevBtn || !nextBtn || !dotsContainer) {
+        console.warn('Testimonials carousel elements not found');
+        return;
+    }
+    
+    const slides = testimonialTrack.querySelectorAll('.testimonial-slide');
+    let currentSlide = 0;
+    let autoplayInterval;
+    
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+    
+    function updateSlide() {
+        const slideWidth = 100;
+        testimonialTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update button states
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === slides.length - 1;
+        
+        // Add slide entrance animation
+        slides[currentSlide].style.animation = 'slideInUp 0.6s ease-out';
+        setTimeout(() => {
+            slides[currentSlide].style.animation = '';
+        }, 600);
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlide();
+        resetAutoplay();
+    }
+    
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            updateSlide();
+        } else {
+            currentSlide = 0;
+            updateSlide();
+        }
+        resetAutoplay();
+    }
+    
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlide();
+        }
+        resetAutoplay();
+    }
+    
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            nextSlide();
+        }, 7000); // Change slide every 7 seconds
+    }
+    
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    testimonialTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    testimonialTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeThreshold = 50;
+        
+        if (touchStartX - touchEndX > swipeThreshold) {
+            nextSlide(); // Swipe left
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            prevSlide(); // Swipe right
+        }
+    });
+    
+    // Initialize
+    updateSlide();
+    startAutoplay();
+    
+    // Pause autoplay on hover
+    testimonialTrack.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    testimonialTrack.addEventListener('mouseleave', startAutoplay);
+}
+
+function initializeTestimonialsFilters() {
+    const filters = document.querySelectorAll('.testimonial-filter');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    
+    if (!filters.length || !slides.length) {
+        console.warn('Testimonials filter elements not found');
+        return;
+    }
+    
+    filters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active filter
+            filters.forEach(f => f.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter slides with animation
+            slides.forEach((slide, index) => {
+                const slideCategory = slide.getAttribute('data-category');
+                const shouldShow = category === 'all' || slideCategory === category;
+                
+                if (shouldShow) {
+                    slide.style.display = 'block';
+                    slide.style.animation = 'fadeInUp 0.5s ease-out';
+                } else {
+                    slide.style.animation = 'fadeOut 0.3s ease-out';
+                    setTimeout(() => {
+                        slide.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Track interaction
+            trackInteraction('testimonials_filter', category);
+        });
+    });
+}
+
+function initializeLiveSuccessCounter() {
+    const milestones = document.getElementById('liveMilestones');
+    const revenue = document.getElementById('liveRevenue');
+    const growth = document.getElementById('liveGrowth');
+    
+    if (!milestones || !revenue || !growth) {
+        console.warn('Live success counter elements not found');
+        return;
+    }
+    
+    // Base values
+    const baseValues = {
+        milestones: 847,
+        revenue: 2.8,
+        growth: 125
+    };
+    
+    function updateLiveCounters() {
+        // Add small random increments to simulate real-time updates
+        const milestonesIncrement = Math.floor(Math.random() * 3) + 1;
+        const revenueIncrement = (Math.random() * 0.1).toFixed(1);
+        const growthIncrement = Math.floor(Math.random() * 5) + 2;
+        
+        // Update milestones
+        const currentMilestones = parseInt(milestones.textContent) || baseValues.milestones;
+        const newMilestones = currentMilestones + milestonesIncrement;
+        animateCounterChange(milestones, newMilestones);
+        
+        // Update revenue
+        const currentRevenue = parseFloat(revenue.textContent.replace('$', '').replace('M', '')) || baseValues.revenue;
+        const newRevenue = (currentRevenue + parseFloat(revenueIncrement)).toFixed(1);
+        animateCounterChange(revenue, `$${newRevenue}M`);
+        
+        // Update growth
+        const currentGrowth = parseInt(growth.textContent.replace('M', '')) || baseValues.growth;
+        const newGrowth = currentGrowth + growthIncrement;
+        animateCounterChange(growth, `${newGrowth}M`);
+    }
+    
+    function animateCounterChange(element, newValue) {
+        element.style.transform = 'scale(1.1)';
+        element.style.color = '#10b981'; // Green flash
+        
+        setTimeout(() => {
+            element.textContent = newValue;
+            element.style.transform = 'scale(1)';
+            element.style.color = '';
+        }, 200);
+    }
+    
+    // Start live updates
+    setInterval(updateLiveCounters, 8000); // Update every 8 seconds
+    
+    // Initial animation after page load
+    setTimeout(() => {
+        updateLiveCounters();
+    }, 2000);
+}
+
+function initializeSuccessWallAnimations() {
+    const successCards = document.querySelectorAll('.success-card');
+    
+    if (!successCards.length) {
+        console.warn('Success wall cards not found');
+        return;
+    }
+    
+    // Intersection Observer for staggered animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.animation = 'slideInUp 0.6s ease-out';
+                    entry.target.style.opacity = '1';
+                }, index * 100); // Stagger by 100ms
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    successCards.forEach(card => {
+        card.style.opacity = '0';
+        observer.observe(card);
+    });
+    
+    // Add hover sound effect simulation
+    successCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-4px) scale(1)';
+        });
+    });
+}
+
+// Add required CSS animations dynamically if not present
+function addTestimonialsAnimations() {
+    if (document.getElementById('testimonials-animations')) return;
+    
+    const style = document.createElement('style');
+    style.id = 'testimonials-animations';
+    style.textContent = `
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        
+        .testimonial-slide {
+            animation-fill-mode: both;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Initialize testimonials when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    addTestimonialsAnimations();
+    initializeTestimonialsSection();
+});
+
 // Export functions for potential external use
 window.SmmAi = {
     toggleMobileMenu,
-    trackInteraction
+    trackInteraction,
+    updateDemoMetrics,
+    initializeTestimonialsSection
 }; 
