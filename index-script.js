@@ -494,7 +494,7 @@ function initializeFloatingSocialLogos() {
             else if (iconClass.includes('tiktok')) platform = 'TikTok';
             else if (iconClass.includes('youtube')) platform = 'YouTube';
             else if (iconClass.includes('facebook')) platform = 'Facebook';
-            else if (iconClass.includes('x-twitter')) platform = 'X';
+            else if (iconClass.includes('x-logo') || logo.querySelector('.x-logo')) platform = 'X';
             else if (iconClass.includes('linkedin')) platform = 'LinkedIn';
             else if (iconClass.includes('spotify')) platform = 'Spotify';
             else if (iconClass.includes('discord')) platform = 'Discord';
