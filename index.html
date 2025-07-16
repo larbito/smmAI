@@ -3,129 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 SMM AI Assistant - Grow Your Socials Fast</title>
+    <title>SMM AI - Professional Social Media Growth Platform</title>
+    <meta name="description" content="AI-powered social media management platform. Grow your audience across 15+ platforms with smart automation and real engagement.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="index-styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <meta name="description" content="Smart social media growth plans powered by AI and real SMM services. Get real followers, likes, and engagement fast.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 </head>
 <body>
-    <!-- Floating Emoji Background -->
-    <div class="floating-emojis">
-        <span class="emoji float-1">🚀</span>
-        <span class="emoji float-2">📷</span>
-        <span class="emoji float-3">🎵</span>
-        <span class="emoji float-4">💸</span>
-        <span class="emoji float-5">⚡</span>
-        <span class="emoji float-6">📈</span>
-        <span class="emoji float-7">🔥</span>
-        <span class="emoji float-8">💎</span>
-        <span class="emoji float-9">🎯</span>
-        <span class="emoji float-10">✨</span>
-    </div>
-
-    <!-- Animated Background Particles -->
-    <div id="particles-canvas"></div>
-
-    <!-- Modern Professional Header -->
-    <header class="header">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <div class="logo-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <span class="logo-text">SMM<span class="logo-highlight">AI</span></span>
-            </a>
-            
-            <nav class="nav-menu">
-                <a href="#home" class="nav-link">
-                    <i class="fas fa-home nav-icon"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#platforms" class="nav-link">
-                    <i class="fas fa-rocket nav-icon"></i>
-                    <span>Platforms</span>
-                </a>
-                <a href="#features" class="nav-link">
-                    <i class="fas fa-star nav-icon"></i>
-                    <span>Features</span>
-                </a>
-                <a href="dashboard.html" class="nav-link nav-link-special">
-                    <i class="fas fa-chart-line nav-icon"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="login.html" class="nav-link">
-                    <i class="fas fa-sign-in-alt nav-icon"></i>
-                    <span>Sign In</span>
-                </a>
-                <a href="register.html" class="nav-link cta-nav">
-                    <i class="fas fa-user-plus nav-icon"></i>
-                    <span>Get Started</span>
-                </a>
-            </nav>
-            
-            <!-- Clean Theme Toggle -->
-            <div class="theme-toggle" id="themeToggle">
-                <div class="toggle-track">
-                    <div class="toggle-thumb">
-                        <i class="fas fa-sun toggle-icon sun-icon"></i>
-                        <i class="fas fa-moon toggle-icon moon-icon"></i>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="#" class="nav-logo">
+                    <div class="logo-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="16" fill="url(#gradient)"/>
+                            <path d="M12 20L20 12M20 12H14M20 12V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#6366f1"/>
+                                    <stop offset="100%" style="stop-color:#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </div>
+                    <span class="logo-text">SMM<span class="logo-accent">AI</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#platforms" class="nav-link">Platforms</a>
+                    <a href="#testimonials" class="nav-link">Reviews</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
                 </div>
+
+                <!-- Auth Buttons -->
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-ghost">Sign In</a>
+                    <a href="register.html" class="btn btn-primary">Get Started</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="#home" class="mobile-nav-link">Home</a>
+                <a href="#features" class="mobile-nav-link">Features</a>
+                <a href="#platforms" class="mobile-nav-link">Platforms</a>
+                <a href="#testimonials" class="mobile-nav-link">Reviews</a>
+                <a href="#pricing" class="mobile-nav-link">Pricing</a>
+                <div class="mobile-nav-divider"></div>
+                <a href="login.html" class="mobile-nav-link">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Get Started</a>
             </div>
         </div>
     </header>
 
-    <!-- Clean Professional Hero -->
-    <section id="home" class="hero section-lg">
-        <div class="container">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
             <div class="hero-content">
+                <!-- Badge -->
                 <div class="hero-badge">
-                    <i class="fas fa-rocket"></i>
-                    <span>AI-Powered Growth</span>
+                    <i class="fas fa-sparkles"></i>
+                    <span>AI-Powered Growth Engine</span>
                 </div>
-                
+
+                <!-- Main Heading -->
                 <h1 class="hero-title">
-                    Transform Your Social Media 
-                    <span class="title-highlight">with Smart AI</span>
+                    Scale Your Social Media 
+                    <span class="gradient-text">with Smart AI</span>
                 </h1>
-                
+
+                <!-- Description -->
                 <p class="hero-description">
-                    Get AI-generated growth strategies, real followers, and authentic engagement 
-                    across 15+ platforms. Professional social media management made simple.
+                    Transform your social presence with AI-driven strategies. Get real followers, 
+                    engagement, and growth across 15+ platforms. Professional results, simplified process.
                 </p>
-                
+
+                <!-- CTA Buttons -->
                 <div class="hero-actions">
-                    <a href="register.html" class="btn btn-primary">
+                    <a href="register.html" class="btn btn-primary btn-lg">
                         <i class="fas fa-rocket"></i>
                         <span>Start Growing Now</span>
                     </a>
-                    <a href="dashboard.html" class="btn btn-secondary">
-                        <i class="fas fa-chart-line"></i>
-                        <span>View Demo</span>
+                    <a href="dashboard.html" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-play"></i>
+                        <span>Watch Demo</span>
                     </a>
                 </div>
-                
+
+                <!-- Trust Indicators -->
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">10K+</div>
+                    <div class="stat">
+                        <div class="stat-number">50K+</div>
                         <div class="stat-label">Active Users</div>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
+                    <div class="stat">
                         <div class="stat-number">15+</div>
                         <div class="stat-label">Platforms</div>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Success Rate</div>
+                    <div class="stat">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <div class="dashboard-dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <div class="dashboard-title">SMM AI Dashboard</div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="growth-chart">
+                            <div class="chart-bars">
+                                <div class="bar" style="height: 20%"></div>
+                                <div class="bar" style="height: 35%"></div>
+                                <div class="bar" style="height: 55%"></div>
+                                <div class="bar" style="height: 70%"></div>
+                                <div class="bar" style="height: 85%"></div>
+                                <div class="bar" style="height: 100%"></div>
+                            </div>
+                            <div class="growth-label">+245% Growth</div>
+                        </div>
+                        <div class="platform-icons">
+                            <div class="platform-icon"><i class="fab fa-instagram"></i></div>
+                            <div class="platform-icon"><i class="fab fa-tiktok"></i></div>
+                            <div class="platform-icon"><i class="fab fa-youtube"></i></div>
+                            <div class="platform-icon"><i class="fab fa-twitter"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Floating Elements -->
+                <div class="floating-elements">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-users"></i>
+                        <span>+2.5K followers</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-heart"></i>
+                        <span>+15K likes</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-share"></i>
+                        <span>+890 shares</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Elements -->
+        <div class="hero-bg">
+            <div class="grid-pattern"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-magic"></i>
+                    <span>Core Features</span>
+                </div>
+                <h2 class="section-title">Everything You Need to Grow</h2>
+                <p class="section-description">
+                    Powerful AI tools and automation to scale your social media presence efficiently
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Strategy Generation</h3>
+                    <p>Advanced algorithms analyze your niche and competition to create personalized growth strategies that actually work.</p>
+                    <div class="feature-highlight">
+                        <span>GPT-4 Powered</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Real Audience Growth</h3>
+                    <p>Connect with authentic users in your target market. No bots, no fake accounts - just real people interested in your content.</p>
+                    <div class="feature-highlight">
+                        <span>100% Authentic</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Smart Analytics</h3>
+                    <p>Track your growth with detailed insights and performance metrics. Understand what works and optimize accordingly.</p>
+                    <div class="feature-highlight">
+                        <span>Real-time Data</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Automation Engine</h3>
+                    <p>Set up campaigns once and let our automation handle the execution. Save time while maintaining consistent growth.</p>
+                    <div class="feature-highlight">
+                        <span>Set & Forget</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Account Safety</h3>
+                    <p>Platform-compliant growth methods ensure your accounts stay safe. We follow all terms of service and best practices.</p>
+                    <div class="feature-highlight">
+                        <span>Risk-Free</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it. Our expert team is available around the clock to assist with your growth journey.</p>
+                    <div class="feature-highlight">
+                        <span>Always Available</span>
                     </div>
                 </div>
             </div>
@@ -133,60 +288,68 @@
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
+    <section class="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What This Site Does</h2>
-                <p class="section-subtitle">Get results in 4 simple steps</p>
+                <div class="section-badge">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Simple Process</span>
+                </div>
+                <h2 class="section-title">How SMM AI Works</h2>
+                <p class="section-description">
+                    Get started in minutes with our simple 4-step process
+                </p>
             </div>
-            
-            <div class="steps-timeline">
-                <div class="step-card" data-step="1">
-                    <div class="step-icon">
-                        <span class="step-emoji">🎯</span>
-                        <div class="step-number">01</div>
-                    </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3>Choose a Platform</h3>
-                        <p>Select from Instagram, TikTok, YouTube, and 12+ other platforms</p>
+                        <div class="step-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h3>Choose Your Platform</h3>
+                        <p>Select from Instagram, TikTok, YouTube, Twitter, and 11+ other social platforms where you want to grow.</p>
                     </div>
-                    <div class="step-glow"></div>
                 </div>
 
-                <div class="step-card" data-step="2">
-                    <div class="step-icon">
-                        <span class="step-emoji">🧠</span>
-                        <div class="step-number">02</div>
-                    </div>
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3>Tell AI Your Goal & Budget</h3>
-                        <p>Describe your target audience, follower goals, and available budget</p>
+                        <div class="step-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Analyzes Your Niche</h3>
+                        <p>Our AI studies your content, audience, and competition to understand your unique growth opportunities.</p>
                     </div>
-                    <div class="step-glow"></div>
                 </div>
 
-                <div class="step-card" data-step="3">
-                    <div class="step-icon">
-                        <span class="step-emoji">📈</span>
-                        <div class="step-number">03</div>
-                    </div>
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3>Get a Smart Plan Instantly</h3>
-                        <p>AI creates a personalized growth strategy optimized for your budget</p>
+                        <div class="step-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h3>Get Custom Strategy</h3>
+                        <p>Receive a personalized growth plan with specific tactics, budget allocation, and timeline for your goals.</p>
                     </div>
-                    <div class="step-glow"></div>
                 </div>
 
-                <div class="step-card" data-step="4">
-                    <div class="step-icon">
-                        <span class="step-emoji">🔥</span>
-                        <div class="step-number">04</div>
-                    </div>
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">04</div>
                     <div class="step-content">
-                        <h3>Launch It Automatically</h3>
-                        <p>Sit back and watch as real SMM services boost your social presence</p>
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Watch Your Growth</h3>
+                        <p>Sit back and watch as our automation executes your strategy, delivering real followers and engagement.</p>
                     </div>
-                    <div class="step-glow"></div>
                 </div>
             </div>
         </div>
@@ -196,168 +359,141 @@
     <section id="platforms" class="platforms">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">✅ Platforms We Support</h2>
-                <p class="section-subtitle">15+ social media platforms and growing</p>
+                <div class="section-badge">
+                    <i class="fas fa-globe"></i>
+                    <span>15+ Platforms</span>
+                </div>
+                <h2 class="section-title">Grow Everywhere Your Audience Is</h2>
+                <p class="section-description">
+                    Support for all major social media platforms with specialized strategies for each
+                </p>
             </div>
 
             <div class="platforms-grid">
                 <div class="platform-card" data-platform="instagram">
-                    <div class="platform-icon">
-                        <i class="fab fa-instagram"></i>
+                    <div class="platform-header">
+                        <div class="platform-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="platform-info">
+                            <h3>Instagram</h3>
+                            <span>Visual Storytelling</span>
+                        </div>
                     </div>
-                    <span class="platform-name">Instagram</span>
+                    <p>Grow your Instagram with authentic followers, likes, and story views. Perfect for creators and businesses.</p>
+                    <div class="platform-features">
+                        <span>Followers</span>
+                        <span>Likes</span>
+                        <span>Views</span>
+                        <span>Comments</span>
+                    </div>
                 </div>
 
                 <div class="platform-card" data-platform="tiktok">
-                    <div class="platform-icon">
-                        <i class="fab fa-tiktok"></i>
+                    <div class="platform-header">
+                        <div class="platform-icon tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <div class="platform-info">
+                            <h3>TikTok</h3>
+                            <span>Viral Content</span>
+                        </div>
                     </div>
-                    <span class="platform-name">TikTok</span>
+                    <p>Boost your TikTok presence with real followers and views. Get on the For You page faster.</p>
+                    <div class="platform-features">
+                        <span>Followers</span>
+                        <span>Views</span>
+                        <span>Likes</span>
+                        <span>Shares</span>
+                    </div>
                 </div>
 
                 <div class="platform-card" data-platform="youtube">
-                    <div class="platform-icon">
-                        <i class="fab fa-youtube"></i>
+                    <div class="platform-header">
+                        <div class="platform-icon youtube">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="platform-info">
+                            <h3>YouTube</h3>
+                            <span>Video Content</span>
+                        </div>
                     </div>
-                    <span class="platform-name">YouTube</span>
-                </div>
-
-                <div class="platform-card" data-platform="facebook">
-                    <div class="platform-icon">
-                        <i class="fab fa-facebook"></i>
+                    <p>Grow your YouTube channel with subscribers, views, and watch time. Monetize faster.</p>
+                    <div class="platform-features">
+                        <span>Subscribers</span>
+                        <span>Views</span>
+                        <span>Watch Time</span>
+                        <span>Likes</span>
                     </div>
-                    <span class="platform-name">Facebook</span>
                 </div>
 
                 <div class="platform-card" data-platform="twitter">
-                    <div class="platform-icon">
-                        <span class="x-logo">𝕏</span>
+                    <div class="platform-header">
+                        <div class="platform-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="platform-info">
+                            <h3>Twitter / X</h3>
+                            <span>Real-time Updates</span>
+                        </div>
                     </div>
-                    <span class="platform-name">X (Twitter)</span>
+                    <p>Build your Twitter following with real users interested in your content and expertise.</p>
+                    <div class="platform-features">
+                        <span>Followers</span>
+                        <span>Retweets</span>
+                        <span>Likes</span>
+                        <span>Replies</span>
+                    </div>
                 </div>
 
                 <div class="platform-card" data-platform="linkedin">
-                    <div class="platform-icon">
-                        <i class="fab fa-linkedin"></i>
+                    <div class="platform-header">
+                        <div class="platform-icon linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="platform-info">
+                            <h3>LinkedIn</h3>
+                            <span>Professional Network</span>
+                        </div>
                     </div>
-                    <span class="platform-name">LinkedIn</span>
-                </div>
-
-                <div class="platform-card" data-platform="spotify">
-                    <div class="platform-icon">
-                        <i class="fab fa-spotify"></i>
+                    <p>Expand your professional network with relevant connections and boost your personal brand.</p>
+                    <div class="platform-features">
+                        <span>Connections</span>
+                        <span>Likes</span>
+                        <span>Comments</span>
+                        <span>Shares</span>
                     </div>
-                    <span class="platform-name">Spotify</span>
                 </div>
 
-                <div class="platform-card" data-platform="discord">
-                    <div class="platform-icon">
-                        <i class="fab fa-discord"></i>
+                <div class="platform-card" data-platform="facebook">
+                    <div class="platform-header">
+                        <div class="platform-icon facebook">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="platform-info">
+                            <h3>Facebook</h3>
+                            <span>Community Building</span>
+                        </div>
                     </div>
-                    <span class="platform-name">Discord</span>
-                </div>
-
-                <div class="platform-card" data-platform="telegram">
-                    <div class="platform-icon">
-                        <i class="fab fa-telegram"></i>
+                    <p>Build communities and increase engagement on your Facebook page or profile.</p>
+                    <div class="platform-features">
+                        <span>Page Likes</span>
+                        <span>Post Likes</span>
+                        <span>Comments</span>
+                        <span>Shares</span>
                     </div>
-                    <span class="platform-name">Telegram</span>
                 </div>
 
-                <div class="platform-card" data-platform="twitch">
-                    <div class="platform-icon">
-                        <i class="fab fa-twitch"></i>
+                <!-- More Platforms Button -->
+                <div class="platform-card more-platforms">
+                    <div class="more-content">
+                        <div class="more-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3>+9 More Platforms</h3>
+                        <p>Spotify, Discord, Telegram, Twitch, Snapchat, Pinterest, Reddit, and more...</p>
+                        <a href="dashboard.html" class="btn btn-outline">View All Platforms</a>
                     </div>
-                    <span class="platform-name">Twitch</span>
-                </div>
-
-                <div class="platform-card" data-platform="snapchat">
-                    <div class="platform-icon">
-                        <i class="fab fa-snapchat"></i>
-                    </div>
-                    <span class="platform-name">Snapchat</span>
-                </div>
-
-                <div class="platform-card" data-platform="google">
-                    <div class="platform-icon">
-                        <i class="fab fa-google"></i>
-                    </div>
-                    <span class="platform-name">Google</span>
-                </div>
-
-                <div class="platform-card" data-platform="kick">
-                    <div class="platform-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <span class="platform-name">Kick</span>
-                </div>
-
-                <div class="platform-card" data-platform="website-traffic">
-                    <div class="platform-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <span class="platform-name">Website Traffic</span>
-                </div>
-
-                <div class="platform-card" data-platform="reviews">
-                    <div class="platform-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <span class="platform-name">Reviews</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Use SMM-AI?</h2>
-                <p class="section-subtitle">The smartest way to grow your social media</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Smart Planning Using GPT</h3>
-                    <p>Advanced AI analyzes your niche and creates personalized growth strategies</p>
-                    <div class="feature-glow"></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Real Traffic & Followers</h3>
-                    <p>Authentic engagement from real users, not bots or fake accounts</p>
-                    <div class="feature-glow"></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Budget-Friendly Suggestions</h3>
-                    <p>Optimize your spending with cost-effective strategies that deliver results</p>
-                    <div class="feature-glow"></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>No Guesswork — Just Results</h3>
-                    <p>Data-driven recommendations based on proven SMM panel performance</p>
-                    <div class="feature-glow"></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Automated Launch</h3>
-                    <p>Set it and forget it - our system handles campaign execution automatically</p>
-                    <div class="feature-glow"></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Safe & Secure</h3>
-                    <p>Privacy-first approach with secure payment processing and data protection</p>
-                    <div class="feature-glow"></div>
                 </div>
             </div>
         </div>
@@ -367,97 +503,88 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Our Users Are Saying</h2>
-                <p class="section-subtitle">Real results from real creators using SMM-AI</p>
+                <div class="section-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Success Stories</span>
+                </div>
+                <h2 class="section-title">Trusted by Creators Worldwide</h2>
+                <p class="section-description">
+                    See how SMM AI has transformed social media growth for thousands of users
+                </p>
             </div>
-            
+
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"SMM-AI helped me grow my Instagram from 2K to 50K followers in just 3 months! The AI recommendations were spot-on and the results were incredible."</p>
+                    <div class="testimonial-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="growth-badge">+125K followers</div>
                     </div>
+                    <blockquote>
+                        "SMM AI transformed my Instagram from 5K to 130K followers in just 4 months. The AI strategies were spot-on and the growth felt completely natural."
+                    </blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar">👩‍💼</div>
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b60a0b9a?w=64&h=64&fit=crop&crop=face" alt="Sarah Chen">
+                        </div>
                         <div class="author-info">
                             <h4>Sarah Chen</h4>
-                            <span>@sarahcreates • Instagram</span>
-                            <div class="growth-badge">+48K followers</div>
+                            <span>@sarahcreates • Fashion Creator</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"As a TikTok creator, I was struggling to get views. SMM-AI's smart targeting got me to 500K followers and my videos now regularly hit 1M+ views!"</p>
+                    <div class="testimonial-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="growth-badge">2M+ views</div>
                     </div>
+                    <blockquote>
+                        "My TikTok videos started getting millions of views after using SMM AI. The platform-specific strategies made all the difference."
+                    </blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar">👨‍🎨</div>
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" alt="Marcus Rodriguez">
+                        </div>
                         <div class="author-info">
                             <h4>Marcus Rodriguez</h4>
-                            <span>@marcusvibes • TikTok</span>
-                            <div class="growth-badge">+495K followers</div>
+                            <span>@marcusvibes • Content Creator</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"My YouTube channel was stuck at 10K subs for months. SMM-AI's strategy helped me reach 100K subscribers in just 6 weeks. Game changer!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💻</div>
-                        <div class="author-info">
-                            <h4>Alex Thompson</h4>
-                            <span>@alextech • YouTube</span>
-                            <div class="growth-badge">+90K subscribers</div>
+                    <div class="testimonial-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
+                        <div class="growth-badge">300% ROI</div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"The budget optimization feature is brilliant! I'm getting 3x more engagement for the same spend. My LinkedIn posts now reach 100K+ professionals."</p>
-                    </div>
+                    <blockquote>
+                        "The budget optimization feature is incredible. I'm getting 3x better results for the same ad spend. My business revenue has tripled."
+                    </blockquote>
                     <div class="testimonial-author">
-                        <div class="author-avatar">👩‍💼</div>
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=64&h=64&fit=crop&crop=face" alt="Emily Johnson">
+                        </div>
                         <div class="author-info">
                             <h4>Emily Johnson</h4>
-                            <span>@emilyjbiz • LinkedIn</span>
-                            <div class="growth-badge">+300% engagement</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"I tried other SMM tools but nothing compares to SMM-AI. The AI actually understands my niche and delivers real, engaged followers. Worth every penny!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👨‍🍳</div>
-                        <div class="author-info">
-                            <h4>David Miller</h4>
-                            <span>@chef_david • Multi-platform</span>
-                            <div class="growth-badge">+200K total followers</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"SMM-AI turned my side hustle into a full-time business. My follower quality improved dramatically and I'm now making 6 figures from my content!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👩‍🎤</div>
-                        <div class="author-info">
-                            <h4>Jessica Park</h4>
-                            <span>@jessicafitness • Instagram</span>
-                            <div class="growth-badge">6-figure income</div>
+                            <span>@emilyjbiz • Business Owner</span>
                         </div>
                     </div>
                 </div>
@@ -466,41 +593,39 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="signup" class="cta-section">
+    <section class="cta">
         <div class="container">
             <div class="cta-content">
                 <div class="cta-badge">
-                    <span class="badge-icon">🚀</span>
-                    <span>Ready to Join Them?</span>
+                    <i class="fas fa-rocket"></i>
+                    <span>Ready to Scale?</span>
                 </div>
+                <h2>Start Your Growth Journey Today</h2>
+                <p>Join 50,000+ creators who are already growing with SMM AI. No credit card required to start.</p>
                 
-                <h2>Start Your Social Media Growth Journey</h2>
-                <p>Join thousands of creators who are already growing with AI-powered strategies</p>
-                
-                <div class="cta-buttons">
-                    <a href="register.html" class="cta-btn primary">
-                        <span class="btn-icon">⚡</span>
-                        <span>Create Free Account</span>
-                        <div class="btn-glow"></div>
+                <div class="cta-actions">
+                    <a href="register.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-sparkles"></i>
+                        <span>Get Started Free</span>
                     </a>
-                    <a href="login.html" class="cta-btn secondary">
-                        <span class="btn-icon">🔐</span>
+                    <a href="login.html" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-sign-in-alt"></i>
                         <span>Sign In</span>
                     </a>
                 </div>
-                
+
                 <div class="cta-features">
-                    <div class="feature-check">
-                        <span class="check-icon">✅</span>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i>
                         <span>Free to start</span>
                     </div>
-                    <div class="feature-check">
-                        <span class="check-icon">✅</span>
-                        <span>No credit card required</span>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i>
+                        <span>No credit card needed</span>
                     </div>
-                    <div class="feature-check">
-                        <span class="check-icon">✅</span>
-                        <span>Instant access</span>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Cancel anytime</span>
                     </div>
                 </div>
             </div>
@@ -511,80 +636,83 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-main">
+                <div class="footer-brand">
                     <div class="footer-logo">
-                        <span class="logo-icon">🤖</span>
-                        <span class="logo-text">SMM-AI</span>
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="16" fill="url(#footerGradient)"/>
+                                <path d="M12 20L20 12M20 12H14M20 12V18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6366f1"/>
+                                        <stop offset="100%" style="stop-color:#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="logo-text">SMM<span class="logo-accent">AI</span></span>
                     </div>
-                    <p class="footer-description">AI-powered social media growth that actually works. Get real followers, likes, and engagement with smart automation.</p>
-                    <div class="footer-contact">
-                        <a href="mailto:support@smm-ai.com" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            support@smm-ai.com
+                    <p class="footer-description">
+                        AI-powered social media growth platform trusted by 50,000+ creators worldwide.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://wa.me/1234567890" class="contact-link whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp Support
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
-                    <div class="link-group">
+                    <div class="footer-column">
                         <h4>Product</h4>
-                        <a href="#how-it-works">How it Works</a>
+                        <a href="#features">Features</a>
                         <a href="#platforms">Platforms</a>
                         <a href="#pricing">Pricing</a>
-                        <a href="#api">API Access</a>
+                        <a href="dashboard.html">Dashboard</a>
                     </div>
-                    <div class="link-group">
+                    <div class="footer-column">
                         <h4>Support</h4>
                         <a href="#help">Help Center</a>
                         <a href="#contact">Contact Us</a>
-                        <a href="#tutorials">Tutorials</a>
-                        <a href="#status">System Status</a>
+                        <a href="#api">API Docs</a>
+                        <a href="#status">Status Page</a>
                     </div>
-                    <div class="link-group">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#press">Press</a>
+                    </div>
+                    <div class="footer-column">
                         <h4>Legal</h4>
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
-                        <a href="#refund">Refund Policy</a>
-                        <a href="#compliance">Compliance</a>
+                        <a href="#privacy">Privacy</a>
+                        <a href="#terms">Terms</a>
+                        <a href="#cookies">Cookies</a>
+                        <a href="#security">Security</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2024 SMM-AI. All rights reserved. Built with ❤️ for creators worldwide.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <p>&copy; 2024 SMM AI. All rights reserved.</p>
+                <div class="footer-meta">
+                    <span>Made with ❤️ for creators</span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal hidden">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="success-icon">🎉</div>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h3>Welcome to SMM-AI!</h3>
-                <p>Your account has been created successfully. Get ready to supercharge your social media growth!</p>
-                <div class="loading-progress">
-                    <div class="progress-bar"></div>
-                    <span class="progress-text">Preparing your dashboard...</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script src="index-script.js"></script>
 </body>
 </html> 
