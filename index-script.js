@@ -1,4 +1,4 @@
-// Futuristic SMM-AI JavaScript
+// Professional SMM-AI JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initializeParticles();
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeEnhancedTextAnimations();
     initializeSmoothScrolling();
     initializeAOS(); // Animate on Scroll
+    initializeThemeToggle(); // Theme switching
 });
 
 // Particle System for Background
@@ -95,9 +96,9 @@ function initializeScrollEffects() {
         
         // Header background effect
         if (currentScrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
         }
         
         // Parallax effect for floating emojis
@@ -109,14 +110,14 @@ function initializeScrollEffects() {
         
         lastScrollY = currentScrollY;
     });
-    
-    // Intersection Observer for animations
+
+// Intersection Observer for animations
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -126,13 +127,13 @@ function initializeScrollEffects() {
                 if (entry.target.classList.contains('step-card')) {
                     setTimeout(() => {
                         entry.target.style.transform = 'translateY(0) scale(1)';
-                        entry.target.style.opacity = '1';
+                entry.target.style.opacity = '1';
                     }, entry.target.dataset.step * 200);
                 }
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
     document.querySelectorAll('.step-card, .platform-card, .feature-card').forEach(el => {
         observer.observe(el);
@@ -218,8 +219,8 @@ function initializeMobileMenu() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.style.overflow = '';
-            });
         });
+    });
     }
 }
 
@@ -529,12 +530,12 @@ function createSocialRipple(element) {
         left: 50%;
         width: 0;
         height: 0;
-        border-radius: 50%;
+                border-radius: 50%;
         background: var(--primary-green);
         opacity: 0.3;
         transform: translate(-50%, -50%);
         animation: socialRipple 1s ease-out;
-        pointer-events: none;
+                pointer-events: none;
         z-index: -1;
     `;
     
@@ -786,7 +787,7 @@ function initializeFloatingEmojis() {
     
     emojis.forEach((emoji, index) => {
         // Add random gentle movement
-        setInterval(() => {
+    setInterval(() => {
             const randomX = (Math.random() - 0.5) * 20;
             const randomY = (Math.random() - 0.5) * 20;
             
@@ -1077,13 +1078,13 @@ function createConfetti() {
     
     // Add confetti animation
     if (!document.getElementById('confetti-styles')) {
-        const style = document.createElement('style');
+    const style = document.createElement('style');
         style.id = 'confetti-styles';
-        style.textContent = `
-            @keyframes confettiFall {
+    style.textContent = `
+        @keyframes confettiFall {
                 to {
                     transform: translateY(100vh) rotate(720deg);
-                    opacity: 0;
+                opacity: 0;
                 }
             }
         `;
@@ -1155,7 +1156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 (function() {
     // Track page load performance
     window.addEventListener('load', () => {
-        setTimeout(() => {
+    setTimeout(() => {
             // Add loaded class for enhanced animations
             document.body.classList.add('page-loaded');
             
@@ -1172,4 +1173,59 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add smooth scroll polyfill here if needed
         console.log('Smooth scroll not supported, consider adding polyfill');
     }
-})(); 
+})();
+
+// Theme Toggle Functionality
+function initializeThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    
+    // Get saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Apply saved theme
+    if (savedTheme === 'light') {
+        body.setAttribute('data-theme', 'light');
+    } else {
+        body.removeAttribute('data-theme');
+    }
+    
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = body.getAttribute('data-theme');
+        
+        if (currentTheme === 'light') {
+            // Switch to dark
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            // Switch to light
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+        
+        // Add transition effect
+        body.style.transition = 'background 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+    
+    // Add click event listener
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Add keyboard support
+        themeToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+                toggleTheme();
+            }
+        });
+        
+        // Make it focusable for accessibility
+        themeToggle.setAttribute('tabindex', '0');
+        themeToggle.setAttribute('role', 'button');
+        themeToggle.setAttribute('aria-label', 'Toggle dark/light theme');
+    }
+} 
