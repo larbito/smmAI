@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - SMM Strategy Assistant</title>
+    <meta name="description" content="Chat with AI to get your custom social media growth plan">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat-styles.css">
+</head>
+<body class="chat-page">
+    <!-- Header -->
+    <header class="chat-header">
+        <div class="chat-nav">
+            <a href="/" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+            
+            <div class="chat-title">
+                <div class="ai-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="title-content">
+                    <h1>SMM AI Assistant</h1>
+                    <span class="status">Online • Ready to help</span>
+                </div>
+            </div>
+            
+            <div class="chat-actions">
+                <button class="action-btn" onclick="clearChat()">
+                    <i class="fas fa-trash"></i>
+                    <span>Clear Chat</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Messages Area -->
+        <div class="messages-area" id="messagesArea">
+            <!-- Welcome Message -->
+            <div class="message ai-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="sender">SMM AI Assistant</span>
+                        <span class="timestamp">Just now</span>
+                    </div>
+                    <div class="message-text">
+                        <p>👋 Hi! I'm your AI Social Media Growth Assistant. I'll help you create a custom strategy to grow your social media presence.</p>
+                        <p>To get started, please tell me:</p>
+                        <ul>
+                            <li>What platform(s) you want to grow on</li>
+                            <li>Your current follower count</li>
+                            <li>Your budget</li>
+                            <li>Your growth goal</li>
+                        </ul>
+                        <p><strong>Example:</strong> "I have a food Instagram page with 12K followers and $50. I want to grow to 30K."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-container">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Describe your social media goals..." 
+                    rows="1"></textarea>
+                <button id="sendButton" class="send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <!-- Quick Start Buttons -->
+            <div class="quick-actions" id="quickActions">
+                <button class="quick-btn" onclick="selectQuickStart('instagram')">
+                    <i class="fab fa-instagram"></i>
+                    Instagram Growth
+                </button>
+                <button class="quick-btn" onclick="selectQuickStart('tiktok')">
+                    <i class="fab fa-tiktok"></i>
+                    TikTok Growth
+                </button>
+                <button class="quick-btn" onclick="selectQuickStart('youtube')">
+                    <i class="fab fa-youtube"></i>
+                    YouTube Growth
+                </button>
+                <button class="quick-btn" onclick="selectQuickStart('multiple')">
+                    <i class="fas fa-globe"></i>
+                    Multi-Platform
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strategy Modal -->
+    <div class="modal" id="strategyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Choose Your Growth Strategy</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="strategyOptions">
+                <!-- Strategy options will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Modal -->
+    <div class="modal" id="formModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Your Order</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="accountUsername">Account Username/Handle</label>
+                        <input type="text" id="accountUsername" name="accountUsername" placeholder="@yourusername" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="accountLink">Account Link</label>
+                        <input type="url" id="accountLink" name="accountLink" placeholder="https://instagram.com/yourusername" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="postLinks">Post Links (if applicable)</label>
+                        <textarea id="postLinks" name="postLinks" placeholder="Paste links to specific posts you want to boost (one per line)" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" name="additionalInfo" placeholder="Any specific requirements or preferences?" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-credit-card"></i>
+                            Complete Order
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Processing Your Order...</h3>
+            <p>We're setting up your growth campaign. This may take a few moments.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html> 
