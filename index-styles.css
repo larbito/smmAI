@@ -439,14 +439,17 @@ section {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-3) var(--space-5);
     background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
     color: var(--primary-700);
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semibold);
     margin-bottom: var(--space-6);
     border: 1px solid var(--primary-200);
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
 }
 
 
@@ -456,6 +459,10 @@ section {
     font-weight: var(--font-extrabold);
     line-height: var(--leading-tight);
     margin-bottom: var(--space-6);
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.025em;
 }
 
 .gradient-text {
@@ -470,6 +477,10 @@ section {
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-8);
+    max-width: 520px;
+    font-weight: var(--font-medium);
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .hero-actions {
@@ -630,21 +641,27 @@ section {
 }
 
 .card-1 {
-    top: 20%;
-    left: -10%;
+    top: 15%;
+    left: -12%;
     animation-delay: 0s;
 }
 
 .card-2 {
-    top: 60%;
-    right: -10%;
+    top: 45%;
+    right: -12%;
     animation-delay: 1s;
 }
 
 .card-3 {
-    bottom: 20%;
-    left: 10%;
+    bottom: 25%;
+    left: 8%;
     animation-delay: 2s;
+}
+
+.card-4 {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 3s;
 }
 
 @keyframes float {
@@ -682,69 +699,151 @@ section {
     box-shadow: var(--shadow-xl);
 }
 
+/* Platform Icon Colors - Professional Branding */
 .platform-icon-float.instagram { background: linear-gradient(135deg, #fd5949, #d6249f); }
 .platform-icon-float.tiktok { background: #000000; }
 .platform-icon-float.youtube { background: #ff0000; }
 .platform-icon-float.twitter { background: #1da1f2; }
 .platform-icon-float.linkedin { background: #0077b5; }
+.platform-icon-float.facebook { background: #1877f2; }
 .platform-icon-float.spotify { background: #1db954; }
 .platform-icon-float.discord { background: #5865f2; }
-.platform-icon-float.facebook { background: #1877f2; }
+.platform-icon-float.twitch { background: #9146ff; }
+.platform-icon-float.snapchat { background: #fffc00; color: #000; }
+.platform-icon-float.pinterest { background: #bd081c; }
+.platform-icon-float.reddit { background: #ff4500; }
+.platform-icon-float.telegram { background: #0088cc; }
+.platform-icon-float.whatsapp { background: #25d366; }
+.platform-icon-float.medium { background: #000000; }
+.platform-icon-float.tumblr { background: #001935; }
+.platform-icon-float.behance { background: #1769ff; }
+.platform-icon-float.dribbble { background: #ea4c89; }
 
+/* Extensively Distributed Platform Positioning - Full Hero Coverage */
 .platform-1 {
-    top: 10%;
-    left: 5%;
+    top: 8%;
+    left: 3%;
     animation-delay: 0s;
     animation-duration: 4s;
 }
 
 .platform-2 {
-    top: 25%;
-    right: 8%;
-    animation-delay: 0.5s;
-    animation-duration: 5s;
+    top: 15%;
+    right: 12%;
+    animation-delay: 0.3s;
+    animation-duration: 5.2s;
 }
 
 .platform-3 {
-    top: 45%;
-    left: 2%;
-    animation-delay: 1s;
-    animation-duration: 4.5s;
+    top: 28%;
+    left: 1%;
+    animation-delay: 0.6s;
+    animation-duration: 4.8s;
 }
 
 .platform-4 {
-    top: 65%;
-    right: 5%;
-    animation-delay: 1.5s;
-    animation-duration: 4s;
+    top: 35%;
+    right: 2%;
+    animation-delay: 0.9s;
+    animation-duration: 4.3s;
 }
 
 .platform-5 {
-    bottom: 20%;
-    left: 8%;
-    animation-delay: 2s;
-    animation-duration: 5s;
+    top: 52%;
+    left: 5%;
+    animation-delay: 1.2s;
+    animation-duration: 5.1s;
 }
 
 .platform-6 {
-    bottom: 35%;
-    right: 3%;
-    animation-delay: 2.5s;
-    animation-duration: 4.5s;
+    top: 48%;
+    right: 8%;
+    animation-delay: 1.5s;
+    animation-duration: 4.6s;
 }
 
 .platform-7 {
-    top: 80%;
-    left: 15%;
-    animation-delay: 3s;
-    animation-duration: 4s;
+    top: 68%;
+    left: 2%;
+    animation-delay: 1.8s;
+    animation-duration: 4.9s;
 }
 
 .platform-8 {
+    top: 72%;
+    right: 6%;
+    animation-delay: 2.1s;
+    animation-duration: 4.4s;
+}
+
+.platform-9 {
+    top: 85%;
+    left: 8%;
+    animation-delay: 2.4s;
+    animation-duration: 5.3s;
+}
+
+.platform-10 {
+    top: 88%;
+    right: 10%;
+    animation-delay: 2.7s;
+    animation-duration: 4.7s;
+}
+
+.platform-11 {
     top: 5%;
-    right: 20%;
-    animation-delay: 3.5s;
+    left: 18%;
+    animation-delay: 3s;
     animation-duration: 5s;
+}
+
+.platform-12 {
+    top: 3%;
+    right: 25%;
+    animation-delay: 3.3s;
+    animation-duration: 4.5s;
+}
+
+.platform-13 {
+    top: 22%;
+    left: 12%;
+    animation-delay: 3.6s;
+    animation-duration: 4.8s;
+}
+
+.platform-14 {
+    top: 42%;
+    right: 15%;
+    animation-delay: 3.9s;
+    animation-duration: 5.2s;
+}
+
+.platform-15 {
+    top: 58%;
+    left: 11%;
+    animation-delay: 4.2s;
+    animation-duration: 4.6s;
+}
+
+.platform-16 {
+    top: 78%;
+    right: 3%;
+    animation-delay: 4.5s;
+    animation-duration: 4.9s;
+}
+
+.platform-17 {
+    top: 92%;
+    left: 15%;
+    animation-delay: 4.8s;
+    animation-duration: 5.1s;
+}
+
+.platform-18 {
+    top: 12%;
+    right: 4%;
+    animation-delay: 5.1s;
+    animation-duration: 4.7s;
 }
 
 @keyframes floatPlatform {
@@ -817,6 +916,15 @@ section {
     bottom: 30%;
     left: 60%;
     animation-delay: 10s;
+}
+
+.orb-4 {
+    width: 130px;
+    height: 130px;
+    background: var(--success-400);
+    top: 15%;
+    right: 25%;
+    animation-delay: 15s;
 }
 
 @keyframes moveOrb {
@@ -2766,6 +2874,11 @@ section {
         font-size: var(--text-4xl);
     }
     
+    .hero-description {
+        font-size: var(--text-lg);
+        max-width: 100%;
+    }
+    
     .hero-actions {
         flex-direction: column;
         align-items: center;
@@ -2774,6 +2887,15 @@ section {
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-4);
+    }
+    
+    .floating-platforms {
+        display: none;
+    }
+    
+    .floating-elements .floating-card {
+        font-size: var(--text-xs);
+        padding: var(--space-2) var(--space-3);
     }
     
     .section-title {
