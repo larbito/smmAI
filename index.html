@@ -44,6 +44,7 @@
                         'float': 'float 6s ease-in-out infinite',
                         'float-slow': 'float 8s ease-in-out infinite',
                         'float-fast': 'float 4s ease-in-out infinite',
+                        'float-delayed': 'floatDelayed 8s ease-in-out infinite',
                         'slide-up': 'slideUp 0.8s ease-out',
                         'fade-in': 'fadeIn 0.6s ease-out',
                         'scale-in': 'scaleIn 0.5s ease-out',
@@ -55,6 +56,11 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
                             '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        floatDelayed: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '33%': { transform: 'translateY(-25px) rotate(-5deg)' },
+                            '66%': { transform: 'translateY(-15px) rotate(3deg)' },
                         },
                         slideUp: {
                             '0%': { transform: 'translateY(60px)', opacity: '0' },
@@ -286,32 +292,48 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 relative z-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 relative z-20 bg-gradient-to-r from-indigo-50 via-white to-purple-50">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full animate-float"></div>
+            <div class="absolute bottom-10 right-10 w-24 h-24 bg-gradient-to-br from-green-400 to-blue-500 rounded-full animate-float-delayed"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-full animate-pulse"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Intro -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 font-space">
+                    <span class="mr-2">📊</span>
+                    Trusted by Thousands
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+            </div>
+            
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="text-center group">
-                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-blue-100">
                         <div class="text-3xl mb-2">🎯</div>
                         <div class="text-3xl font-bold text-gray-900 font-space">99.9%</div>
                         <div class="text-gray-600 font-medium">Success Rate</div>
                     </div>
                 </div>
                 <div class="text-center group">
-                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-green-100">
                         <div class="text-3xl mb-2">⚡</div>
                         <div class="text-3xl font-bold text-gray-900 font-space">24h</div>
                         <div class="text-gray-600 font-medium">Delivery Time</div>
                     </div>
                 </div>
                 <div class="text-center group">
-                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-purple-100">
                         <div class="text-3xl mb-2">👥</div>
                         <div class="text-3xl font-bold text-gray-900 font-space">50K+</div>
                         <div class="text-gray-600 font-medium">Happy Clients</div>
                     </div>
                 </div>
                 <div class="text-center group">
-                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <div class="glass-white p-6 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-yellow-100">
                         <div class="text-3xl mb-2">🌟</div>
                         <div class="text-3xl font-bold text-gray-900 font-space">5.0</div>
                         <div class="text-gray-600 font-medium">Rating</div>
@@ -319,18 +341,52 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Bottom Wave Divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg class="relative block w-full h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-white"></path>
+            </svg>
+        </div>
     </section>
 
     <!-- Supported Platforms -->
-    <section class="py-20 relative z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-4 font-space animate-fade-in">
-                <span class="mr-2">🌐</span>
-                Supported Platforms
-            </h2>
-            <p class="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-                Professional growth across all major social media platforms with AI-powered precision
-            </p>
+    <section class="py-20 relative z-20 bg-white">
+        <!-- Geometric Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 25% 25%, #3b82f6 2px, transparent 2px), radial-gradient(circle at 75% 75%, #8b5cf6 2px, transparent 2px); background-size: 50px 50px;"></div>
+        </div>
+        
+        <!-- Top Zigzag Divider -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden">
+            <svg class="relative block w-full h-12 rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="fill-indigo-50"></path>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-12">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center glass-white px-6 py-3 rounded-full mb-6">
+                    <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse mr-3"></span>
+                    <span class="text-gray-700 font-medium">11+ Platforms Connected</span>
+                </div>
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-4 font-space animate-fade-in">
+                    <span class="mr-2">🌐</span>
+                    Supported Platforms
+                </h2>
+                <p class="text-xl text-gray-600 text-center max-w-2xl mx-auto">
+                    Professional growth across all major social media platforms with AI-powered precision
+                </p>
+                
+                <!-- Decorative Lines -->
+                <div class="flex items-center justify-center mt-8 space-x-4">
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent to-blue-500"></div>
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <div class="w-24 h-px bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <div class="w-12 h-px bg-gradient-to-r from-purple-500 to-transparent"></div>
+                </div>
+            </div>
             
             <!-- Main Platforms -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
@@ -508,75 +564,110 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20 relative z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-4 font-space animate-fade-in">
-                <span class="mr-2">💬</span>
-                What Our Users Say
-            </h2>
-            <p class="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-                Real results from real people who transformed their social media presence
-            </p>
+    <section class="py-20 relative z-20 bg-gradient-to-br from-slate-800 via-gray-900 to-slate-800 overflow-hidden">
+        <!-- Starfield Background -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-80"></div>
+            <div class="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-400 rounded-full animate-pulse opacity-60" style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse opacity-70" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-60" style="animation-delay: 1.5s;"></div>
+            <div class="absolute bottom-1/3 right-1/2 w-1 h-1 bg-yellow-400 rounded-full animate-pulse opacity-80" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <!-- Gradient Orbs -->
+        <div class="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-gradient-to-br from-pink-600/20 to-orange-600/20 rounded-full blur-3xl animate-float-delayed"></div>
+        
+        <!-- Top Diagonal Divider -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden">
+            <svg class="relative block w-full h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.4,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="fill-white"></path>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center glass px-6 py-3 rounded-full mb-6 bg-white/10 backdrop-blur-lg border border-white/20">
+                    <span class="text-2xl mr-2">⭐</span>
+                    <span class="text-white font-medium">4.9/5 Average Rating</span>
+                </div>
+                <h2 class="text-4xl font-bold text-center text-white mb-4 font-space animate-fade-in">
+                    <span class="mr-2">💬</span>
+                    What Our Users Say
+                </h2>
+                <p class="text-xl text-gray-300 text-center max-w-2xl mx-auto">
+                    Real results from real people who transformed their social media presence
+                </p>
+                
+                <!-- Quote Icon -->
+                <div class="flex justify-center mt-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="glass-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up">
+                <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up hover:bg-white/15">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                             S
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Sarah Mitchell</h4>
-                            <p class="text-sm text-gray-600">Lifestyle Influencer</p>
+                            <h4 class="font-semibold text-white">Sarah Mitchell</h4>
+                            <p class="text-sm text-gray-300">Lifestyle Influencer</p>
                         </div>
                     </div>
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-700 mb-4">"SMM AI completely transformed my Instagram presence. I went from 2K to 50K followers in just 3 months. The AI targeting is incredibly precise!"</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-200 mb-4">"SMM AI completely transformed my Instagram presence. I went from 2K to 50K followers in just 3 months. The AI targeting is incredibly precise!"</p>
+                    <div class="flex items-center justify-between text-sm text-gray-400">
                         <span>📈 +2,400% Growth</span>
                         <span>Instagram</span>
                     </div>
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="glass-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up hover:bg-white/15" style="animation-delay: 0.2s;">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                             M
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Marcus Chen</h4>
-                            <p class="text-sm text-gray-600">Tech Entrepreneur</p>
+                            <h4 class="font-semibold text-white">Marcus Chen</h4>
+                            <p class="text-sm text-gray-300">Tech Entrepreneur</p>
                         </div>
                     </div>
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-700 mb-4">"As a busy entrepreneur, I needed automated growth that actually works. SMM AI delivered beyond expectations - my LinkedIn engagement is through the roof!"</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-200 mb-4">"As a busy entrepreneur, I needed automated growth that actually works. SMM AI delivered beyond expectations - my LinkedIn engagement is through the roof!"</p>
+                    <div class="flex items-center justify-between text-sm text-gray-400">
                         <span>🚀 10x Engagement</span>
                         <span>LinkedIn</span>
                     </div>
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="glass-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up hover:bg-white/15" style="animation-delay: 0.4s;">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                             E
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Emma Rodriguez</h4>
-                            <p class="text-sm text-gray-600">Content Creator</p>
+                            <h4 class="font-semibold text-white">Emma Rodriguez</h4>
+                            <p class="text-sm text-gray-300">Content Creator</p>
                         </div>
                     </div>
                     <div class="flex mb-4">
                         <span class="text-yellow-400">★★★★★</span>
                     </div>
-                    <p class="text-gray-700 mb-4">"My TikTok videos started going viral after using SMM AI. The algorithm optimization is next level - I've gained 100K followers in 2 months!"</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <p class="text-gray-200 mb-4">"My TikTok videos started going viral after using SMM AI. The algorithm optimization is next level - I've gained 100K followers in 2 months!"</p>
+                    <div class="flex items-center justify-between text-sm text-gray-400">
                         <span>🔥 3 Viral Videos</span>
                         <span>TikTok</span>
                     </div>
@@ -586,61 +677,68 @@
             <!-- Additional testimonials row -->
             <div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
                 <!-- Testimonial 4 -->
-                <div class="glass-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.6s;">
+                <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up hover:bg-white/15" style="animation-delay: 0.6s;">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
                             D
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">David Kim</h4>
-                            <p class="text-sm text-gray-600">Fitness Coach</p>
+                            <h4 class="font-semibold text-white">David Kim</h4>
+                            <p class="text-sm text-gray-300">Fitness Coach</p>
                         </div>
                     </div>
                     <div class="flex mb-3">
                         <span class="text-yellow-400 text-sm">★★★★★</span>
                     </div>
-                    <p class="text-gray-700 text-sm">"Finally found a service that delivers real, engaged followers. My YouTube channel went from 500 subs to 25K in 4 months!"</p>
+                    <p class="text-gray-200 text-sm">"Finally found a service that delivers real, engaged followers. My YouTube channel went from 500 subs to 25K in 4 months!"</p>
                 </div>
 
                 <!-- Testimonial 5 -->
-                <div class="glass-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.8s;">
+                <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 animate-slide-up hover:bg-white/15" style="animation-delay: 0.8s;">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
                             L
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-900">Lisa Thompson</h4>
-                            <p class="text-sm text-gray-600">Fashion Blogger</p>
+                            <h4 class="font-semibold text-white">Lisa Thompson</h4>
+                            <p class="text-sm text-gray-300">Fashion Blogger</p>
                         </div>
                     </div>
                     <div class="flex mb-3">
                         <span class="text-yellow-400 text-sm">★★★★★</span>
                     </div>
-                    <p class="text-gray-700 text-sm">"The multi-platform approach is genius. Growing simultaneously on Instagram, Pinterest, and TikTok has boosted my brand visibility exponentially!"</p>
+                    <p class="text-gray-200 text-sm">"The multi-platform approach is genius. Growing simultaneously on Instagram, Pinterest, and TikTok has boosted my brand visibility exponentially!"</p>
                 </div>
             </div>
 
             <!-- Success Stats -->
             <div class="mt-16 text-center">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div class="glass-white p-6 rounded-2xl transform hover:scale-105 transition-all duration-300">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">10M+</div>
-                        <div class="text-gray-600 text-sm">Followers Generated</div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:bg-white/15">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">10M+</div>
+                        <div class="text-gray-300 text-sm">Followers Generated</div>
                     </div>
-                    <div class="glass-white p-6 rounded-2xl transform hover:scale-105 transition-all duration-300">
-                        <div class="text-3xl font-bold text-green-600 mb-2">25K+</div>
-                        <div class="text-gray-600 text-sm">Happy Customers</div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:bg-white/15">
+                        <div class="text-3xl font-bold text-green-400 mb-2">25K+</div>
+                        <div class="text-gray-300 text-sm">Happy Customers</div>
                     </div>
-                    <div class="glass-white p-6 rounded-2xl transform hover:scale-105 transition-all duration-300">
-                        <div class="text-3xl font-bold text-purple-600 mb-2">98%</div>
-                        <div class="text-gray-600 text-sm">Success Rate</div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:bg-white/15">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">98%</div>
+                        <div class="text-gray-300 text-sm">Success Rate</div>
                     </div>
-                    <div class="glass-white p-6 rounded-2xl transform hover:scale-105 transition-all duration-300">
-                        <div class="text-3xl font-bold text-orange-600 mb-2">4.9/5</div>
-                        <div class="text-gray-600 text-sm">Average Rating</div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:bg-white/15">
+                        <div class="text-3xl font-bold text-orange-400 mb-2">4.9/5</div>
+                        <div class="text-gray-300 text-sm">Average Rating</div>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Bottom Wave Divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg class="relative block w-full h-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="fill-white"></path>
+            </svg>
         </div>
     </section>
 
@@ -826,15 +924,63 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 relative z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-4 font-space animate-fade-in">
-                <span class="mr-2">✨</span>
-                Why Choose SMM AI?
-            </h2>
-            <p class="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-                Professional features that deliver real results
-            </p>
+    <section class="py-20 relative z-20 bg-gradient-to-br from-emerald-50 via-cyan-50 to-blue-50 overflow-hidden">
+        <!-- Hexagonal Pattern Background -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width=%2740%27 height=%2740%27 viewBox=%270 0 40 40%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27%2306b6d4%27 fill-opacity=%270.4%27 fill-rule=%27evenodd%27%3E%3Cpath d=%27M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z%27/%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        
+        <!-- Top Triangular Divider -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden">
+            <svg class="relative block w-full h-20 rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="fill-slate-800"></path>
+            </svg>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl animate-float"></div>
+        <div class="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-xl animate-float-delayed"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center glass-white px-6 py-3 rounded-full mb-6 border border-emerald-200">
+                    <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse mr-3"></span>
+                    <span class="text-gray-700 font-medium">Premium Features</span>
+                </div>
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-4 font-space animate-fade-in">
+                    <span class="mr-2">✨</span>
+                    Why Choose SMM AI?
+                </h2>
+                <p class="text-xl text-gray-600 text-center max-w-2xl mx-auto mb-8">
+                    Professional features that deliver real results
+                </p>
+                
+                <!-- Feature Highlight Bar -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="glass-white p-6 rounded-2xl border border-emerald-200">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div class="flex items-center justify-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white text-sm">🔒</span>
+                                </div>
+                                <span class="text-gray-700 font-semibold">100% Secure</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white text-sm">⚡</span>
+                                </div>
+                                <span class="text-gray-700 font-semibold">Lightning Fast</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white text-sm">🧠</span>
+                                </div>
+                                <span class="text-gray-700 font-semibold">AI Powered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass-white p-8 rounded-3xl hover:shadow-2xl transition-all duration-300 shadow-lg transform hover:scale-105 animate-slide-up">
                     <div class="w-12 h-12 mb-6 ai-gradient rounded-xl flex items-center justify-center animate-pulse-glow">
