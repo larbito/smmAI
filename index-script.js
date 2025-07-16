@@ -500,6 +500,11 @@ function initializeFloatingSocialLogos() {
             else if (iconClass.includes('discord')) platform = 'Discord';
             else if (iconClass.includes('telegram')) platform = 'Telegram';
             else if (iconClass.includes('twitch')) platform = 'Twitch';
+            else if (iconClass.includes('snapchat')) platform = 'Snapchat';
+            else if (iconClass.includes('google')) platform = 'Google';
+            else if (iconClass.includes('gamepad')) platform = 'Kick';
+            else if (iconClass.includes('globe')) platform = 'Website Traffic';
+            else if (iconClass.includes('star')) platform = 'Reviews';
             
             // Show tooltip
             showSocialTooltip(logo, `Grow your ${platform} presence!`);

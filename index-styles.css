@@ -346,6 +346,11 @@ body {
 .logo-8 { top: 20%; right: 25%; animation-delay: 14s; animation-duration: 20s; }
 .logo-9 { top: 80%; right: 10%; animation-delay: 16s; animation-duration: 35s; }
 .logo-10 { top: 10%; left: 25%; animation-delay: 18s; animation-duration: 27s; }
+.logo-11 { top: 30%; left: 35%; animation-delay: 20s; animation-duration: 29s; }
+.logo-12 { top: 70%; right: 35%; animation-delay: 22s; animation-duration: 23s; }
+.logo-13 { top: 40%; left: 30%; animation-delay: 24s; animation-duration: 31s; }
+.logo-14 { top: 60%; right: 30%; animation-delay: 26s; animation-duration: 21s; }
+.logo-15 { top: 50%; left: 40%; animation-delay: 28s; animation-duration: 33s; }
 
 @keyframes floatSocial {
     0% {
@@ -1018,6 +1023,127 @@ body {
 .platform-card:hover .platform-icon i {
     transform: scale(1.2) rotate(5deg);
     color: var(--neon-green);
+}
+
+/* Platform-specific colors */
+.platform-card[data-platform="kick"] .platform-icon i {
+    color: #53fc18;
+}
+.platform-card[data-platform="kick"]:hover .platform-icon i {
+    color: #53fc18;
+    filter: drop-shadow(0 0 20px #53fc18);
+}
+
+.platform-card[data-platform="website-traffic"] .platform-icon i {
+    color: #4285f4;
+}
+.platform-card[data-platform="website-traffic"]:hover .platform-icon i {
+    color: #4285f4;
+    filter: drop-shadow(0 0 20px #4285f4);
+}
+
+.platform-card[data-platform="reviews"] .platform-icon i {
+    color: #ffc107;
+}
+.platform-card[data-platform="reviews"]:hover .platform-icon i {
+    color: #ffc107;
+    filter: drop-shadow(0 0 20px #ffc107);
+}
+
+.platform-card[data-platform="instagram"] .platform-icon i {
+    color: #e1306c;
+}
+.platform-card[data-platform="instagram"]:hover .platform-icon i {
+    color: #e1306c;
+    filter: drop-shadow(0 0 20px #e1306c);
+}
+
+.platform-card[data-platform="facebook"] .platform-icon i {
+    color: #1877f2;
+}
+.platform-card[data-platform="facebook"]:hover .platform-icon i {
+    color: #1877f2;
+    filter: drop-shadow(0 0 20px #1877f2);
+}
+
+.platform-card[data-platform="youtube"] .platform-icon i {
+    color: #ff0000;
+}
+.platform-card[data-platform="youtube"]:hover .platform-icon i {
+    color: #ff0000;
+    filter: drop-shadow(0 0 20px #ff0000);
+}
+
+.platform-card[data-platform="twitter"] .platform-icon i {
+    color: #1da1f2;
+}
+.platform-card[data-platform="twitter"]:hover .platform-icon i {
+    color: #1da1f2;
+    filter: drop-shadow(0 0 20px #1da1f2);
+}
+
+.platform-card[data-platform="spotify"] .platform-icon i {
+    color: #1db954;
+}
+.platform-card[data-platform="spotify"]:hover .platform-icon i {
+    color: #1db954;
+    filter: drop-shadow(0 0 20px #1db954);
+}
+
+.platform-card[data-platform="tiktok"] .platform-icon i {
+    color: #ff0050;
+}
+.platform-card[data-platform="tiktok"]:hover .platform-icon i {
+    color: #ff0050;
+    filter: drop-shadow(0 0 20px #ff0050);
+}
+
+.platform-card[data-platform="linkedin"] .platform-icon i {
+    color: #0077b5;
+}
+.platform-card[data-platform="linkedin"]:hover .platform-icon i {
+    color: #0077b5;
+    filter: drop-shadow(0 0 20px #0077b5);
+}
+
+.platform-card[data-platform="google"] .platform-icon i {
+    color: #4285f4;
+}
+.platform-card[data-platform="google"]:hover .platform-icon i {
+    color: #4285f4;
+    filter: drop-shadow(0 0 20px #4285f4);
+}
+
+.platform-card[data-platform="telegram"] .platform-icon i {
+    color: #0088cc;
+}
+.platform-card[data-platform="telegram"]:hover .platform-icon i {
+    color: #0088cc;
+    filter: drop-shadow(0 0 20px #0088cc);
+}
+
+.platform-card[data-platform="discord"] .platform-icon i {
+    color: #5865f2;
+}
+.platform-card[data-platform="discord"]:hover .platform-icon i {
+    color: #5865f2;
+    filter: drop-shadow(0 0 20px #5865f2);
+}
+
+.platform-card[data-platform="snapchat"] .platform-icon i {
+    color: #fffc00;
+}
+.platform-card[data-platform="snapchat"]:hover .platform-icon i {
+    color: #fffc00;
+    filter: drop-shadow(0 0 20px #fffc00);
+}
+
+.platform-card[data-platform="twitch"] .platform-icon i {
+    color: #9146ff;
+}
+.platform-card[data-platform="twitch"]:hover .platform-icon i {
+    color: #9146ff;
+    filter: drop-shadow(0 0 20px #9146ff);
 }
 
 .platform-name {

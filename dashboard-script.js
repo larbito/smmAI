@@ -311,6 +311,196 @@ function generateMockAIPlan(platform, goal) {
             
             <h4>💰 Budget Allocation:</h4>
             <p>50% content creation, 35% advertising, 15% tools</p>
+        `,
+        snapchat: `
+            <h3>👻 Snapchat Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>📱 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Story Creation:</strong> Daily engaging stories with trending filters</li>
+                <li><strong>Snap Map:</strong> Location-based content and geofilters</li>
+                <li><strong>Streak Building:</strong> Consistent daily snaps with followers</li>
+                <li><strong>Discover Content:</strong> Submit content to Snapchat Discover</li>
+                <li><strong>AR Lenses:</strong> Create custom AR filters for brand recognition</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Gen Z audience engagement within 2-4 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>40% content creation, 35% AR filters, 25% promotion</p>
+        `,
+        pinterest: `
+            <h3>📌 Pinterest Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>🎨 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Pin Optimization:</strong> SEO-optimized pin titles and descriptions</li>
+                <li><strong>Board Strategy:</strong> Curated boards with trending keywords</li>
+                <li><strong>Rich Pins:</strong> Product and article rich pins for better visibility</li>
+                <li><strong>Seasonal Content:</strong> Holiday and seasonal pin campaigns</li>
+                <li><strong>Pinterest Ads:</strong> Promoted pins and shopping ads</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Shopping traffic growth over 6-12 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>45% visual content, 35% advertising, 20% tools</p>
+        `,
+        reddit: `
+            <h3>🔶 Reddit Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>🧠 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Subreddit Engagement:</strong> Active participation in relevant communities</li>
+                <li><strong>Quality Content:</strong> High-value posts that generate discussion</li>
+                <li><strong>AMA Sessions:</strong> Host "Ask Me Anything" sessions</li>
+                <li><strong>Karma Building:</strong> Consistent quality contributions</li>
+                <li><strong>Community Building:</strong> Create and moderate niche subreddits</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Community authority building over 8-16 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>60% content creation, 25% community management, 15% promotion</p>
+        `,
+        discord: `
+            <h3>🎮 Discord Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>💬 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Server Setup:</strong> Well-organized channels and roles</li>
+                <li><strong>Community Events:</strong> Regular gaming sessions and contests</li>
+                <li><strong>Bot Integration:</strong> Useful bots for moderation and engagement</li>
+                <li><strong>Voice Channels:</strong> Active voice chat communities</li>
+                <li><strong>Server Partnerships:</strong> Cross-promotion with other servers</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Gaming community growth over 4-8 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>50% community management, 30% events, 20% promotion</p>
+        `,
+        telegram: `
+            <h3>✈️ Telegram Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>📢 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Channel Content:</strong> Regular valuable content broadcasts</li>
+                <li><strong>Group Management:</strong> Active community discussions</li>
+                <li><strong>Bot Development:</strong> Custom bots for automation</li>
+                <li><strong>Cross-promotion:</strong> Partner with other Telegram channels</li>
+                <li><strong>Premium Features:</strong> Utilize Telegram Premium features</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Private community growth over 3-6 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>55% content creation, 30% bot development, 15% promotion</p>
+        `,
+        spotify: `
+            <h3>🎵 Spotify Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>🎧 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Playlist Placement:</strong> Submit to editorial and user playlists</li>
+                <li><strong>Profile Optimization:</strong> Complete artist profile with bio and photos</li>
+                <li><strong>Release Strategy:</strong> Consistent single releases and albums</li>
+                <li><strong>Spotify for Artists:</strong> Utilize analytics and promotional tools</li>
+                <li><strong>Collaborations:</strong> Feature with other artists</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Music discovery growth over 6-12 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>50% music production, 30% playlist promotion, 20% marketing</p>
+        `,
+        soundcloud: `
+            <h3>🔊 SoundCloud Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>🎶 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Track Uploads:</strong> Regular high-quality audio content</li>
+                <li><strong>Community Engagement:</strong> Comment and like other artists</li>
+                <li><strong>Repost Networks:</strong> Join repost chains and groups</li>
+                <li><strong>Tags and Genres:</strong> Optimize track tags for discoverability</li>
+                <li><strong>SoundCloud Pro:</strong> Utilize advanced analytics and features</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Independent artist growth over 4-8 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>60% music production, 25% promotion, 15% tools</p>
+        `,
+        twitch: `
+            <h3>🎮 Twitch Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>📺 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Streaming Schedule:</strong> Consistent streaming times and days</li>
+                <li><strong>Game Selection:</strong> Mix of popular and niche games</li>
+                <li><strong>Chat Interaction:</strong> Active engagement with viewers</li>
+                <li><strong>Stream Quality:</strong> High-quality video and audio setup</li>
+                <li><strong>Community Building:</strong> Discord server and social media presence</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Live streaming audience growth over 8-16 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>40% equipment, 35% game purchases, 25% promotion</p>
+        `,
+        clubhouse: `
+            <h3>🎙️ Clubhouse Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>🗣️ Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Room Hosting:</strong> Regular topic-based audio rooms</li>
+                <li><strong>Speaker Invitations:</strong> Invite industry experts and influencers</li>
+                <li><strong>Profile Optimization:</strong> Compelling bio and interests</li>
+                <li><strong>Club Creation:</strong> Build niche communities around topics</li>
+                <li><strong>Cross-promotion:</strong> Promote rooms on other social platforms</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Audio social network growth over 6-10 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>70% content planning, 20% speaker fees, 10% promotion</p>
+        `,
+        onlyfans: `
+            <h3>💎 OnlyFans Growth Strategy</h3>
+            <p><strong>Objective:</strong> ${goal}</p>
+            
+            <h4>👑 Strategy Breakdown:</h4>
+            <ul>
+                <li><strong>Content Strategy:</strong> Exclusive, high-quality premium content</li>
+                <li><strong>Subscriber Retention:</strong> Regular interaction and personalized content</li>
+                <li><strong>Promotion Strategy:</strong> Cross-platform marketing on social media</li>
+                <li><strong>Pricing Strategy:</strong> Competitive subscription and pay-per-view pricing</li>
+                <li><strong>Fan Engagement:</strong> Direct messaging and custom requests</li>
+            </ul>
+            
+            <h4>⏰ Timeline:</h4>
+            <p>Premium content monetization over 4-8 weeks.</p>
+            
+            <h4>💰 Budget Allocation:</h4>
+            <p>60% content production, 25% marketing, 15% platform tools</p>
         `
     };
     
@@ -440,7 +630,17 @@ function updatePlatformBadge(platform) {
         youtube: 'YouTube',
         twitter: 'Twitter',
         linkedin: 'LinkedIn',
-        facebook: 'Facebook'
+        facebook: 'Facebook',
+        snapchat: 'Snapchat',
+        pinterest: 'Pinterest',
+        reddit: 'Reddit',
+        discord: 'Discord',
+        telegram: 'Telegram',
+        spotify: 'Spotify',
+        soundcloud: 'SoundCloud',
+        twitch: 'Twitch',
+        clubhouse: 'Clubhouse',
+        onlyfans: 'OnlyFans'
     };
     
     const platformIcons = {
@@ -449,7 +649,17 @@ function updatePlatformBadge(platform) {
         youtube: 'fab fa-youtube',
         twitter: 'fab fa-twitter',
         linkedin: 'fab fa-linkedin',
-        facebook: 'fab fa-facebook'
+        facebook: 'fab fa-facebook',
+        snapchat: 'fab fa-snapchat',
+        pinterest: 'fab fa-pinterest',
+        reddit: 'fab fa-reddit',
+        discord: 'fab fa-discord',
+        telegram: 'fab fa-telegram',
+        spotify: 'fab fa-spotify',
+        soundcloud: 'fab fa-soundcloud',
+        twitch: 'fab fa-twitch',
+        clubhouse: 'fas fa-microphone',
+        onlyfans: 'fas fa-crown'
     };
     
     if (badge) {
@@ -469,11 +679,40 @@ function updateUsernameStep() {
         youtube: 'YouTube',
         twitter: 'Twitter',
         linkedin: 'LinkedIn',
-        facebook: 'Facebook'
+        facebook: 'Facebook',
+        snapchat: 'Snapchat',
+        pinterest: 'Pinterest',
+        reddit: 'Reddit',
+        discord: 'Discord',
+        telegram: 'Telegram',
+        spotify: 'Spotify',
+        soundcloud: 'SoundCloud',
+        twitch: 'Twitch',
+        clubhouse: 'Clubhouse',
+        onlyfans: 'OnlyFans'
+    };
+    
+    const platformIcons = {
+        instagram: 'fab fa-instagram',
+        tiktok: 'fab fa-tiktok',
+        youtube: 'fab fa-youtube',
+        twitter: 'fab fa-twitter',
+        linkedin: 'fab fa-linkedin',
+        facebook: 'fab fa-facebook',
+        snapchat: 'fab fa-snapchat',
+        pinterest: 'fab fa-pinterest',
+        reddit: 'fab fa-reddit',
+        discord: 'fab fa-discord',
+        telegram: 'fab fa-telegram',
+        spotify: 'fab fa-spotify',
+        soundcloud: 'fab fa-soundcloud',
+        twitch: 'fab fa-twitch',
+        clubhouse: 'fas fa-microphone',
+        onlyfans: 'fas fa-crown'
     };
     
     if (platformBadge) {
-        platformBadge.innerHTML = `<i class="fab fa-${selectedPlatform}"></i> ${platformNames[selectedPlatform]}`;
+        platformBadge.innerHTML = `<i class="${platformIcons[selectedPlatform]}"></i> ${platformNames[selectedPlatform]}`;
         platformBadge.className = `platform-badge ${selectedPlatform}`;
     }
     
@@ -497,7 +736,17 @@ function updateLaunchSummary() {
         youtube: 'YouTube',
         twitter: 'Twitter',
         linkedin: 'LinkedIn',
-        facebook: 'Facebook'
+        facebook: 'Facebook',
+        snapchat: 'Snapchat',
+        pinterest: 'Pinterest',
+        reddit: 'Reddit',
+        discord: 'Discord',
+        telegram: 'Telegram',
+        spotify: 'Spotify',
+        soundcloud: 'SoundCloud',
+        twitch: 'Twitch',
+        clubhouse: 'Clubhouse',
+        onlyfans: 'OnlyFans'
     };
     
     if (platformName) {
@@ -521,11 +770,49 @@ function addToHistory() {
     if (historyTable) {
         const newRow = document.createElement('div');
         newRow.className = 'table-row';
+        const platformNames = {
+            instagram: 'Instagram',
+            tiktok: 'TikTok',
+            youtube: 'YouTube',
+            twitter: 'Twitter',
+            linkedin: 'LinkedIn',
+            facebook: 'Facebook',
+            snapchat: 'Snapchat',
+            pinterest: 'Pinterest',
+            reddit: 'Reddit',
+            discord: 'Discord',
+            telegram: 'Telegram',
+            spotify: 'Spotify',
+            soundcloud: 'SoundCloud',
+            twitch: 'Twitch',
+            clubhouse: 'Clubhouse',
+            onlyfans: 'OnlyFans'
+        };
+        
+        const platformIcons = {
+            instagram: 'fab fa-instagram',
+            tiktok: 'fab fa-tiktok',
+            youtube: 'fab fa-youtube',
+            twitter: 'fab fa-twitter',
+            linkedin: 'fab fa-linkedin',
+            facebook: 'fab fa-facebook',
+            snapchat: 'fab fa-snapchat',
+            pinterest: 'fab fa-pinterest',
+            reddit: 'fab fa-reddit',
+            discord: 'fab fa-discord',
+            telegram: 'fab fa-telegram',
+            spotify: 'fab fa-spotify',
+            soundcloud: 'fab fa-soundcloud',
+            twitch: 'fab fa-twitch',
+            clubhouse: 'fas fa-microphone',
+            onlyfans: 'fas fa-crown'
+        };
+
         newRow.innerHTML = `
             <div class="table-cell">
                 <span class="platform-badge ${selectedPlatform}">
-                    <i class="fab fa-${selectedPlatform}"></i>
-                    ${selectedPlatform.charAt(0).toUpperCase() + selectedPlatform.slice(1)}
+                    <i class="${platformIcons[selectedPlatform]}"></i>
+                    ${platformNames[selectedPlatform]}
                 </span>
             </div>
             <div class="table-cell">${new Date().toLocaleDateString()}</div>

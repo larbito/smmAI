@@ -187,10 +187,18 @@ body {
 }
 
 .profile-avatar {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--primary-green);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
 }
 
 .profile-name {
@@ -306,9 +314,22 @@ body {
 /* Platform Selection */
 .platform-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
     margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .platform-card {
@@ -382,8 +403,34 @@ body {
     position: relative;
     z-index: 2;
     color: var(--text-gray);
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.platform-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-item {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.platform-card:hover .stat-item {
+    background: rgba(0, 255, 136, 0.15);
+    border-color: rgba(0, 255, 136, 0.3);
+    color: var(--primary-green);
 }
 
 /* Platform-specific colors */
@@ -409,6 +456,48 @@ body {
 
 .platform-card[data-platform="facebook"] .platform-icon {
     background: #1877f2;
+}
+
+.platform-card[data-platform="snapchat"] .platform-icon {
+    background: #fffc00;
+    color: #000;
+}
+
+.platform-card[data-platform="pinterest"] .platform-icon {
+    background: #e60023;
+}
+
+.platform-card[data-platform="reddit"] .platform-icon {
+    background: #ff4500;
+}
+
+.platform-card[data-platform="discord"] .platform-icon {
+    background: #5865f2;
+}
+
+.platform-card[data-platform="telegram"] .platform-icon {
+    background: #0088cc;
+}
+
+.platform-card[data-platform="spotify"] .platform-icon {
+    background: #1db954;
+}
+
+.platform-card[data-platform="soundcloud"] .platform-icon {
+    background: #ff7700;
+}
+
+.platform-card[data-platform="twitch"] .platform-icon {
+    background: #9146ff;
+}
+
+.platform-card[data-platform="clubhouse"] .platform-icon {
+    background: linear-gradient(135deg, #f2c94c, #f2994a);
+    color: #000;
+}
+
+.platform-card[data-platform="onlyfans"] .platform-icon {
+    background: linear-gradient(135deg, #00aced, #1da1f2);
 }
 
 /* Input Container */
@@ -466,6 +555,56 @@ body {
 
 .platform-badge.facebook {
     background: #1877f2;
+    color: white;
+}
+
+.platform-badge.snapchat {
+    background: #fffc00;
+    color: black;
+}
+
+.platform-badge.pinterest {
+    background: #e60023;
+    color: white;
+}
+
+.platform-badge.reddit {
+    background: #ff4500;
+    color: white;
+}
+
+.platform-badge.discord {
+    background: #5865f2;
+    color: white;
+}
+
+.platform-badge.telegram {
+    background: #0088cc;
+    color: white;
+}
+
+.platform-badge.spotify {
+    background: #1db954;
+    color: white;
+}
+
+.platform-badge.soundcloud {
+    background: #ff7700;
+    color: white;
+}
+
+.platform-badge.twitch {
+    background: #9146ff;
+    color: white;
+}
+
+.platform-badge.clubhouse {
+    background: linear-gradient(135deg, #f2c94c, #f2994a);
+    color: black;
+}
+
+.platform-badge.onlyfans {
+    background: linear-gradient(135deg, #00aced, #1da1f2);
     color: white;
 }
 
