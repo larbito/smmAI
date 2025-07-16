@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Interface - SMM AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Chat with AI - SMM AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'orbitron': ['Orbitron', 'monospace'],
-                        'rajdhani': ['Rajdhani', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        cyber: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
                             200: '#bae6fd',
@@ -26,42 +37,30 @@
                             700: '#0369a1',
                             800: '#075985',
                             900: '#0c4a6e',
-                        },
-                        neon: {
-                            cyan: '#00ffff',
-                            pink: '#ff00ff',
-                            green: '#00ff00',
-                            purple: '#8b5cf6',
-                            blue: '#3b82f6',
                         }
                     },
                     animation: {
-                        'glow': 'glow 2s ease-in-out infinite alternate',
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'data-stream': 'dataStream 3s linear infinite',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
                     },
                     keyframes: {
-                        glow: {
-                            '0%': { 
-                                boxShadow: '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
-                            },
-                            '100%': { 
-                                boxShadow: '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff',
-                            }
-                        },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-20px)' },
                         },
                         slideUp: {
-                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '0%': { transform: 'translateY(60px)', opacity: '0' },
                             '100%': { transform: 'translateY(0px)', opacity: '1' },
                         },
-                        dataStream: {
-                            '0%': { transform: 'translateX(-100%)' },
-                            '100%': { transform: 'translateX(100%)' },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
                         }
                     }
                 }
@@ -69,113 +68,77 @@
         }
     </script>
     <style>
-        .cyber-grid {
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .neon-border {
-            border: 1px solid #00ffff;
-            box-shadow: 
-                0 0 5px #00ffff,
-                inset 0 0 5px #00ffff;
+        .glass-white {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .neon-text {
-            text-shadow: 
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 20px #00ffff;
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .holographic {
-            background: linear-gradient(45deg, 
-                rgba(0, 255, 255, 0.1) 0%,
-                rgba(255, 0, 255, 0.1) 25%,
-                rgba(0, 255, 0, 0.1) 50%,
-                rgba(255, 0, 255, 0.1) 75%,
-                rgba(0, 255, 255, 0.1) 100%);
-            background-size: 400% 400%;
-            animation: gradient 8s ease infinite;
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .particle {
+        .floating-shapes::before {
+            content: '';
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #00ffff;
+            top: 10%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
             border-radius: 50%;
-            animation: particle-float 4s linear infinite;
+            filter: blur(40px);
+            animation: float 8s ease-in-out infinite;
         }
         
-        @keyframes particle-float {
-            0% { 
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
-        }
-        
-        .message-user {
-            background: linear-gradient(135deg, #00ffff, #8b5cf6);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-        }
-        
-        .message-ai {
-            background: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-        }
-        
-        .data-stream {
-            background: linear-gradient(90deg, transparent, #00ffff, transparent);
-            animation: dataStream 3s linear infinite;
+        .floating-shapes::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 12s ease-in-out infinite reverse;
         }
     </style>
 </head>
-<body class="font-rajdhani bg-gray-900 text-white h-screen flex flex-col overflow-hidden">
-    <!-- Cyber Grid Background -->
-    <div class="fixed inset-0 cyber-grid opacity-20 pointer-events-none"></div>
-    
-    <!-- Floating Particles -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 4s;"></div>
-    </div>
+<body class="font-inter bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 h-screen flex flex-col">
+    <!-- Background floating shapes -->
+    <div class="fixed inset-0 floating-shapes pointer-events-none"></div>
 
     <!-- Header with Wallet Balance -->
-    <header class="relative z-50 bg-gray-900/90 backdrop-blur-md border-b border-cyan-500/30 p-4">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
+    <header class="relative z-50 glass-white">
+        <div class="max-w-4xl mx-auto flex justify-between items-center p-4">
             <div class="flex items-center space-x-4">
-                <a href="/" class="text-2xl font-orbitron font-bold neon-text">SMM.AI</a>
-                <span class="text-cyan-500/50">|</span>
-                <span class="text-gray-300 font-orbitron">NEURAL INTERFACE</span>
+                <a href="/" class="text-2xl font-bold gradient-text">SMM AI</a>
+                <span class="text-gray-400">|</span>
+                <span class="text-gray-600">AI Assistant</span>
             </div>
             
             <!-- Wallet Balance -->
             <div class="flex items-center space-x-4">
-                <div class="holographic neon-border px-6 py-3 rounded-lg">
-                    <span class="text-sm text-gray-300 font-orbitron">CREDIT BALANCE:</span>
-                    <span class="font-bold text-neon-cyan ml-2 font-orbitron text-lg" id="walletBalance">$0.00</span>
+                <div class="glass px-6 py-3 rounded-2xl">
+                    <span class="text-sm text-gray-600 font-medium">Balance:</span>
+                    <span class="font-bold text-primary-600 ml-2 text-lg" id="walletBalance">$0.00</span>
                 </div>
-                <button onclick="showDepositModal()" class="bg-gradient-to-r from-neon-green to-neon-cyan text-black px-6 py-3 rounded-lg hover:from-neon-cyan hover:to-neon-green transition-all duration-300 font-orbitron font-bold transform hover:scale-105">
-                    INJECT FUNDS
+                <button onclick="showDepositModal()" class="gradient-bg text-white px-6 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Add Funds
                 </button>
             </div>
         </div>
@@ -187,65 +150,64 @@
         <div class="flex-1 overflow-y-auto p-6 space-y-6" id="messagesContainer">
             <!-- Welcome Message -->
             <div class="flex items-start space-x-4 animate-slide-up">
-                <div class="w-10 h-10 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-full flex items-center justify-center flex-shrink-0 animate-pulse-slow">
-                    <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
+                <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
                     </svg>
                 </div>
-                <div class="message-ai p-6 rounded-2xl rounded-bl-md max-w-md">
-                    <div class="data-stream h-0.5 w-full mb-4 opacity-50"></div>
-                    <p class="text-white font-medium">⚡ NEURAL SYSTEM ONLINE ⚡</p>
-                    <p class="text-gray-300 text-sm mt-2">I'm your AI growth accelerator. Upload your social profile data to initiate the enhancement protocol.</p>
+                <div class="glass-white p-6 rounded-3xl rounded-bl-lg max-w-md shadow-lg">
+                    <p class="text-gray-800 font-medium">👋 Hi! I'm your SMM AI assistant.</p>
+                    <p class="text-gray-600 text-sm mt-2">Tell me about your social media goals to get started!</p>
                 </div>
             </div>
 
             <!-- Example Prompt -->
-            <div class="flex justify-center animate-slide-up" style="animation-delay: 0.5s;">
-                <div class="holographic neon-border rounded-xl p-6 max-w-md text-center">
-                    <p class="text-neon-cyan font-orbitron font-bold mb-4">💫 NEURAL SAMPLE INPUT:</p>
-                    <button onclick="setExamplePrompt()" class="bg-gray-800/50 text-neon-cyan px-6 py-3 rounded-lg border border-cyan-500/30 hover:bg-cyan-500/10 transition-all duration-300 text-sm font-rajdhani">
-                        "Fitness Instagram matrix: 5K followers, $75 credit allocation. Target: 20K neural expansion."
+            <div class="flex justify-center animate-fade-in" style="animation-delay: 0.5s;">
+                <div class="glass rounded-2xl p-6 max-w-md text-center shadow-lg">
+                    <p class="text-primary-600 font-medium mb-4">💡 Try this example:</p>
+                    <button onclick="setExamplePrompt()" class="glass-white text-primary-700 px-6 py-3 rounded-xl border hover:bg-white/90 transition-all duration-300 text-sm font-medium">
+                        "I have a fitness Instagram with 5K followers and $75 budget. Want to reach 20K followers."
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Input Area -->
-        <div class="p-6 bg-gray-900/90 backdrop-blur-md border-t border-cyan-500/30">
+        <div class="p-6 glass-white">
             <div class="flex space-x-4">
                 <input 
                     type="text" 
                     id="messageInput" 
-                    placeholder="Upload your digital growth parameters..."
-                    class="flex-1 px-6 py-4 bg-gray-800/50 border-2 border-cyan-500/30 rounded-xl focus:border-neon-cyan focus:outline-none transition-all duration-300 text-white placeholder-gray-400 font-rajdhani"
+                    placeholder="Describe your social media goals, current followers, budget..."
+                    class="flex-1 px-6 py-4 glass rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-300 text-gray-700 placeholder-gray-500"
                     onkeypress="handleKeyPress(event)"
                 >
                 <button 
                     onclick="sendMessage()" 
                     id="sendButton"
-                    class="bg-gradient-to-r from-neon-cyan to-neon-purple text-black px-8 py-4 rounded-xl hover:from-neon-purple hover:to-neon-cyan transition-all duration-300 font-orbitron font-bold transform hover:scale-105 animate-glow">
-                    TRANSMIT
+                    class="gradient-bg text-white px-8 py-4 rounded-2xl hover:shadow-lg transition-all duration-300 font-semibold transform hover:scale-105">
+                    Send
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Deposit Modal -->
-    <div id="depositModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-        <div class="holographic neon-border rounded-xl p-8 w-full max-w-md mx-4 bg-gray-900/90">
-            <h3 class="text-2xl font-orbitron font-bold text-white mb-6 text-center neon-text">CREDIT INJECTION</h3>
+    <div id="depositModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="glass-white rounded-3xl p-8 w-full max-w-md mx-4 shadow-2xl">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Add Funds to Wallet</h3>
             <div class="space-y-6">
                 <div class="grid grid-cols-3 gap-3">
-                    <button onclick="setDepositAmount(25)" class="bg-gray-800/50 hover:bg-cyan-500/20 border border-cyan-500/30 px-4 py-3 rounded-lg font-orbitron font-bold text-neon-cyan transition-all duration-300 transform hover:scale-105">$25</button>
-                    <button onclick="setDepositAmount(50)" class="bg-gray-800/50 hover:bg-cyan-500/20 border border-cyan-500/30 px-4 py-3 rounded-lg font-orbitron font-bold text-neon-cyan transition-all duration-300 transform hover:scale-105">$50</button>
-                    <button onclick="setDepositAmount(100)" class="bg-gray-800/50 hover:bg-cyan-500/20 border border-cyan-500/30 px-4 py-3 rounded-lg font-orbitron font-bold text-neon-cyan transition-all duration-300 transform hover:scale-105">$100</button>
+                    <button onclick="setDepositAmount(25)" class="glass hover:bg-white/20 px-4 py-3 rounded-xl font-semibold text-primary-600 transition-all duration-300 transform hover:scale-105">$25</button>
+                    <button onclick="setDepositAmount(50)" class="glass hover:bg-white/20 px-4 py-3 rounded-xl font-semibold text-primary-600 transition-all duration-300 transform hover:scale-105">$50</button>
+                    <button onclick="setDepositAmount(100)" class="glass hover:bg-white/20 px-4 py-3 rounded-xl font-semibold text-primary-600 transition-all duration-300 transform hover:scale-105">$100</button>
                 </div>
-                <input type="number" id="depositAmount" placeholder="CUSTOM AMOUNT" class="w-full px-4 py-3 bg-gray-800/50 border border-cyan-500/30 rounded-lg focus:border-neon-cyan focus:outline-none text-white placeholder-gray-400 font-orbitron">
-                <button onclick="processDeposit()" class="w-full bg-gradient-to-r from-neon-green to-neon-cyan text-black py-4 rounded-lg font-orbitron font-bold hover:from-neon-cyan hover:to-neon-green transition-all duration-300 transform hover:scale-105">
-                    INJECT CREDITS
+                <input type="number" id="depositAmount" placeholder="Custom amount" class="w-full px-4 py-3 glass rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-700 placeholder-gray-500">
+                <button onclick="processDeposit()" class="w-full gradient-bg text-white py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Add Funds
                 </button>
-                <button onclick="hideDepositModal()" class="w-full bg-gray-800/50 border border-gray-600 text-gray-300 py-3 rounded-lg font-orbitron font-medium hover:bg-gray-700/50 transition-all duration-300">
-                    ABORT INJECTION
+                <button onclick="hideDepositModal()" class="w-full glass text-gray-700 py-3 rounded-xl font-medium hover:bg-white/20 transition-all duration-300">
+                    Cancel
                 </button>
             </div>
         </div>
@@ -296,13 +258,13 @@
                 updateWalletDisplay();
                 saveWalletBalance();
                 hideDepositModal();
-                addMessage('ai', `✅ CREDIT INJECTION SUCCESSFUL: +$${amount.toFixed(2)} | NEW BALANCE: $${walletBalance.toFixed(2)}`);
+                addMessage('ai', `✅ Successfully added $${amount.toFixed(2)} to your wallet! Your new balance is $${walletBalance.toFixed(2)}.`);
             }
         }
 
         // Set example prompt
         function setExamplePrompt() {
-            document.getElementById('messageInput').value = "Fitness Instagram matrix: 5K followers, $75 credit allocation. Target: 20K neural expansion.";
+            document.getElementById('messageInput').value = "I have a fitness Instagram with 5K followers and $75 budget. Want to reach 20K followers.";
             document.getElementById('messageInput').focus();
         }
 
@@ -321,7 +283,7 @@
             if (sender === 'user') {
                 messageDiv.innerHTML = `
                     <div class="flex justify-end animate-slide-up">
-                        <div class="message-user text-black p-6 rounded-2xl rounded-br-md max-w-md font-medium">
+                        <div class="gradient-bg text-white p-6 rounded-3xl rounded-br-lg max-w-md shadow-lg font-medium">
                             <p>${content}</p>
                         </div>
                     </div>
@@ -329,13 +291,12 @@
             } else {
                 messageDiv.innerHTML = `
                     <div class="flex items-start space-x-4 animate-slide-up">
-                        <div class="w-10 h-10 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-full flex items-center justify-center flex-shrink-0 animate-pulse-slow">
-                            <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
                             </svg>
                         </div>
-                        <div class="message-ai p-6 rounded-2xl rounded-bl-md max-w-md">
-                            <div class="data-stream h-0.5 w-full mb-4 opacity-50"></div>
+                        <div class="glass-white p-6 rounded-3xl rounded-bl-lg max-w-md shadow-lg">
                             ${content}
                         </div>
                     </div>
@@ -353,18 +314,18 @@
             typingDiv.id = 'typingIndicator';
             typingDiv.innerHTML = `
                 <div class="flex items-start space-x-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-full flex items-center justify-center flex-shrink-0 animate-pulse">
-                        <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
                         </svg>
                     </div>
-                    <div class="message-ai p-6 rounded-2xl rounded-bl-md">
+                    <div class="glass-white p-6 rounded-3xl rounded-bl-lg shadow-lg">
                         <div class="flex space-x-2 items-center">
-                            <span class="text-neon-cyan font-orbitron text-sm">PROCESSING</span>
+                            <span class="text-gray-600 text-sm">AI is typing</span>
                             <div class="flex space-x-1">
-                                <div class="w-2 h-2 bg-neon-cyan rounded-full animate-bounce"></div>
-                                <div class="w-2 h-2 bg-neon-cyan rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                                <div class="w-2 h-2 bg-neon-cyan rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                <div class="w-2 h-2 bg-primary-400 rounded-full animate-bounce"></div>
+                                <div class="w-2 h-2 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                                <div class="w-2 h-2 bg-primary-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
                             </div>
                         </div>
                     </div>
@@ -389,67 +350,64 @@
             
             const plans = [
                 {
-                    name: "NEURAL STARTER",
+                    name: "Growth Starter",
                     price: Math.max(25, Math.floor(budget * 0.6)),
-                    description: "Basic neural pathway activation for growth foundation",
+                    description: "Perfect for beginners looking to build a solid foundation",
                     features: [
-                        `${Math.floor(budget * 20)} targeted neural connections`,
-                        "Engagement amplification protocols",
-                        "24-48h activation cycle",
-                        "Standard neural support"
+                        `${Math.floor(budget * 20)} targeted followers`,
+                        "Post engagement boost",
+                        "24-48h delivery",
+                        "Email support"
                     ],
-                    color: "border-neon-cyan shadow-cyan-500/25",
-                    gradient: "from-neon-cyan to-neon-blue"
+                    color: "border-primary-200 hover:border-primary-400"
                 },
                 {
-                    name: "VIRAL MATRIX",
+                    name: "Viral Boost",
                     price: Math.max(40, Math.floor(budget * 0.8)),
-                    description: "Advanced viral propagation algorithms",
+                    description: "Best value for rapid growth and viral potential",
                     features: [
-                        `${Math.floor(budget * 35)} premium neural nodes`,
-                        "Viral acceleration protocols",
-                        "Multi-channel amplification",
-                        "Priority neural access"
+                        `${Math.floor(budget * 35)} quality followers`,
+                        "Viral content promotion",
+                        "Story/Reel boost",
+                        "Priority support"
                     ],
-                    color: "border-neon-green shadow-green-500/25",
-                    gradient: "from-neon-green to-neon-cyan",
+                    color: "border-green-200 hover:border-green-400 bg-green-50/50",
                     popular: true
                 },
                 {
-                    name: "QUANTUM GROWTH",
+                    name: "Pro Growth",
                     price: Math.max(75, Math.floor(budget * 1.2)),
-                    description: "Full spectrum quantum enhancement system",
+                    description: "Complete optimization for serious creators",
                     features: [
-                        `${Math.floor(budget * 50)} quantum-linked followers`,
-                        "Cross-dimensional growth matrix",
-                        "AI strategy synthesis",
-                        "Dedicated neural architect"
+                        `${Math.floor(budget * 50)} premium followers`,
+                        "Multi-platform growth",
+                        "Custom hashtag research",
+                        "Dedicated manager"
                     ],
-                    color: "border-neon-purple shadow-purple-500/25",
-                    gradient: "from-neon-purple to-neon-pink"
+                    color: "border-purple-200 hover:border-purple-400"
                 }
             ];
 
             let plansHTML = `
-                <p class="text-white font-medium mb-6">⚡ NEURAL ANALYSIS COMPLETE. GROWTH VECTORS SYNTHESIZED:</p>
+                <p class="text-gray-800 mb-6 font-medium">Great! I've analyzed your goals and created 3 custom strategies:</p>
                 <div class="space-y-4">
             `;
 
             plans.forEach((plan, index) => {
                 plansHTML += `
-                    <div class="holographic border-2 ${plan.color} rounded-xl p-6 transition-all duration-500 transform hover:scale-105">
+                    <div class="glass border-2 ${plan.color} rounded-2xl p-6 transition-all duration-300 ${plan.popular ? 'shadow-lg' : 'shadow-md'} hover:shadow-xl transform hover:scale-102">
                         <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-orbitron font-bold text-white text-lg">${plan.name}</h4>
-                            ${plan.popular ? '<span class="bg-gradient-to-r from-neon-green to-neon-cyan text-black text-xs px-3 py-1 rounded-full font-orbitron font-bold">OPTIMAL</span>' : ''}
+                            <h4 class="font-bold text-gray-900 text-lg">${plan.name}</h4>
+                            ${plan.popular ? '<span class="gradient-bg text-white text-xs px-3 py-1 rounded-full font-semibold">Most Popular</span>' : ''}
                         </div>
-                        <p class="text-gray-300 mb-4 font-rajdhani">${plan.description}</p>
-                        <ul class="text-sm text-gray-300 mb-6 space-y-2">
-                            ${plan.features.map(feature => `<li class="flex items-center"><span class="text-neon-cyan mr-3">▶</span>${feature}</li>`).join('')}
+                        <p class="text-sm text-gray-600 mb-4">${plan.description}</p>
+                        <ul class="text-sm text-gray-700 mb-6 space-y-2">
+                            ${plan.features.map(feature => `<li class="flex items-center"><span class="text-green-500 mr-3">✓</span>${feature}</li>`).join('')}
                         </ul>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-orbitron font-bold text-white">$${plan.price}</span>
-                            <button onclick="choosePlan('${plan.name}', ${plan.price})" class="bg-gradient-to-r ${plan.gradient} text-black px-6 py-3 rounded-lg hover:scale-105 transition-all duration-300 font-orbitron font-bold">
-                                ACTIVATE
+                            <span class="text-2xl font-bold text-gray-900">$${plan.price}</span>
+                            <button onclick="choosePlan('${plan.name}', ${plan.price})" class="gradient-bg text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 text-sm font-semibold transform hover:scale-105">
+                                Choose Plan
                             </button>
                         </div>
                     </div>
@@ -458,7 +416,7 @@
 
             plansHTML += `
                 </div>
-                <p class="text-sm text-gray-400 mt-6 font-rajdhani">💫 All neural protocols include verified enhancement nodes with quantum-level satisfaction guarantee.</p>
+                <p class="text-sm text-gray-600 mt-6">💡 All plans include real followers from our premium SMM panel and come with a satisfaction guarantee.</p>
             `;
 
             return plansHTML;
@@ -467,31 +425,31 @@
         // Choose a plan
         function choosePlan(planName, price) {
             if (walletBalance < price) {
-                addMessage('ai', `❌ INSUFFICIENT CREDITS! Required: $${price} | Available: $${walletBalance.toFixed(2)} | INJECT CREDITS TO PROCEED.`);
+                addMessage('ai', `❌ Insufficient funds! You need $${price} but your wallet balance is $${walletBalance.toFixed(2)}. Please deposit funds to continue.`);
                 return;
             }
 
-            addMessage('user', `Initiating ${planName} protocol for $${price}`);
+            addMessage('user', `I want to choose the ${planName} plan for $${price}`);
             
             setTimeout(() => {
                 showTypingIndicator();
                 setTimeout(() => {
                     removeTypingIndicator();
-                    addMessage('ai', `⚡ PROTOCOL SELECTION CONFIRMED! Neural interface requires identity matrix for ${planName} activation:`);
+                    addMessage('ai', `Perfect choice! I need a few details to execute your ${planName} plan:`);
                     
                     setTimeout(() => {
                         addMessage('ai', `
                             <div class="space-y-4">
-                                <div class="bg-gray-800/30 border border-cyan-500/30 p-4 rounded-lg">
-                                    <label class="block text-sm font-orbitron font-medium text-neon-cyan mb-2">SOCIAL IDENTIFIER:</label>
-                                    <input type="text" id="usernameInput" placeholder="@neural_username" class="w-full px-4 py-2 bg-gray-900/50 border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 font-rajdhani focus:border-neon-cyan focus:outline-none">
+                                <div class="glass p-4 rounded-xl">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Your Username/Handle:</label>
+                                    <input type="text" id="usernameInput" placeholder="@your_username" class="w-full px-3 py-2 glass rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                                 </div>
-                                <div class="bg-gray-800/30 border border-cyan-500/30 p-4 rounded-lg">
-                                    <label class="block text-sm font-orbitron font-medium text-neon-cyan mb-2">PROFILE MATRIX (optional):</label>
-                                    <input type="text" id="profileLinkInput" placeholder="https://instagram.com/neural_profile" class="w-full px-4 py-2 bg-gray-900/50 border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 font-rajdhani focus:border-neon-cyan focus:outline-none">
+                                <div class="glass p-4 rounded-xl">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Post/Profile Link (optional):</label>
+                                    <input type="text" id="profileLinkInput" placeholder="https://instagram.com/your_profile" class="w-full px-3 py-2 glass rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                                 </div>
-                                <button onclick="confirmOrder('${planName}', ${price})" class="w-full bg-gradient-to-r from-neon-green to-neon-cyan text-black py-3 rounded-lg font-orbitron font-bold hover:from-neon-cyan hover:to-neon-green transition-all duration-300 transform hover:scale-105">
-                                    ⚡ EXECUTE PROTOCOL - $${price} ⚡
+                                <button onclick="confirmOrder('${planName}', ${price})" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                    Confirm Order - $${price}
                                 </button>
                             </div>
                         `);
@@ -506,7 +464,7 @@
             const profileLink = document.getElementById('profileLinkInput').value;
 
             if (!username.trim()) {
-                alert('⚠️ NEURAL ERROR: Social identifier required for protocol activation');
+                alert('Please enter your username/handle');
                 return;
             }
 
@@ -515,31 +473,31 @@
             updateWalletDisplay();
             saveWalletBalance();
 
-            addMessage('user', `Identity Matrix: ${username}${profileLink ? '\nProfile Link: ' + profileLink : ''}`);
+            addMessage('user', `Username: ${username}${profileLink ? '\nProfile: ' + profileLink : ''}`);
             
             setTimeout(() => {
                 showTypingIndicator();
                 setTimeout(() => {
                     removeTypingIndicator();
-                    addMessage('ai', `🚀 PROTOCOL ACTIVATION SUCCESSFUL! ${planName} neural enhancement initiated.`);
+                    addMessage('ai', `🎉 Order confirmed! Your ${planName} plan is now processing.`);
                     
                     setTimeout(() => {
                         addMessage('ai', `
-                            <div class="holographic border border-neon-green rounded-lg p-6">
-                                <h4 class="font-orbitron font-bold text-neon-green mb-4">⚡ NEURAL PROTOCOL STATUS ⚡</h4>
-                                <ul class="text-sm text-gray-300 space-y-2 font-rajdhani">
-                                    <li><strong class="text-white">Protocol:</strong> ${planName}</li>
-                                    <li><strong class="text-white">Credit Deduction:</strong> $${price}</li>
-                                    <li><strong class="text-white">Target Matrix:</strong> ${username}</li>
-                                    <li><strong class="text-white">Status:</strong> <span class="text-neon-cyan">PROCESSING</span></li>
-                                    <li><strong class="text-white">ETA:</strong> 24-48 neural cycles</li>
+                            <div class="glass border border-green-200 rounded-xl p-6 bg-green-50/50">
+                                <h4 class="font-bold text-green-800 mb-4">✅ Order Details:</h4>
+                                <ul class="text-sm text-green-700 space-y-2">
+                                    <li><strong>Plan:</strong> ${planName}</li>
+                                    <li><strong>Cost:</strong> $${price}</li>
+                                    <li><strong>Username:</strong> ${username}</li>
+                                    <li><strong>Status:</strong> Processing</li>
+                                    <li><strong>Estimated completion:</strong> 24-48 hours</li>
                                 </ul>
-                                <p class="text-sm text-neon-cyan mt-4">💫 Neural enhancement vectors deployed. Monitor progress through quantum feedback loop.</p>
+                                <p class="text-sm text-green-600 mt-4">💡 You'll receive updates as your order progresses. Check back soon!</p>
                             </div>
                         `);
                         
                         setTimeout(() => {
-                            addMessage('ai', `Additional neural protocols available for activation. Upload new growth parameters to continue expansion sequence!`);
+                            addMessage('ai', `Is there anything else I can help you with? I can create more growth plans or answer any questions!`);
                         }, 2000);
                     }, 1500);
                 }, 2000);

@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMM AI - Futuristic Social Media Growth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>SMM AI - Intelligent Social Media Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'orbitron': ['Orbitron', 'monospace'],
-                        'rajdhani': ['Rajdhani', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        cyber: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
                             200: '#bae6fd',
@@ -26,148 +37,120 @@
                             700: '#0369a1',
                             800: '#075985',
                             900: '#0c4a6e',
-                        },
-                        neon: {
-                            cyan: '#00ffff',
-                            pink: '#ff00ff',
-                            green: '#00ff00',
-                            purple: '#8b5cf6',
-                            blue: '#3b82f6',
                         }
                     },
                     animation: {
-                        'glow': 'glow 2s ease-in-out infinite alternate',
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
                     },
                     keyframes: {
-                        glow: {
-                            '0%': { 
-                                boxShadow: '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
-                            },
-                            '100%': { 
-                                boxShadow: '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff',
-                            }
-                        },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-20px)' },
                         },
                         slideUp: {
-                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '0%': { transform: 'translateY(60px)', opacity: '0' },
                             '100%': { transform: 'translateY(0px)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
                         }
+                    },
+                    backdropBlur: {
+                        xs: '2px',
                     }
                 }
             }
         }
     </script>
     <style>
-        .cyber-grid {
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .neon-border {
-            border: 1px solid #00ffff;
-            box-shadow: 
-                0 0 5px #00ffff,
-                inset 0 0 5px #00ffff;
+        .glass-white {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .neon-text {
-            text-shadow: 
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 20px #00ffff;
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .holographic {
-            background: linear-gradient(45deg, 
-                rgba(0, 255, 255, 0.1) 0%,
-                rgba(255, 0, 255, 0.1) 25%,
-                rgba(0, 255, 0, 0.1) 50%,
-                rgba(255, 0, 255, 0.1) 75%,
-                rgba(0, 255, 255, 0.1) 100%);
-            background-size: 400% 400%;
-            animation: gradient 8s ease infinite;
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .particle {
+        .floating-shapes::before {
+            content: '';
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #00ffff;
+            top: 10%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
             border-radius: 50%;
-            animation: particle-float 4s linear infinite;
+            filter: blur(40px);
+            animation: float 8s ease-in-out infinite;
         }
         
-        @keyframes particle-float {
-            0% { 
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
+        .floating-shapes::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 12s ease-in-out infinite reverse;
         }
     </style>
 </head>
-<body class="font-rajdhani bg-gray-900 text-white overflow-x-hidden">
-    <!-- Cyber Grid Background -->
-    <div class="fixed inset-0 cyber-grid opacity-20 pointer-events-none"></div>
-    
-    <!-- Floating Particles -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 3.5s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 4s;"></div>
-    </div>
+<body class="font-inter bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+    <!-- Background floating shapes -->
+    <div class="fixed inset-0 floating-shapes pointer-events-none"></div>
 
     <!-- Header -->
-    <header class="relative z-50 bg-gray-900/90 backdrop-blur-md border-b border-cyan-500/30">
+    <header class="relative z-50 glass-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <h1 class="text-2xl font-orbitron font-bold neon-text">SMM.AI</h1>
+                        <h1 class="text-2xl font-bold gradient-text">SMM AI</h1>
                     </div>
                 </div>
                 
                 <!-- Navigation -->
                 <nav class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="/" class="text-neon-cyan font-medium hover:text-white transition-colors duration-300">HOME</a>
-                        <a href="/how-it-works" class="text-gray-300 hover:text-neon-cyan transition-colors duration-300">PROCESS</a>
-                        <a href="/faq" class="text-gray-300 hover:text-neon-cyan transition-colors duration-300">FAQ</a>
-                        <a href="/login" class="neon-border bg-gray-800/50 text-neon-cyan px-4 py-2 rounded font-medium hover:bg-cyan-500/10 transition-all duration-300">
-                            ACCESS
+                        <a href="/" class="text-primary-600 font-medium">Home</a>
+                        <a href="/how-it-works" class="text-gray-600 hover:text-primary-600 transition-colors">How It Works</a>
+                        <a href="/faq" class="text-gray-600 hover:text-primary-600 transition-colors">FAQ</a>
+                        <a href="/login" class="glass text-primary-600 px-4 py-2 rounded-xl font-medium hover:bg-white/20 transition-all duration-300">
+                            Login
                         </a>
                     </div>
                 </nav>
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button class="text-neon-cyan hover:text-white">
+                    <button class="text-gray-600 hover:text-primary-600">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -178,105 +161,93 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="animate-slide-up">
-                <h1 class="text-6xl md:text-8xl font-orbitron font-black mb-6 leading-tight">
-                    <span class="bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent">
-                        NEURAL
-                    </span>
-                    <br/>
-                    <span class="text-white">GROWTH</span>
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                    Grow Your Social Media
+                    <span class="gradient-text block">With AI</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-                    Advanced AI algorithms analyze and accelerate your social media presence across the digital multiverse
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto font-light">
+                    Describe your goals and budget. Get a custom growth plan instantly.
+                    We handle the rest.
                 </p>
-                <button onclick="window.location.href='/chat'" class="group relative inline-flex items-center px-12 py-4 text-lg font-bold text-black bg-gradient-to-r from-neon-cyan to-neon-green rounded-lg hover:from-neon-green hover:to-neon-cyan transition-all duration-500 transform hover:scale-105 hover:shadow-2xl">
-                    <span class="relative z-10">INITIALIZE PROTOCOL</span>
-                    <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-green opacity-0 group-hover:opacity-20 rounded-lg transition-opacity duration-500"></div>
+                <button onclick="window.location.href='/chat'" class="glass-white text-primary-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    Start Growing →
                 </button>
             </div>
         </div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-neon-cyan/20 to-transparent rounded-full blur-xl animate-float"></div>
-        <div class="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-neon-pink/20 to-transparent rounded-full blur-xl animate-float" style="animation-delay: 2s;"></div>
-        <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-neon-purple/20 to-transparent rounded-full blur-xl animate-float" style="animation-delay: 1s;"></div>
     </section>
 
     <!-- Supported Platforms -->
-    <section class="py-20 bg-gray-900 relative">
+    <section class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                <span class="bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">
-                    CONNECTED NETWORKS
-                </span>
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16 animate-fade-in">
+                Supported Platforms
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
                 <!-- Instagram -->
-                <div class="group text-center">
-                    <div class="holographic neon-border p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-500 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div class="group text-center animate-scale-in">
+                    <div class="glass-white p-6 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-500 rounded-2xl flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
                         </div>
-                        <h3 class="font-orbitron font-semibold text-white mb-2">INSTAGRAM</h3>
-                        <p class="text-sm text-gray-400">Neural Engagement Matrix</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">Instagram</h3>
+                        <p class="text-sm text-gray-600">Followers, Likes, Shares</p>
                     </div>
                 </div>
 
                 <!-- TikTok -->
-                <div class="group text-center">
-                    <div class="holographic neon-border p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-black rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div class="group text-center animate-scale-in" style="animation-delay: 0.1s;">
+                    <div class="glass-white p-6 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-black rounded-2xl flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
                             </svg>
                         </div>
-                        <h3 class="font-orbitron font-semibold text-white mb-2">TIKTOK</h3>
-                        <p class="text-sm text-gray-400">Viral Algorithm Core</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">TikTok</h3>
+                        <p class="text-sm text-gray-600">Followers, Likes, Views</p>
                     </div>
                 </div>
 
                 <!-- YouTube -->
-                <div class="group text-center">
-                    <div class="holographic neon-border p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div class="group text-center animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="glass-white p-6 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-red-600 rounded-2xl flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
                         </div>
-                        <h3 class="font-orbitron font-semibold text-white mb-2">YOUTUBE</h3>
-                        <p class="text-sm text-gray-400">Content Amplification</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">YouTube</h3>
+                        <p class="text-sm text-gray-600">Subscribers, Views, Likes</p>
                     </div>
                 </div>
 
                 <!-- Facebook -->
-                <div class="group text-center">
-                    <div class="holographic neon-border p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-blue-600 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div class="group text-center animate-scale-in" style="animation-delay: 0.3s;">
+                    <div class="glass-white p-6 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-blue-600 rounded-2xl flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
                         </div>
-                        <h3 class="font-orbitron font-semibold text-white mb-2">FACEBOOK</h3>
-                        <p class="text-sm text-gray-400">Social Network Grid</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">Facebook</h3>
+                        <p class="text-sm text-gray-600">Likes, Shares, Followers</p>
                     </div>
                 </div>
 
                 <!-- X (Twitter) -->
-                <div class="group text-center">
-                    <div class="holographic neon-border p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-black rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div class="group text-center animate-scale-in" style="animation-delay: 0.4s;">
+                    <div class="glass-white p-6 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-black rounded-2xl flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                             </svg>
                         </div>
-                        <h3 class="font-orbitron font-semibold text-white mb-2">X NETWORK</h3>
-                        <p class="text-sm text-gray-400">Micro-Signal Boost</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">X (Twitter)</h3>
+                        <p class="text-sm text-gray-600">Followers, Retweets, Likes</p>
                     </div>
                 </div>
             </div>
@@ -284,156 +255,149 @@
     </section>
 
     <!-- How It Works -->
-    <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+    <section class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                <span class="bg-gradient-to-r from-neon-green to-neon-cyan bg-clip-text text-transparent">
-                    NEURAL PROTOCOL
-                </span>
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16 animate-fade-in">
+                How It Works
             </h2>
             <div class="grid md:grid-cols-3 gap-12">
                 <!-- Step 1 -->
-                <div class="text-center group">
+                <div class="text-center group animate-slide-up">
                     <div class="relative mb-8">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-neon-cyan to-neon-blue rounded-full flex items-center justify-center border-2 border-neon-cyan animate-pulse-slow group-hover:animate-glow">
-                            <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-24 h-24 mx-auto gradient-bg rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-neon-cyan rounded-full flex items-center justify-center font-orbitron font-bold text-black text-sm animate-pulse">01</div>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center font-bold text-primary-600 text-sm shadow-lg">1</div>
                     </div>
-                    <h3 class="text-2xl font-orbitron font-bold text-white mb-4">NEURAL SCAN</h3>
-                    <p class="text-gray-300 leading-relaxed">Upload your digital profile data to our AI matrix for comprehensive social signature analysis</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Tell AI Your Goals</h3>
+                    <p class="text-gray-600 leading-relaxed">Share your social media goals, current followers, budget, and target growth with our intelligent AI assistant.</p>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="text-center group">
+                <div class="text-center group animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="relative mb-8">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-neon-green to-neon-cyan rounded-full flex items-center justify-center border-2 border-neon-green animate-pulse-slow group-hover:animate-glow">
-                            <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-24 h-24 mx-auto gradient-bg rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-neon-green rounded-full flex items-center justify-center font-orbitron font-bold text-black text-sm animate-pulse">02</div>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center font-bold text-primary-600 text-sm shadow-lg">2</div>
                     </div>
-                    <h3 class="text-2xl font-orbitron font-bold text-white mb-4">AI SYNTHESIS</h3>
-                    <p class="text-gray-300 leading-relaxed">Quantum algorithms generate optimal growth vectors tailored to your digital ecosystem</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Choose Your Plan</h3>
+                    <p class="text-gray-600 leading-relaxed">Get 3 custom growth strategies tailored to your budget and goals. Pick the plan that fits perfectly.</p>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="text-center group">
+                <div class="text-center group animate-slide-up" style="animation-delay: 0.4s;">
                     <div class="relative mb-8">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-neon-purple to-neon-pink rounded-full flex items-center justify-center border-2 border-neon-purple animate-pulse-slow group-hover:animate-glow">
-                            <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-24 h-24 mx-auto gradient-bg rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-neon-purple rounded-full flex items-center justify-center font-orbitron font-bold text-black text-sm animate-pulse">03</div>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center font-bold text-primary-600 text-sm shadow-lg">3</div>
                     </div>
-                    <h3 class="text-2xl font-orbitron font-bold text-white mb-4">DEPLOYMENT</h3>
-                    <p class="text-gray-300 leading-relaxed">Automated execution across neural networks delivers exponential growth acceleration</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Watch It Grow</h3>
+                    <p class="text-gray-600 leading-relaxed">We execute your plan instantly using premium SMM services. See real results within 24-48 hours.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-gray-900 relative">
+    <section class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                <span class="bg-gradient-to-r from-neon-pink to-neon-purple bg-clip-text text-transparent">
-                    SYSTEM CAPABILITIES
-                </span>
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16 animate-fade-in">
+                Why Choose SMM AI?
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="holographic neon-border p-8 rounded-xl transform hover:scale-105 transition-all duration-500">
-                    <div class="w-12 h-12 mb-6 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="glass-white p-8 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 animate-slide-up">
+                    <div class="w-12 h-12 mb-6 gradient-bg rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-orbitron font-bold text-white mb-3">QUANTUM SPEED</h3>
-                    <p class="text-gray-300">Hyperdrive delivery protocols ensure instantaneous results across all networks</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lightning Fast</h3>
+                    <p class="text-gray-600">Instant results powered by premium SMM networks. See growth start within 24 hours.</p>
                 </div>
 
-                <div class="holographic neon-border p-8 rounded-xl transform hover:scale-105 transition-all duration-500">
-                    <div class="w-12 h-12 mb-6 bg-gradient-to-br from-neon-green to-neon-cyan rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="glass-white p-8 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 mb-6 gradient-bg rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-orbitron font-bold text-white mb-3">ENCRYPTED VAULT</h3>
-                    <p class="text-gray-300">Military-grade security protocols protect your digital identity matrix</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">100% Secure</h3>
+                    <p class="text-gray-600">No passwords needed. We only use your public profile information to deliver results safely.</p>
                 </div>
 
-                <div class="holographic neon-border p-8 rounded-xl transform hover:scale-105 transition-all duration-500">
-                    <div class="w-12 h-12 mb-6 bg-gradient-to-br from-neon-purple to-neon-pink rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="glass-white p-8 rounded-3xl hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 mb-6 gradient-bg rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-orbitron font-bold text-white mb-3">AUTO-PILOT</h3>
-                    <p class="text-gray-300">Autonomous neural networks operate 24/7 while you focus on content creation</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">AI Powered</h3>
+                    <p class="text-gray-600">Smart algorithms create personalized strategies based on your unique goals and budget.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-gray-900 via-purple-900/50 to-gray-900 relative overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/10 via-neon-purple/10 to-neon-pink/10 animate-pulse"></div>
-        </div>
-        
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-5xl font-orbitron font-black text-white mb-6">
-                ACTIVATE NEURAL GROWTH
+            <h2 class="text-4xl font-bold text-white mb-6 animate-fade-in">
+                Ready to Grow Your Social Media?
             </h2>
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join the digital revolution. Let AI accelerate your social presence beyond human limits.
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto animate-slide-up">
+                Join thousands of creators who trust SMM AI to handle their social media growth.
             </p>
-            <button onclick="window.location.href='/chat'" class="group relative inline-flex items-center px-12 py-4 text-lg font-bold text-black bg-gradient-to-r from-neon-cyan via-neon-green to-neon-cyan rounded-lg hover:from-neon-green hover:via-neon-cyan hover:to-neon-green transition-all duration-500 transform hover:scale-110 animate-glow">
-                <span class="relative z-10 font-orbitron">ENTER THE MATRIX</span>
+            <button onclick="window.location.href='/chat'" class="glass-white text-primary-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg transform hover:scale-105 animate-scale-in">
+                Get Started With AI
             </button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-cyan-500/30 relative">
+    <footer class="glass-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="col-span-2">
-                    <h3 class="text-2xl font-orbitron font-bold neon-text mb-4">SMM.AI</h3>
-                    <p class="text-gray-400 mb-4">Advanced neural networks powering the future of social media growth across digital dimensions.</p>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">SMM AI</h3>
+                    <p class="text-gray-600 mb-4">AI-driven social media growth made simple. Get custom plans, instant results, and hands-free growth.</p>
                     <div class="flex space-x-4">
-                        <a href="https://wa.me/1234567890" class="neon-border bg-gray-800/50 text-neon-green px-4 py-2 rounded-lg hover:bg-green-500/10 transition-all duration-300 font-orbitron">
-                            NEURAL LINK
+                        <a href="https://wa.me/1234567890" class="glass text-green-600 px-4 py-2 rounded-xl hover:bg-white/20 transition-all duration-300">
+                            WhatsApp Support
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="font-orbitron font-semibold text-white mb-4">SYSTEM ACCESS</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="/how-it-works" class="text-gray-400 hover:text-neon-cyan transition-colors">NEURAL PROCESS</a></li>
-                        <li><a href="/faq" class="text-gray-400 hover:text-neon-cyan transition-colors">DATA QUERIES</a></li>
-                        <li><a href="/chat" class="text-gray-400 hover:text-neon-cyan transition-colors">AI INTERFACE</a></li>
+                        <li><a href="/how-it-works" class="text-gray-600 hover:text-primary-600">How It Works</a></li>
+                        <li><a href="/faq" class="text-gray-600 hover:text-primary-600">FAQ</a></li>
+                        <li><a href="/chat" class="text-gray-600 hover:text-primary-600">Start Growing</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-orbitron font-semibold text-white mb-4">CONTACT GRID</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">Contact</h4>
                     <ul class="space-y-2">
-                        <li class="text-gray-400">neural@smm-ai.com</li>
-                        <li><a href="/terms" class="text-gray-400 hover:text-neon-cyan transition-colors">System Terms</a></li>
-                        <li><a href="/privacy" class="text-gray-400 hover:text-neon-cyan transition-colors">Data Privacy</a></li>
+                        <li class="text-gray-600">support@smm-ai.com</li>
+                        <li><a href="/terms" class="text-gray-600 hover:text-primary-600">Terms of Service</a></li>
+                        <li><a href="/privacy" class="text-gray-600 hover:text-primary-600">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="mt-8 pt-8 border-t border-cyan-500/30 text-center">
-                <p class="text-gray-400 font-orbitron">&copy; 2024 SMM.AI NEURAL SYSTEMS. ALL RIGHTS RESERVED.</p>
+            <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+                <p class="text-gray-600">&copy; 2024 SMM AI. All rights reserved.</p>
             </div>
         </div>
     </footer>

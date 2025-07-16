@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Protocol - SMM AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>How It Works - SMM AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'orbitron': ['Orbitron', 'monospace'],
-                        'rajdhani': ['Rajdhani', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        cyber: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
                             200: '#bae6fd',
@@ -26,42 +37,30 @@
                             700: '#0369a1',
                             800: '#075985',
                             900: '#0c4a6e',
-                        },
-                        neon: {
-                            cyan: '#00ffff',
-                            pink: '#ff00ff',
-                            green: '#00ff00',
-                            purple: '#8b5cf6',
-                            blue: '#3b82f6',
                         }
                     },
                     animation: {
-                        'glow': 'glow 2s ease-in-out infinite alternate',
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'rotate': 'rotate 20s linear infinite',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
                     },
                     keyframes: {
-                        glow: {
-                            '0%': { 
-                                boxShadow: '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
-                            },
-                            '100%': { 
-                                boxShadow: '0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff',
-                            }
-                        },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-20px)' },
                         },
                         slideUp: {
-                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '0%': { transform: 'translateY(60px)', opacity: '0' },
                             '100%': { transform: 'translateY(0px)', opacity: '1' },
                         },
-                        rotate: {
-                            '0%': { transform: 'rotate(0deg)' },
-                            '100%': { transform: 'rotate(360deg)' },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
                         }
                     }
                 }
@@ -69,110 +68,86 @@
         }
     </script>
     <style>
-        .cyber-grid {
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .neon-border {
-            border: 1px solid #00ffff;
-            box-shadow: 
-                0 0 5px #00ffff,
-                inset 0 0 5px #00ffff;
+        .glass-white {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .neon-text {
-            text-shadow: 
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 20px #00ffff;
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .holographic {
-            background: linear-gradient(45deg, 
-                rgba(0, 255, 255, 0.1) 0%,
-                rgba(255, 0, 255, 0.1) 25%,
-                rgba(0, 255, 0, 0.1) 50%,
-                rgba(255, 0, 255, 0.1) 75%,
-                rgba(0, 255, 255, 0.1) 100%);
-            background-size: 400% 400%;
-            animation: gradient 8s ease infinite;
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .particle {
+        .floating-shapes::before {
+            content: '';
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #00ffff;
+            top: 10%;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
             border-radius: 50%;
-            animation: particle-float 4s linear infinite;
+            filter: blur(40px);
+            animation: float 8s ease-in-out infinite;
         }
         
-        @keyframes particle-float {
-            0% { 
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
+        .floating-shapes::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 12s ease-in-out infinite reverse;
         }
     </style>
 </head>
-<body class="font-rajdhani bg-gray-900 text-white overflow-x-hidden">
-    <!-- Cyber Grid Background -->
-    <div class="fixed inset-0 cyber-grid opacity-20 pointer-events-none"></div>
-    
-    <!-- Floating Particles -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 0.5s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 3.5s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 4s;"></div>
-    </div>
+<body class="font-inter bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+    <!-- Background floating shapes -->
+    <div class="fixed inset-0 floating-shapes pointer-events-none"></div>
 
     <!-- Header -->
-    <header class="relative z-50 bg-gray-900/90 backdrop-blur-md border-b border-cyan-500/30">
+    <header class="relative z-50 glass-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <a href="/" class="text-2xl font-orbitron font-bold neon-text">SMM.AI</a>
+                        <a href="/" class="text-2xl font-bold gradient-text">SMM AI</a>
                     </div>
                 </div>
                 
                 <!-- Navigation -->
                 <nav class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="/" class="text-gray-300 hover:text-neon-cyan transition-colors duration-300">HOME</a>
-                        <a href="/how-it-works" class="text-neon-cyan font-medium hover:text-white transition-colors duration-300">PROCESS</a>
-                        <a href="/faq" class="text-gray-300 hover:text-neon-cyan transition-colors duration-300">FAQ</a>
-                        <a href="/login" class="neon-border bg-gray-800/50 text-neon-cyan px-4 py-2 rounded font-medium hover:bg-cyan-500/10 transition-all duration-300">
-                            ACCESS
+                        <a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">Home</a>
+                        <a href="/how-it-works" class="text-primary-600 font-medium">How It Works</a>
+                        <a href="/faq" class="text-gray-600 hover:text-primary-600 transition-colors">FAQ</a>
+                        <a href="/login" class="glass text-primary-600 px-4 py-2 rounded-xl font-medium hover:bg-white/20 transition-all duration-300">
+                            Login
                         </a>
                     </div>
                 </nav>
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button class="text-neon-cyan hover:text-white">
+                    <button class="text-gray-600 hover:text-primary-600">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -183,64 +158,55 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative py-20 bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-        
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-6xl font-orbitron font-black mb-6 leading-tight">
-                <span class="bg-gradient-to-r from-neon-cyan via-neon-green to-neon-cyan bg-clip-text text-transparent">
-                    NEURAL PROTOCOL
-                </span>
+    <section class="relative pt-20 pb-16 overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-slide-up">
+                How <span class="gradient-text">SMM AI</span> Works
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto font-light">
-                Advanced AI matrix for social media growth acceleration in the digital multiverse
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto font-light animate-fade-in">
+                Get your custom social media growth plan in just 3 simple steps
             </p>
         </div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-neon-cyan/20 to-transparent rounded-full blur-xl animate-float"></div>
-        <div class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-neon-green/20 to-transparent rounded-full blur-xl animate-float" style="animation-delay: 2s;"></div>
     </section>
 
-    <!-- Neural Protocol Steps -->
-    <section class="py-20 bg-gray-900 relative">
+    <!-- How It Works Steps -->
+    <section class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-16">
                 <!-- Step 1 -->
                 <div class="text-center group animate-slide-up">
                     <div class="relative mb-12">
-                        <div class="w-32 h-32 mx-auto bg-gradient-to-br from-neon-cyan to-neon-blue rounded-full flex items-center justify-center border-2 border-neon-cyan animate-pulse-slow group-hover:animate-glow relative z-10">
-                            <svg class="w-16 h-16 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-32 h-32 mx-auto gradient-bg rounded-full flex items-center justify-center shadow-2xl group-hover:shadow-3xl transition-all duration-300 relative z-10">
+                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                             </svg>
-                            <div class="absolute inset-0 border-2 border-neon-cyan rounded-full animate-rotate opacity-30"></div>
                         </div>
-                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-neon-cyan rounded-full flex items-center justify-center font-orbitron font-bold text-black text-lg animate-pulse">01</div>
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-primary-600 text-lg shadow-xl">1</div>
                     </div>
-                    <h3 class="text-3xl font-orbitron font-bold text-white mb-6">NEURAL SCAN</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Tell AI Your Goals</h3>
                     <div class="text-left space-y-6">
-                        <p class="text-gray-300 font-rajdhani text-lg">Initialize your digital profile with our AI matrix by transmitting:</p>
-                        <ul class="space-y-3 text-gray-300 font-rajdhani">
+                        <p class="text-gray-600 text-lg">Start a conversation with our AI assistant by describing:</p>
+                        <ul class="space-y-3 text-gray-600">
                             <li class="flex items-start">
-                                <span class="text-neon-cyan mr-3 mt-1">▶</span>
-                                <span>Target social network dimension (Instagram, TikTok, YouTube quantum channels)</span>
+                                <span class="text-primary-600 mr-3 mt-1">•</span>
+                                <span>Which platform you want to grow (Instagram, TikTok, YouTube, etc.)</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-neon-cyan mr-3 mt-1">▶</span>
-                                <span>Current follower node count</span>
+                                <span class="text-primary-600 mr-3 mt-1">•</span>
+                                <span>Your current follower count</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-neon-cyan mr-3 mt-1">▶</span>
-                                <span>Credit allocation parameters</span>
+                                <span class="text-primary-600 mr-3 mt-1">•</span>
+                                <span>Your budget</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-neon-cyan mr-3 mt-1">▶</span>
-                                <span>Desired neural expansion target</span>
+                                <span class="text-primary-600 mr-3 mt-1">•</span>
+                                <span>Your growth target</span>
                             </li>
                         </ul>
-                        <div class="holographic neon-border rounded-lg p-6 mt-8">
-                            <p class="text-neon-cyan font-orbitron font-bold text-sm mb-2">NEURAL INPUT SAMPLE:</p>
-                            <p class="text-gray-300 text-sm font-rajdhani italic">"Fitness Instagram matrix: 5K followers, $75 credit allocation. Target: 20K neural expansion."</p>
+                        <div class="glass rounded-2xl p-6 mt-8 shadow-lg">
+                            <p class="text-primary-600 font-semibold text-sm mb-2">Example:</p>
+                            <p class="text-gray-700 text-sm italic">"I have a fitness Instagram with 5K followers and $75 budget. Want to reach 20K followers."</p>
                         </div>
                     </div>
                 </div>
@@ -248,70 +214,68 @@
                 <!-- Step 2 -->
                 <div class="text-center group animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="relative mb-12">
-                        <div class="w-32 h-32 mx-auto bg-gradient-to-br from-neon-green to-neon-cyan rounded-full flex items-center justify-center border-2 border-neon-green animate-pulse-slow group-hover:animate-glow relative z-10">
-                            <svg class="w-16 h-16 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-32 h-32 mx-auto gradient-bg rounded-full flex items-center justify-center shadow-2xl group-hover:shadow-3xl transition-all duration-300 relative z-10">
+                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
-                            <div class="absolute inset-0 border-2 border-neon-green rounded-full animate-rotate opacity-30" style="animation-delay: 1s;"></div>
                         </div>
-                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-neon-green rounded-full flex items-center justify-center font-orbitron font-bold text-black text-lg animate-pulse">02</div>
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-primary-600 text-lg shadow-xl">2</div>
                     </div>
-                    <h3 class="text-3xl font-orbitron font-bold text-white mb-6">AI SYNTHESIS</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Choose Your Plan</h3>
                     <div class="text-left space-y-6">
-                        <p class="text-gray-300 font-rajdhani text-lg">Quantum algorithms analyze your neural signature and synthesize optimal growth vectors:</p>
+                        <p class="text-gray-600 text-lg">Our AI instantly analyzes your goals and creates 3 tailored growth strategies:</p>
                         <div class="space-y-4">
-                            <div class="holographic neon-border p-4 rounded-lg">
-                                <h4 class="font-orbitron font-bold text-neon-cyan mb-2">NEURAL STARTER</h4>
-                                <p class="text-sm text-gray-300 font-rajdhani">Basic pathway activation protocol</p>
+                            <div class="glass-white p-6 rounded-2xl shadow-lg">
+                                <h4 class="font-bold text-gray-900 mb-2">Growth Starter</h4>
+                                <p class="text-sm text-gray-600">Perfect for beginners</p>
                             </div>
-                            <div class="holographic border-2 border-neon-green p-4 rounded-lg bg-green-500/10">
-                                <h4 class="font-orbitron font-bold text-neon-green mb-2">VIRAL MATRIX</h4>
-                                <p class="text-sm text-gray-300 font-rajdhani">Optimal acceleration algorithm</p>
+                            <div class="glass-white p-6 rounded-2xl border-2 border-green-200 bg-green-50/50 shadow-lg">
+                                <h4 class="font-bold text-green-800 mb-2">Viral Boost</h4>
+                                <p class="text-sm text-green-700">Most popular choice</p>
                             </div>
-                            <div class="holographic neon-border p-4 rounded-lg">
-                                <h4 class="font-orbitron font-bold text-neon-purple mb-2">QUANTUM GROWTH</h4>
-                                <p class="text-sm text-gray-300 font-rajdhani">Full spectrum enhancement system</p>
+                            <div class="glass-white p-6 rounded-2xl shadow-lg">
+                                <h4 class="font-bold text-gray-900 mb-2">Pro Growth</h4>
+                                <p class="text-sm text-gray-600">Complete optimization</p>
                             </div>
                         </div>
-                        <p class="text-gray-300 text-sm font-rajdhani">Each protocol is quantum-tailored to your specific credit allocation and neural expansion goals.</p>
+                        <p class="text-gray-600 text-sm">Each plan is customized to your specific budget and goals, with transparent pricing and clear deliverables.</p>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="text-center group animate-slide-up" style="animation-delay: 0.4s;">
                     <div class="relative mb-12">
-                        <div class="w-32 h-32 mx-auto bg-gradient-to-br from-neon-purple to-neon-pink rounded-full flex items-center justify-center border-2 border-neon-purple animate-pulse-slow group-hover:animate-glow relative z-10">
-                            <svg class="w-16 h-16 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-32 h-32 mx-auto gradient-bg rounded-full flex items-center justify-center shadow-2xl group-hover:shadow-3xl transition-all duration-300 relative z-10">
+                            <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
-                            <div class="absolute inset-0 border-2 border-neon-purple rounded-full animate-rotate opacity-30" style="animation-delay: 2s;"></div>
                         </div>
-                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-neon-purple rounded-full flex items-center justify-center font-orbitron font-bold text-black text-lg animate-pulse">03</div>
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-primary-600 text-lg shadow-xl">3</div>
                     </div>
-                    <h3 class="text-3xl font-orbitron font-bold text-white mb-6">DEPLOYMENT</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Watch It Grow</h3>
                     <div class="text-left space-y-6">
-                        <p class="text-gray-300 font-rajdhani text-lg">Once you select your protocol and provide identity matrix:</p>
-                        <ul class="space-y-3 text-gray-300 font-rajdhani">
+                        <p class="text-gray-600 text-lg">Once you choose your plan and provide your username:</p>
+                        <ul class="space-y-3 text-gray-600">
                             <li class="flex items-start">
-                                <span class="text-neon-green mr-3 mt-1">✓</span>
-                                <span>Credit deduction from quantum wallet</span>
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span>Payment is deducted from your wallet balance</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-neon-green mr-3 mt-1">✓</span>
-                                <span>Protocol uploaded to premium SMM neural network</span>
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span>Order is sent to our premium SMM panel</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-neon-green mr-3 mt-1">✓</span>
-                                <span>Authentic follower nodes activate within 24-48 neural cycles</span>
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span>Real followers and engagement start within 24-48 hours</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-neon-green mr-3 mt-1">✓</span>
-                                <span>Real-time quantum feedback through neural interface</span>
+                                <span class="text-green-500 mr-3 mt-1">✓</span>
+                                <span>You receive updates on your order progress</span>
                             </li>
                         </ul>
-                        <div class="holographic border border-neon-green rounded-lg p-6 mt-8">
-                            <p class="text-neon-green font-orbitron font-bold text-sm mb-2">SECURE PROTOCOL!</p>
-                            <p class="text-gray-300 text-sm font-rajdhani">Only public social identifiers required - neural matrix remains completely protected.</p>
+                        <div class="glass-white border border-green-200 rounded-2xl p-6 mt-8 bg-green-50/50 shadow-lg">
+                            <p class="text-green-800 font-semibold text-sm mb-2">No password required!</p>
+                            <p class="text-green-700 text-sm">We only need your public username/handle - completely safe and secure.</p>
                         </div>
                     </div>
                 </div>
@@ -320,59 +284,57 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative">
+    <section class="py-20 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                <span class="bg-gradient-to-r from-neon-pink to-neon-purple bg-clip-text text-transparent">
-                    NEURAL ADVANTAGES
-                </span>
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16 animate-fade-in">
+                Why Choose Our AI Approach?
             </h2>
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="flex items-start space-x-6 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-lg flex items-center justify-center flex-shrink-0 group-hover:animate-pulse">
-                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-start space-x-6 group animate-slide-up">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="font-orbitron font-bold text-white mb-3 text-xl">QUANTUM PERSONALIZATION</h3>
-                        <p class="text-gray-300 font-rajdhani leading-relaxed">Every neural protocol is uniquely synthesized for your digital signature, audience matrix, and credit parameters - no template algorithms.</p>
+                        <h3 class="font-bold text-gray-900 mb-3 text-xl">Personalized Strategy</h3>
+                        <p class="text-gray-600 leading-relaxed">Every plan is uniquely tailored to your niche, budget, and goals - not one-size-fits-all packages.</p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-6 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-neon-green to-neon-cyan rounded-lg flex items-center justify-center flex-shrink-0 group-hover:animate-pulse">
-                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-start space-x-6 group animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="font-orbitron font-bold text-white mb-3 text-xl">TRANSPARENT NEURAL COSTS</h3>
-                        <p class="text-gray-300 font-rajdhani leading-relaxed">Crystal-clear credit allocation with precise enhancement vectors based on your quantum budget and expected neural results.</p>
+                        <h3 class="font-bold text-gray-900 mb-3 text-xl">Transparent Pricing</h3>
+                        <p class="text-gray-600 leading-relaxed">Know exactly what you're paying for with clear pricing based on your budget and expected results.</p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-6 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-neon-purple to-neon-pink rounded-lg flex items-center justify-center flex-shrink-0 group-hover:animate-pulse">
-                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-start space-x-6 group animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="font-orbitron font-bold text-white mb-3 text-xl">MILITARY-GRADE ENCRYPTION</h3>
-                        <p class="text-gray-300 font-rajdhani leading-relaxed">No authentication credentials required - only public profile identifiers. Your neural matrix remains completely secured.</p>
+                        <h3 class="font-bold text-gray-900 mb-3 text-xl">Completely Safe</h3>
+                        <p class="text-gray-600 leading-relaxed">No passwords required - we only need your public profile information. Your account stays secure.</p>
                     </div>
                 </div>
 
-                <div class="flex items-start space-x-6 group">
-                    <div class="w-16 h-16 bg-gradient-to-br from-neon-cyan to-neon-green rounded-lg flex items-center justify-center flex-shrink-0 group-hover:animate-pulse">
-                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex items-start space-x-6 group animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="font-orbitron font-bold text-white mb-3 text-xl">AUTHENTIC NEURAL RESULTS</h3>
-                        <p class="text-gray-300 font-rajdhani leading-relaxed">Powered by premium SMM neural networks delivering verified follower nodes and genuine engagement matrices.</p>
+                        <h3 class="font-bold text-gray-900 mb-3 text-xl">Real Results</h3>
+                        <p class="text-gray-600 leading-relaxed">Powered by premium SMM services that deliver real followers and genuine engagement.</p>
                     </div>
                 </div>
             </div>
@@ -380,59 +342,56 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-gray-900 via-purple-900/50 to-gray-900 relative overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/10 via-neon-purple/10 to-neon-pink/10 animate-pulse"></div>
-        </div>
-        
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-orbitron font-black text-white mb-6">
-                INITIALIZE NEURAL GROWTH
+            <h2 class="text-4xl font-bold text-white mb-6 animate-fade-in">
+                Ready to Get Started?
             </h2>
-            <p class="text-xl text-gray-300 mb-8">
-                Join the digital evolution. Let quantum AI accelerate your social presence beyond human limitations.
+            <p class="text-xl text-blue-100 mb-8 animate-slide-up">
+                Join thousands of creators who've grown their social media with AI-powered strategies
             </p>
-            <button onclick="window.location.href='/chat'" class="group relative inline-flex items-center px-12 py-4 text-lg font-bold text-black bg-gradient-to-r from-neon-cyan via-neon-green to-neon-cyan rounded-lg hover:from-neon-green hover:via-neon-cyan hover:to-neon-green transition-all duration-500 transform hover:scale-110 animate-glow">
-                <span class="relative z-10 font-orbitron">ACCESS NEURAL INTERFACE</span>
+            <button onclick="window.location.href='/chat'" class="glass-white text-primary-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg transform hover:scale-105 animate-scale-in">
+                Start Your Growth Journey
             </button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-cyan-500/30 relative">
+    <footer class="glass-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="col-span-2">
-                    <h3 class="text-2xl font-orbitron font-bold neon-text mb-4">SMM.AI</h3>
-                    <p class="text-gray-400 mb-4 font-rajdhani">Advanced neural networks powering the future of social media growth across digital dimensions.</p>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">SMM AI</h3>
+                    <p class="text-gray-600 mb-4">AI-driven social media growth made simple. Get custom plans, instant results, and hands-free growth.</p>
                     <div class="flex space-x-4">
-                        <a href="https://wa.me/1234567890" class="neon-border bg-gray-800/50 text-neon-green px-4 py-2 rounded-lg hover:bg-green-500/10 transition-all duration-300 font-orbitron">
-                            NEURAL LINK
+                        <a href="https://wa.me/1234567890" class="glass text-green-600 px-4 py-2 rounded-xl hover:bg-white/20 transition-all duration-300">
+                            WhatsApp Support
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="font-orbitron font-semibold text-white mb-4">SYSTEM ACCESS</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="/how-it-works" class="text-gray-400 hover:text-neon-cyan transition-colors">NEURAL PROCESS</a></li>
-                        <li><a href="/faq" class="text-gray-400 hover:text-neon-cyan transition-colors">DATA QUERIES</a></li>
-                        <li><a href="/chat" class="text-gray-400 hover:text-neon-cyan transition-colors">AI INTERFACE</a></li>
+                        <li><a href="/how-it-works" class="text-gray-600 hover:text-primary-600">How It Works</a></li>
+                        <li><a href="/faq" class="text-gray-600 hover:text-primary-600">FAQ</a></li>
+                        <li><a href="/chat" class="text-gray-600 hover:text-primary-600">Start Growing</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-orbitron font-semibold text-white mb-4">CONTACT GRID</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">Contact</h4>
                     <ul class="space-y-2">
-                        <li class="text-gray-400">neural@smm-ai.com</li>
-                        <li><a href="/terms" class="text-gray-400 hover:text-neon-cyan transition-colors">System Terms</a></li>
-                        <li><a href="/privacy" class="text-gray-400 hover:text-neon-cyan transition-colors">Data Privacy</a></li>
+                        <li class="text-gray-600">support@smm-ai.com</li>
+                        <li><a href="/terms" class="text-gray-600 hover:text-primary-600">Terms of Service</a></li>
+                        <li><a href="/privacy" class="text-gray-600 hover:text-primary-600">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="mt-8 pt-8 border-t border-cyan-500/30 text-center">
-                <p class="text-gray-400 font-orbitron">&copy; 2024 SMM.AI NEURAL SYSTEMS. ALL RIGHTS RESERVED.</p>
+            <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+                <p class="text-gray-600">&copy; 2024 SMM AI. All rights reserved.</p>
             </div>
         </div>
     </footer>
